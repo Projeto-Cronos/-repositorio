@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "email": "Geovane@teste.com",
+      "password": "$2a$10$v.5iqRP939W0Eyj5yNW13e.lRoT9300vrIj7brfxWBCaCWsnkEA9a",
+      "name": "Geovane",
+      "image": "https://geovane",
+      "id": 2
+    },
+    {
+      "email": "teste@teste.com",
+      "password": "$2a$10$9gg4sApXqz50DlMLmDSAheyGeciuEyAp..5dqG1WDRWygxHsbXdpG",
+      "name": "popopop",
+      "image": "testando:",
+      "id": 3
+    }
+  ],
+  "projects": [
+    {
+      "title": "projetooooo",
+      "creation_date": "30/08/2022",
+      "userId": "3",
+      "id": 2
+    },
+    {
+      "title": "projetos cronos",
+      "creation_date": "30/08/2022",
+      "userId": "3",
+      "id": 4
+    },
+    {
+      "title": "teste cri=onos",
+      "creation_date": "30/08/2022",
+      "userId": "3",
+      "id": 6
+    },
+    {
+      "title": "cronos testando cri=onos",
+      "creation_date": "30/08/2022",
+      "userId": "3",
+      "id": 7
+    }
+  ]
+}
