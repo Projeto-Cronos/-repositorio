@@ -1,12 +1,18 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-:root {
-  --orange: #F66813;
-  --blue: #2927A6;
-  --white: #F4F4F4;
-  --black: #000000;
-}
+  :root {
+    --white:#FFFFFF;
+    --white-2: #FAFAFA;
+    --white-3: #F4F4F4;
+    --black: #000000;
+    --grey-1: #383838;
+    --orange: #F66813;
+    --orange-2: #DF3B19;
+    --blue: #2927A6;
+    --red-1: #E83F5B;
+    --green-1: #3FE864;
+  }
   html, body, #root {
     width: 100%;
     height: 100%;
