@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyle = createGlobalStyle`
-  :root {
+export const GlobalStyles = createGlobalStyle`
+:root {
     --white:#FFFFFF;
     --black: #000000;
     --grey-1: #383838;
@@ -15,21 +15,25 @@ export const GlobalStyle = createGlobalStyle`
     --green-1: #3FE864;
     --shadow: rgba(0, 0, 0, 0.6);
     --transparent: transparent;
-  }
   html, body, #root {
     width: 100%;
     height: 100%;
     font-family: Inter, sans-serif;
-    background-color: var(--white);
+    background-color: var(--gray-4);
   }
+
   a, button {
     cursor: pointer;
   }
+
   * {
     box-sizing: border-box;
   }
-  `;
+}
+  `
+
 export const ResetCSS = createGlobalStyle`
+
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -40,7 +44,7 @@ export const ResetCSS = createGlobalStyle`
   fieldset, form, label, legend,
   table, caption, tbody, tfoot, thead, tr, th, td,
   article, aside, canvas, details, embed,
-  figure, figcaption, footer, header, hgroup,
+  figure, figcaption, footer, header, hgroup, 
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
     margin: 0;
@@ -50,7 +54,8 @@ export const ResetCSS = createGlobalStyle`
     font: inherit;
     vertical-align: baseline;
   }
-  article, aside, details, figcaption, figure,
+
+  article, aside, details, figcaption, figure, 
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
@@ -65,7 +70,7 @@ export const ResetCSS = createGlobalStyle`
   }
   ::-webkit-scrollbar-thumb {
     background-color: var(--gray-2);
-    border-radius: 20px;
+    border-radius: 20px;     
   }
   ol, ul {
     list-style: none;
@@ -82,4 +87,4 @@ export const ResetCSS = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
-`;
+`
