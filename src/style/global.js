@@ -3,15 +3,18 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   :root {
     --white:#FFFFFF;
-    --white-2: #FAFAFA;
-    --white-3: #F4F4F4;
     --black: #000000;
     --grey-1: #383838;
+    --grey-2: #757575;
+    --grey-3: #FAFAFA;
+    --grey-4: #F4F4F4;
     --orange: #F66813;
     --orange-2: #DF3B19;
     --blue: #2927A6;
     --red-1: #E83F5B;
     --green-1: #3FE864;
+    --shadow: rgba(0, 0, 0, 0.6);
+    --transparent: transparent;
   }
   html, body, #root {
     width: 100%;
