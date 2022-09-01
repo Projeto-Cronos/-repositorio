@@ -8,7 +8,7 @@ import Calculator from "../pages/Calculator"
 import Projects from "../pages/Projects"
 import {Routes, Route} from "react-router-dom";
 
-function RouteMain() {
+function Authenticator() {
 
     return (
     <Routes>
@@ -19,9 +19,9 @@ function RouteMain() {
         <Route path="/blog" element={<Blog />}></Route>
         <Route path="/calculator" element={<Calculator />}></Route>
         <Route path="/projects" element={<Projects />}></Route>
-        <Route path="*" element={<Error replace to="/error"/>}></Route>
+        <Route path="*" element={<Error />}></Route>
     </Routes>
     )
 }
 
-export default RouteMain
+export default Authenticator

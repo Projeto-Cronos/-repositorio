@@ -20,6 +20,8 @@ export const GlobalStyles = createGlobalStyle`
     height: 100%;
     font-family: Inter, sans-serif;
     background-color: var(--gray-4);
+    margin:0;
+    padding:0;
   }
 
   a, button {
