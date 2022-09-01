@@ -1,0 +1,6 @@
+{
+  "users": 600,
+  "projects":640,
+  "/users/calculator": "/users?calculator=:calculator",
+  "/users/dashboard": "/users?dashboard=:dashboard"
+}
