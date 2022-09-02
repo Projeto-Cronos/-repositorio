@@ -7,7 +7,7 @@ function App() {
     <>
       <Authenticator />
       <ToastContainer
-        toastStyle={{ backgroundColor: "#ffffff", color: "white" }}
+        toastStyle={{ backgroundColor: "#ffffff", color: "black" }}
         autoClose={1500}
       />
     </>
