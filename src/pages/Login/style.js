@@ -1,224 +1,256 @@
 import styled from "styled-components";
-import  background from "../../assets/image/background-orange-white.svg"
+import background from "../../assets/image/background-orange-white.svg";
 
 export const Section = styled.section`
-    display:flex;
-    flex-direction:column;
-    width:100%;
-    height:100vh;
-    background-image: url(${background});
-    background-position:center;
-    background-repeat:no-repeat;
-    background-size:cover;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url(${background});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+export const Div = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 78%;
+  gap: 10vw;
 
-export const Main = styled.main`
+  .img {
+    width: 60%;
+  }
+  @media (max-width: 950px) {
+    width: 60%;
+  }
+  @media (max-width: 600px) {
+    width: 90%;
+  }
+`;
+export const Title = styled.h1`
+  font-weight: 700;
+  font-size: 1.2vw;
+  line-height: 2vw;
+  margin-bottom: 1vw;
+  color: var(--black);
+  text-align: center;
+  font-family: "Jura", sans-serif;
 
-    height: 100%;
-    
-    @media (min-width: 600px) {
-
-        margin-top: 1rem;
-        
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        background: rgba(0, 0, 0, 0);
-        
-    }
-
-    .img-responsive {
-
-        height: 23rem;
-        width: 23rem;
-        background: url(.svg);
-
-    }
-
-
-    @media (max-width: 700px) {
-        
-        .img-responsive {
-
-            display: none;
-
-        }
-
-    }
-
-    
-
-`
-
+  @media (max-width: 950px) {
+    font-size: 2.5vw;
+    line-height: 3.5vw;
+  }
+  @media (max-width: 600px) {
+    font-size: 5vw;
+    line-height: 7vw;
+  }
+`;
 export const Form = styled.form`
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  padding: 3% 3% 3% 3%;
+  align-items: center;
+  gap: 1.8vw;
+  background: var(--white);
+  box-shadow: 0px 4px 40px -10px var(--shadow);
+  border-radius: 0.3vw;
 
-    width: 100%;
-    height: 100%;
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
 
-    display: flex ;
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 90px;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 1vw 1vw;
+    z-index: 1;
+    font-size: 0.8vw;
+    border-radius: 0.15vw;
+    color: var(--red-2);
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .containerInput {
+    display: flex;
     flex-direction: column;
+    width: 90%;
+  }
+
+  .contentInput {
+    display: flex;
+    width: 100%;
+
+    background: var(--white);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.15vw solid var(--black);
+  }
+  .fixed {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
-
-    background-color: #FFFFFF;
-
-    @media (min-width: 600px) {
-
-        width: 20rem;
-        height: 25rem;
-        border-radius: 4px;
-
-        display: flex ;
-        flex-direction: column;
-        justify-content: center;
-
-
+    font-size: 1.3vw;
+    margin-right: 0;
+    color: var(--black);
+    background: var(--white);
+    border: none;
+  }
+  .alert {
+    display: flex;
+    align-items: center;
+    font-size: 1.4vw;
+    margin-right: 0;
+    color: var(--red-1);
+    background: var(--white);
+    border: none;
+  }
+  @media (max-width: 950px) {
+    gap: 4vw;
+    .contentInput {
+      font-size: 2vw;
+      height: 8vh;
     }
-
-    @media (min-width: 600px) {
-        
-        
-
+    .fixed {
+      font-size: 2vw;
+      height: 8vh;
     }
-
-    h3 {
-
-        width: 100%;
-
-        display: flex ;
-        align-items: center;
-        justify-content: center;
-
-        font-family: 'Jura';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 1.2rem;
-        line-height: 28px;
-
+    .alert {
+      font-size: 2vw;
+      height: 8vh;
     }
+  }
+  @media (max-width: 600px) {
+    gap: 6.4vw;
 
-    p {
-
-        font-family: 'Jura';
-        font-size: 0.8rem;
-
+    .contentInput {
+      border-radius: 1.5vw;
+      font-size: 4vw;
+      height: 7.3vh;
     }
-
-    .groupInput {
-
-        position: relative;
-        display: flex;
-        cursor: pointer;
-        
+    .fixed {
+      border-radius: 1.5vw;
+      font-size: 4vw;
+      height: 7.3vh;
     }
-
-    .groupInput:hover > .mensagemError > span {
-
-        opacity: 1;
-
+    .alert {
+      font-size: 2vw;
+      height: 8vh;
     }
+  }
+`;
+export const Input = styled.input`
+  outline: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  width: 100%;
+  height: 5.5vh;
+  background: var(--white);
+  font-weight: 400;
+  font-size: 1.05vw;
+  color: var(--grey-2);
+  border: none;
 
+  @media (max-width: 950px) {
+    font-size: 2vw;
+    height: 8vh;
+  }
+  @media (max-width: 600px) {
+    font-size: 4vw;
+    height: 7.3vh;
+  }
+`;
+export const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  font-size: 1vw;
+  color: var(--black);
+  font-family: "Jura", sans-serif;
+  text-align: start;
+
+  @media (max-width: 950px) {
+    font-size: 1.5vw;
     span {
-
-        position: absolute;
-        transition: 1s;
-        opacity: 0;
-
-        width: 5rem;
-        height: 2rem;
-        
-        left: 19rem;
-        top: 0rem;
-
-        background: #F66813;
-        color: #fefeff;
-
-        font-family: 'Jura';
-        font-size: 0.8rem;
-        text-align: center;
-        text-transform: uppercase;
-
+      font-size: 1.5vw;
     }
-
-    fieldset {
-
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-
+  }
+  @media (max-width: 600px) {
+    font-size: 3vw;
+    span {
+      font-size: 3vw;
     }
+  }
+`;
+export const ButtonOrange = styled.button`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 6.6vh;
+  background: var(--orange-1);
+  border: 0.1vw solid var(--orange-1);
+  border-radius: 0.2vw;
+  font-weight: 600;
+  font-size: 1.05vw;
+  color: var(--white);
+  font-family: "Jura", sans-serif;
 
-    label {
+  &:hover {
+    background: var(--orange-2);
+    border: 0.1vw solid var(--orange-2);
+  }
 
-        width: 90%;
-        height: 3.13rem;
-        margin: 0 0.8rem;
+  @media (max-width: 950px) {
+    height: 8vh;
+    font-weight: 600;
+    font-size: 2vw;
+    border-radius: 0.5vw;
+  }
+  @media (max-width: 600px) {
+    height: 7.3vh;
+    font-weight: 600;
+    font-size: 4vw;
+    border-radius: 1vw;
+  }
+`;
+export const ParagraphQuestion = styled.p`
+  width: 100%;
+  font-weight: 600;
+  font-size: 0.8vw;
+  line-height: 1.1vw;
+  color: var(--gray-1);
+  margin-top: 1vw;
+  text-align: center;
+  font-family: "Jura", sans-serif;
 
+  .link {
+    color: var(--orange-1);
+    text-decoration: none;
+
+    :hover {
+      color: var(--orange-2);
     }
-
-    input {
-        
-        width: 100%;
-        margin-top: 0.5rem;
-
-        border: none;
-        outline: none;
-        flex:1 ;
-
-    }
-
-    input::placeholder {
-
-        font-family: 'Public Sans';
-        font-size: 0.8rem;
-
-    }
-
-    button {
-
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 0px 22.3336px;
-        gap: 10.15px;
-
-        width: 17rem;
-        height: 3rem;
-
-        background: #F66813;
-
-        border: 1.2182px solid #F66813;
-        border-radius: 4.06066px;
-
-        font-family: 'Jura';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 1rem;
-        line-height: 26px;
-
-        color: #FFFFFF;
-
-    }
-
-    a {
-
-        color: #F66813;
-
-    }
-
-    .line {
-
-        width: 100%;
-        height: 0.5px;
-        background-color:#383838;
-
-        margin-top: 0.5rem;
-    }
-
-`
+  }
+  @media (max-width: 950px) {
+    font-size: 1.5vw;
+    line-height: 2vw;
+  }
+  @media (max-width: 600px) {
+    font-size: 3vw;
+    line-height: 4vw;
+  }
+`;
