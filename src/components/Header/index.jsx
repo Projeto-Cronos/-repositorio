@@ -19,9 +19,9 @@ const Header = () => {
       <div className="logo">
         <img src={logo1} alt="Logo da Cronos" />
       </div>
-      {isSideBarVisible && (
+      {/* {isSideBarVisible && (
         <SideBar setIsSideBarVisible={setIsSideBarVisible} />
-      )}
+      )} */}
     </HeaderContainer>
   );
 };
