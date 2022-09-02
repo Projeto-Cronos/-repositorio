@@ -1,6 +1,18 @@
 import HeaderDashboard from "../../components/HeaderDashboard";
-import { DashboardMain, NewProjectContainer } from "./style";
-import { BsCalendarDate, BsTag, BsCurrencyDollar } from "react-icons/bs";
+import {
+  DashboardMain,
+  NewProjectContainer,
+  ListHeader,
+  ProjectList,
+  ListHeaderTitle,
+  ListItem,
+} from "./style";
+import {
+  BsCalendarDate,
+  BsTag,
+  BsCurrencyDollar,
+  BsTrash,
+} from "react-icons/bs";
 
 function Dashboard() {
   return (
@@ -46,10 +58,72 @@ function Dashboard() {
             <button type="submit">Start</button>
           </form>
         </NewProjectContainer>
-        <div className="projectsList">
-          <div className="listHeader">listHeader</div>
-          <div className="listBody">projectsList</div>
-        </div>
+
+        <ProjectList>
+          <ListHeader>
+            <div className="column">
+              <ListHeaderTitle titleColor="blue">
+                Nome do projeto
+              </ListHeaderTitle>
+            </div>
+            <div className="column">
+              <ListHeaderTitle titleColor="blue">
+                Data de criação
+              </ListHeaderTitle>
+            </div>
+            <div className="column">
+              <ListHeaderTitle titleColor="blue">
+                Data de entrega
+              </ListHeaderTitle>
+            </div>
+            <div className="column">
+              <ListHeaderTitle titleColor="blue">Tags</ListHeaderTitle>
+            </div>
+            <div className="column">
+              <ListHeaderTitle titleColor="blue">
+                Valor por hora
+              </ListHeaderTitle>
+            </div>
+            <div className="column">
+              <ListHeaderTitle titleColor="red">Cronômetro</ListHeaderTitle>
+            </div>
+            <div className="smallColumn">
+              <ListHeaderTitle titleColor="black">lixo</ListHeaderTitle>
+            </div>
+          </ListHeader>
+
+          <ListItem>
+            <div className="column">
+              <input type="text" value="Joguinho maroto" />
+            </div>
+            <div className="column">
+              <ListHeaderTitle titleColor="blue">
+                Data de criação
+              </ListHeaderTitle>
+            </div>
+            <div className="column">
+              <ListHeaderTitle titleColor="blue">
+                Data de entrega
+              </ListHeaderTitle>
+            </div>
+            <div className="column">
+              <ListHeaderTitle titleColor="blue">Tags</ListHeaderTitle>
+            </div>
+            <div className="column">
+              <ListHeaderTitle titleColor="blue">
+                Valor por hora
+              </ListHeaderTitle>
+            </div>
+            <div className="column">
+              <ListHeaderTitle titleColor="red">Cronômetro</ListHeaderTitle>
+            </div>
+            <div className="smallColumn">
+              <ListHeaderTitle titleColor="black">
+                <BsTrash />
+              </ListHeaderTitle>
+            </div>
+          </ListItem>
+        </ProjectList>
       </DashboardMain>
     </>
   );
