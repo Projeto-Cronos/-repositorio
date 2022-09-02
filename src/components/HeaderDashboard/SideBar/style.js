@@ -34,8 +34,9 @@ export const Container = styled.div`
   }
 
   a {
-    font-family: "Jura", sans-serif;
-    font-size: 28px;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
     text-decoration: none;
     color: var(--black);
   }

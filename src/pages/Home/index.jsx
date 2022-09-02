@@ -1,4 +1,4 @@
-import HeaderDashboard from "../../components/Header";
+import HeaderDashboard from "../../components/HeaderDashboard";
 
 function Home() {
   return (
