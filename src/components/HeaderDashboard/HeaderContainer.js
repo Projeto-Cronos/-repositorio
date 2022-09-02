@@ -4,10 +4,13 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0 16px;
-  position: relative;
+  position: fixed;
   height: 64px;
   box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.25);
-  z-index: 9999;
+  z-index: 1;
+  background: white;
+
+  width: 100%;
 
   .logo {
     position: absolute;

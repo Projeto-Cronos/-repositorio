@@ -1,3 +1,4 @@
+
 import Api from "../services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -5,6 +6,7 @@ import loadingAnimated from "../assets/animation/VAPGxWYypp.json";
 import loadingAnimatedOne from "../assets/animation/DHYuRhgDuA.json";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 
 export const Context = createContext();
 
@@ -111,5 +113,6 @@ const ProviderUser = ({ children }) => {
     </Context.Provider>
   );
 };
+
 
 export default ProviderUser;
