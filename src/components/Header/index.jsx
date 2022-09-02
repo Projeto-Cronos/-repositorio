@@ -2,11 +2,12 @@ import { useState } from "react";
 import menuIcon from "../../assets/InfoDetails.svg";
 import logo1 from "../../assets/logo1.svg";
 import { HeaderContainer } from "./HeaderContainer";
+import SideBar from "./SideBar";
 
-const Header = () => {
+const HeaderDashboard = () => {
   const [isSideBarVisible, setIsSideBarVisible] = useState(false);
 
-  const showSiderbar = () => setIsSideBarVisible(!isSideBarVisible);
+  const showSideBar = () => setIsSideBarVisible(!isSideBarVisible);
 
   return (
     <HeaderContainer>
@@ -14,16 +15,19 @@ const Header = () => {
         className="menuIcon"
         src={menuIcon}
         alt="Ícone do menu"
-        onClick={showSiderbar}
+        onClick={showSideBar}
       />
       <div className="logo">
         <img src={logo1} alt="Logo da Cronos" />
       </div>
       {isSideBarVisible && (
-        <SideBar setIsSideBarVisible={setIsSideBarVisible} />
+        <SideBar
+          showSideBar={showSideBar}
+          isSideBarVisible={isSideBarVisible}
+        />
       )}
     </HeaderContainer>
   );
 };
 
-export default Header;
+export default HeaderDashboard;
