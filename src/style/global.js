@@ -8,11 +8,16 @@ export const GlobalStyles = createGlobalStyle`
     --grey-2: #757575;
     --grey-3: #FAFAFA;
     --grey-4: #F4F4F4;
-    --orange: #F66813;
+    --grey-5: #D9D9D9;
+    --orange-1: #F66813;
     --orange-2: #DF3B19;
-    --blue: #2927A6;
-    --red-1: #E83F5B;
+    --blue-1: #2927A6;
+    --blue-2: #155BCB;
+    --blue-3: #272586;
+    --red-1: #E60000;
+    --red-2: #F40000;
     --green-1: #3FE864;
+    --yellow-1: #FFCD07;
     --shadow: rgba(0, 0, 0, 0.6);
     --transparent: transparent;
   html, body, #root {
@@ -31,7 +36,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 }
-  `
+  `;
 
 export const ResetCSS = createGlobalStyle`
 
@@ -88,4 +93,4 @@ export const ResetCSS = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
-`
+`;
