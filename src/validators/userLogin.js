@@ -1,6 +1,6 @@
-import * as yup from "yup"
+import * as yup from "yup";
 
 export const formSchema = yup.object().shape({
-    email: yup.string().required("E-mail obrigatório"),
-    password: yup.string().required("Senha obrigatória"),
+  email: yup.string().required("Email obrigatória"),
+  password: yup.string().required("Senha obrigatória"),
 });
