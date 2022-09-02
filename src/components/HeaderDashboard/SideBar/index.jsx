@@ -11,27 +11,27 @@ const SideBar = ({ isSideBarVisible }) => {
   return (
     <Container isSideBarVisible={isSideBarVisible}>
       <Link to="/">
-        <img src={rastreador} alt="" />
+        <img src={rastreador} alt="Rastreador de tempo" />
         Rastreador de tempo
       </Link>
       <Link to="/register">
-        <img src={calculadora} alt="" />
+        <img src={calculadora} alt="Calculadora" />
         Calculadora
       </Link>
       <Link to="/login">
-        <img src={projetos} alt="" />
+        <img src={projetos} alt="Projetos" />
         Projetos
       </Link>
       <Link to="/blog">
-        <img src={configuracoes} alt="" />
+        <img src={configuracoes} alt="Configurações" />
         Configurações
       </Link>
       <Link to="/blog">
-        <img src={temaEscuro} alt="" />
+        <img src={temaEscuro} alt="Tema escuro" />
         Tema escuro
       </Link>
       <Link to="/blog">
-        <img src={sair} alt="" />
+        <img src={sair} alt="Sair" />
         Sair
       </Link>
     </Container>
