@@ -11,10 +11,15 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "../../validators/userLogin";
+import { useContext, useEffect } from "react";
+import { Context } from "../../providers/userContext";
 
 import axios from "axios";
 
 function Login() {
+  const { navigate } = useContext(Context);
+  const token = localStorage.getItem("@Cronos:token") || "";
+
   const {
     register,
     handleSubmit,
@@ -23,7 +28,7 @@ function Login() {
     resolver: yupResolver(formSchema),
   });
   const onSubmit = (data) => {
-    console.log(data);
+    //console.log(data);
     loginRequest(data);
   };
 
@@ -33,8 +38,9 @@ function Login() {
     axios
       .post(url + "login/users", options)
       .then((res) => {
-        console.log(res);
+        //console.log(res);
         localStorage.setItem("@Cronos:token", res.data.accessToken);
+        navigate("/dashboard");
       })
       .catch((err) => console.log(err));
   };
@@ -91,7 +97,7 @@ function Login() {
               </fieldset>
               <button>Entrar</button>
               <p>
-                Não tem uma conta? <Link to={"/"}>Cadastre-se</Link>
+                Não tem uma conta? <Link to={"/register"}>Cadastre-se</Link>
               </p>
             </Form>
             <img className="img-responsive" src={imgPerson} alt="" />
