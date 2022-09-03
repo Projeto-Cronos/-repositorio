@@ -26,7 +26,8 @@ export const GlobalStyles = createGlobalStyle`
     margin:0;
     padding:0;
     font-family: 'Inter', sans-serif;
-  }
+  }  
+  
 
   a {
     cursor: pointer;
@@ -39,6 +40,7 @@ export const GlobalStyles = createGlobalStyle`
   `;
 
 export const ResetCSS = createGlobalStyle`
+  @tailwind base;
 
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -59,6 +61,10 @@ export const ResetCSS = createGlobalStyle`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    scroll-behavior: smooth;
+  }
+    @tailwind components;
+    @tailwind utilities;
   }
 
   article, aside, details, figcaption, figure, 
