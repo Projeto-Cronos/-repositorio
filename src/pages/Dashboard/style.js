@@ -8,11 +8,12 @@ export const DashboardMain = styled.main`
   align-items: center;
   gap: 30px;
   width: 100%;
+  min-height: 100vh;
   padding: 124px 60px 0 60px;
 
   input {
     border: none;
-    padding: 10px 16px;
+    padding: 10px;
     font: inherit;
   }
 `;
@@ -22,6 +23,7 @@ export const NewProjectContainer = styled.div`
   width: 100%;
   padding: 10px 20px;
   border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
   box-shadow: 0px 2px 16px rgba(153, 155, 168, 0.12);
 
@@ -49,8 +51,8 @@ export const NewProjectContainer = styled.div`
     z-index: 1;
     border-radius: 4px;
     padding: 4px;
-    background-color: var(--grey-4);
-    box-shadow: 0px 8px 16px 0px var(--shadow);
+    background-color: var(--white);
+    box-shadow: 0px 2px 16px rgba(153, 155, 168, 0.12);
   }
 
   button {
@@ -59,6 +61,7 @@ export const NewProjectContainer = styled.div`
     border: none;
     border-radius: 8px;
     font: inherit;
+    font-weight: 500;
     color: white;
 
     :hover {
@@ -75,12 +78,19 @@ export const ProjectList = styled.div`
 
   .column {
     width: 15%;
-    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+
+    input {
+      text-align: center;
+    }
   }
 
   .smallColumn {
     width: 4.75%;
-    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -98,19 +108,28 @@ export const ListHeaderTitle = styled.span`
   display: flex;
   justify-content: center;
   padding: 10px 0;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: ${(props) => (props.titleColor === "blue" ? "var(--blue-1)" : "red")};
 `;
 
-export const ListItem = styled.div`
+export const ListBody = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+`;
+export const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
+  font-size: 16px;
   width: 100%;
   padding: 10px 20px;
   border-radius: 4px;
   background-color: var(--white);
-  box-shadow: 0px 0px 40px -10px var(--shadow);
+  box-shadow: 0px 2px 16px rgba(153, 155, 168, 0.12);
+  cursor: pointer;
 
   input {
     width: 100%;

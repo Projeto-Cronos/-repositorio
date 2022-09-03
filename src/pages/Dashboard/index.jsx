@@ -6,6 +6,7 @@ import {
   ProjectList,
   ListHeaderTitle,
   ListItem,
+  ListBody,
 } from "./style";
 import {
   BsCalendarDate,
@@ -51,7 +52,7 @@ function Dashboard() {
             <div className="dropdown">
               <BsCurrencyDollar />
               <div className="dropdownContent">
-                <input type="text" placeholder="Insira o preço/hora" />
+                <input type="text" placeholder="Insira o valor por hora" />
               </div>
             </div>
 
@@ -87,42 +88,82 @@ function Dashboard() {
             <div className="column">
               <ListHeaderTitle titleColor="red">Cronômetro</ListHeaderTitle>
             </div>
-            <div className="smallColumn">
-              <ListHeaderTitle titleColor="black">lixo</ListHeaderTitle>
-            </div>
+            <div className="smallColumn"></div>
           </ListHeader>
 
-          <ListItem>
-            <div className="column">
-              <input type="text" value="Joguinho maroto" />
-            </div>
-            <div className="column">
-              <ListHeaderTitle titleColor="blue">
-                Data de criação
-              </ListHeaderTitle>
-            </div>
-            <div className="column">
-              <ListHeaderTitle titleColor="blue">
-                Data de entrega
-              </ListHeaderTitle>
-            </div>
-            <div className="column">
-              <ListHeaderTitle titleColor="blue">Tags</ListHeaderTitle>
-            </div>
-            <div className="column">
-              <ListHeaderTitle titleColor="blue">
-                Valor por hora
-              </ListHeaderTitle>
-            </div>
-            <div className="column">
-              <ListHeaderTitle titleColor="red">Cronômetro</ListHeaderTitle>
-            </div>
-            <div className="smallColumn">
-              <ListHeaderTitle titleColor="black">
+          <ListBody>
+            <ListItem>
+              <div className="column">
+                <input type="text" value="Joguinho maroto" />
+              </div>
+              <div className="column">
+                <input type="date" />
+              </div>
+              <div className="column">
+                <input type="date" />
+              </div>
+              <div className="column">
+                <input type="text" value="jogo, nintendo" />
+              </div>
+              <div className="column">
+                <input type="text" value="R$ 280,00" />
+              </div>
+              <div className="column">
+                <input type="text" value="02:48:05 PM" />
+              </div>
+              <div className="smallColumn">
                 <BsTrash />
-              </ListHeaderTitle>
-            </div>
-          </ListItem>
+              </div>
+            </ListItem>
+
+            <ListItem>
+              <div className="column">
+                <input type="text" value="Joguinho maroto" />
+              </div>
+              <div className="column">
+                <input type="date" />
+              </div>
+              <div className="column">
+                <input type="date" />
+              </div>
+              <div className="column">
+                <input type="text" value="jogo, nintendo" />
+              </div>
+              <div className="column">
+                <input type="text" value="R$ 280,00" />
+              </div>
+              <div className="column">
+                <input type="text" value="02:48:05 PM" />
+              </div>
+              <div className="smallColumn">
+                <BsTrash />
+              </div>
+            </ListItem>
+
+            <ListItem>
+              <div className="column">
+                <input type="text" value="Joguinho maroto" />
+              </div>
+              <div className="column">
+                <input type="date" />
+              </div>
+              <div className="column">
+                <input type="date" />
+              </div>
+              <div className="column">
+                <input type="text" value="jogo, nintendo" />
+              </div>
+              <div className="column">
+                <input type="text" value="R$ 280,00" />
+              </div>
+              <div className="column">
+                <input type="text" value="02:48:05 PM" />
+              </div>
+              <div className="smallColumn">
+                <BsTrash />
+              </div>
+            </ListItem>
+          </ListBody>
         </ProjectList>
       </DashboardMain>
     </>
