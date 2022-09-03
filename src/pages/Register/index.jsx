@@ -68,7 +68,7 @@ function Register() {
                     {...register("name")}
                   />
                   {errors.name?.message ? (
-                    <button className="alert dropdown">
+                    <button type="button" className="alert dropdown">
                       {errors.name?.message ? (
                         <>
                           <BsExclamationCircle />
@@ -79,7 +79,7 @@ function Register() {
                       ) : null}
                     </button>
                   ) : (
-                    <button className="fixed">
+                    <button type="button" className="fixed">
                       <BsFillPersonFill />
                     </button>
                   )}
@@ -94,7 +94,7 @@ function Register() {
                     {...register("email")}
                   />
                   {errors.email?.message ? (
-                    <button className="alert dropdown">
+                    <button type="button" className="alert dropdown">
                       {errors.email?.message ? (
                         <>
                           <BsExclamationCircle />
@@ -105,7 +105,7 @@ function Register() {
                       ) : null}
                     </button>
                   ) : (
-                    <button className="fixed">
+                    <button type="button" className="fixed">
                       <BsEnvelopeFill />
                     </button>
                   )}
@@ -121,7 +121,7 @@ function Register() {
                       {...register("password")}
                     />
                     {errors.password?.message ? (
-                      <button className="alert dropdown">
+                      <button type="button" className="alert dropdown">
                         {errors.password?.message ? (
                           <>
                             <BsExclamationCircle />
@@ -149,7 +149,7 @@ function Register() {
                       {...register("password")}
                     />
                     {errors.password?.message ? (
-                      <button className="alert dropdown">
+                      <button type="button" className="alert dropdown">
                         {errors.password?.message ? (
                           <>
                             <BsExclamationCircle />
@@ -181,7 +181,7 @@ function Register() {
                       {...register("confirmPassword")}
                     />
                     {errors.confirmPassword?.message ? (
-                      <button className="alert dropdown">
+                      <button type="button" className="alert dropdown">
                         {errors.confirmPassword?.message ? (
                           <>
                             <BsExclamationCircle />
@@ -209,7 +209,7 @@ function Register() {
                       {...register("confirmPassword")}
                     />
                     {errors.password?.message ? (
-                      <button className="alert dropdown">
+                      <button type="button" className="alert dropdown">
                         {errors.confirmPassword?.message ? (
                           <>
                             <BsExclamationCircle />
@@ -241,7 +241,7 @@ function Register() {
                   />
                   {errors.image?.message ? (
                     <>
-                      <button className="alert dropdown">
+                      <button type="button" className="alert dropdown">
                         {errors.image?.message ? (
                           <>
                             <BsExclamationCircle />
@@ -253,7 +253,7 @@ function Register() {
                       </button>
                     </>
                   ) : (
-                    <button className="fixed">
+                    <button type="button" className="fixed">
                       <BsFillImageFill />
                     </button>
                   )}

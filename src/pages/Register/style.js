@@ -152,8 +152,6 @@ export const Form = styled.form`
     }
 
     .dropdown-content {
-      width: 100px;
-      width: 150px;
       padding: 1vw 1vw;
       font-size: 0.9vw;
     }
@@ -181,8 +179,6 @@ export const Form = styled.form`
     }
 
     .dropdown-content {
-      width: 100px;
-      width: 150px;
       padding: 1vw 1vw;
       font-size: 0.9vw;
     }
