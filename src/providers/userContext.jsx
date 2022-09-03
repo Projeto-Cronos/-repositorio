@@ -7,6 +7,8 @@ export const Context = createContext();
 
 const ProviderUser = ({children}) => {
 
+    const [valuePerMinute, setValuePerMinute] = useState(0)
+
     //Lottie
     const [animateState] = useState({
         isStopped: false,
@@ -25,7 +27,7 @@ const ProviderUser = ({children}) => {
     const navigate = useNavigate()
 
     return (
-        <Context.Provider value={{ animateState, defaultOptions, navigate }}>
+        <Context.Provider value={{ animateState, defaultOptions, navigate, valuePerMinute, setValuePerMinute}}>
             {children}
         </Context.Provider>
     )

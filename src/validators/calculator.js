@@ -1,6 +1,5 @@
 import * as yup from "yup"
-
-export const formSchema = yup.object().shape({
+const formSchema = yup.object().shape({
     
     language: yup.string()
     .required("Campo obrigatório"),
@@ -11,3 +10,5 @@ export const formSchema = yup.object().shape({
     experience: yup.string()
     .required("Campo obrigatório"),
 });
+
+export default formSchema;

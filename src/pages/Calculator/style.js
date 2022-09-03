@@ -4,14 +4,14 @@ export const ContainerCalculator = styled.div`
     display: flex;
     flex-direction: column;
     
-    gap: 50px;
+    /* gap: 50px; */
 
     font-family: 'Jura', sans-serif;
 
     background-color: #F4F4F4;
 
-    padding-bottom: 40px;
-
+    /* padding-bottom: 40px; */
+    height: 100%;
 `
 
 export const MainCalculator = styled.main`
@@ -20,8 +20,13 @@ export const MainCalculator = styled.main`
     justify-content: center;
     align-items: center;
     
+    /* min-height: 550px; */
+    padding-bottom: 80px;
     margin-top: 110px;
     gap: 30px;
+
+    /* position: fixed; */
+    /* overflow: auto; */
 
     h1{
         font-size: 18px;
@@ -42,11 +47,9 @@ export const FormCalculator = styled.form`
         flex-direction: column;
 
         select{
-            display: flex;
-            padding: 15px 0;
+            padding: 15px ;
 
             color: #757575;
-
             border: none;
             border-bottom: 1px solid #383838;
 
@@ -54,6 +57,7 @@ export const FormCalculator = styled.form`
 
             background: transparent;
 
+            cursor: pointer;
         }
     }
 
@@ -66,7 +70,7 @@ export const FormCalculator = styled.form`
         margin-top: 10px;
 
         button{
-            width: 90%;
+            width: 100%;
             height: 40px;
 
             font-family: 'Jura', sans-serif;
@@ -90,6 +94,8 @@ export const Result = styled.div`
     align-items: center;
     
     width: 100%;
+
+    padding-bottom: 80px;
 
     h2{
         color: #DF3B19;
