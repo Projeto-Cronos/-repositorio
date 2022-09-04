@@ -2,62 +2,75 @@ import styled from "styled-components";
 
 export const ContainerCalculator = styled.div`
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     
-    /* gap: 50px; */
-
     font-family: 'Jura', sans-serif;
+    gap: 20px;
+    /* min-height: 130vh; */
+    max-height: 1000px;
+    height: 120vh;
+    background-color: var(--grey-4);
 
-    background-color: #F4F4F4;
-
-    /* padding-bottom: 40px; */
-    height: 100%;
 `
+export const ContainerMain = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    position: absolute;
+    /* height: 100%; */
+
+    top:20%;
+    background-color: var(--grey-4);
+
+`
 export const MainCalculator = styled.main`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    
-    /* min-height: 550px; */
-    padding-bottom: 80px;
-    margin-top: 110px;
+    align-items: center;    
+    margin: 0 auto;
+    height: 100%;
     gap: 30px;
-
-    /* position: fixed; */
-    /* overflow: auto; */
+    background-color: var(--grey-4);
 
     h1{
         font-size: 18px;
         font-weight: 700;
     }
+    .btn_refrash{
+        position: fixed;
+        top: 20%;
+/* display: none; */
+    }
 `
-
 export const FormCalculator = styled.form`
     display: flex;
     flex-direction: column;
-
+    
     gap: 30px;
     width: 265px;
-    margin-top: 10px;
-
+    
     .box__select{
         display: flex;
         flex-direction: column;
+        gap: 5px;
 
         select{
             padding: 15px ;
 
-            color: #757575;
-            border: none;
-            border-bottom: 1px solid #383838;
+            color: var(--grey-2);
 
+            border: none;
+            border-bottom: 1px solid var(--grey-1) ;
             outline: none;
 
             background: transparent;
 
             cursor: pointer;
+        }
+        span{
+            font-size: 12px;
         }
     }
 
@@ -77,17 +90,17 @@ export const FormCalculator = styled.form`
             
             border: none;
             border-radius: 4px;
+            
+            color: var(--white);
 
-            color: #ffffff;
-            background-color: #2927A6;
+            background-color: var(--blue);
         }
 
         button:hover{
-            background-color: #272586;
+            background-color: var(--blue-2);
         }
     }
 `
-
 export const Result = styled.div`
     display: flex;
     justify-content: center;
@@ -98,7 +111,7 @@ export const Result = styled.div`
     padding-bottom: 80px;
 
     h2{
-        color: #DF3B19;
+        color: var(--orange-2);
         font-weight: 800;
     }
     
@@ -114,7 +127,7 @@ export const Result = styled.div`
             line-height: 20px;
         }
         span{
-            color: #F66813;
+            color: var(--orange);
             font-weight: 700;
         }
     }

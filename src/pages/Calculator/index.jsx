@@ -3,38 +3,41 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import formSchema from '../../validators/calculator';
 import HeaderDashboard from '../../components/HeaderDashboard';
-import { MainCalculator,FormCalculator, ContainerCalculator, calculation, Result } from './style';
+import { MainCalculator, ContainerMain, FormCalculator, ContainerCalculator, calculation, Result } from './style';
 import dataBase from '../../assets/dataBase/media-salarial-programadores-2022';
 import { Context } from '../../providers/userContext';
 import { useContext } from 'react';
-
+import VscRefresh from 'react-icons/vsc'
 
 const Calculator = () => {
-
-    const {register, handleSubmit, formState:{errors}} = useForm({
+    const {register, handleSubmit, formState:{errors}, reset} = useForm({
         resolver: yupResolver(formSchema)
     });
 
-    const {salary_by_brazil_uf,salary_by_languages} = dataBase;
+    const {salary_by_brazil_uf, salary_by_languages, salary_by_experience} = dataBase;
 
     const {valuePerMinute, setValuePerMinute} = useContext(Context);
 
     const [calculation, setCalculation] = useState(0);
-    const [result, setResult] = useState(false)
+    const [result, setResult]           = useState(false);
 
     const ufValues = salary_by_brazil_uf.ufValues.map((uf) => {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         const id = useId();
-
         return (<option id={id} key={id} value={uf.value}>{uf.uf}</option>);
     });
 
     const languages = salary_by_languages.languages_values.map((language) => {
         // eslint-disable-next-line react-hooks/rules-of-hooks
-        const id = useId()
-
+        const id = useId();
         return (<option key={ id } id={id} value={language.value}>{language.language}</option>);
     });
+
+    // const experience = salary_by_experience.experience_values.map((experience) => {
+    //     // eslint-disable-next-line react-hooks/rules-of-hooks
+    //     const id = useId();
+    //     return (<option key={ id }value={experience.value}>{experience.experience}</option>)
+    // })
 
     const calculate = (data, workedDays, hoursWorkedInDay) => {
         const { language, region } = data
@@ -43,21 +46,19 @@ const Calculator = () => {
 
         workedDays = 22;
 
-        hoursWorkedInDay = 8
+        hoursWorkedInDay = 8;
 
-            const valuePerHour = ((averageMonthlyValue/workedDays)/hoursWorkedInDay).toFixed(2)
+        const valuePerHour = ((averageMonthlyValue/workedDays)/hoursWorkedInDay).toFixed(2)
 
-              
-            setValuePerMinute(valuePerHour/60)
-            
-            setCalculation(valuePerHour);
-            setResult(true)
+        setValuePerMinute(valuePerHour/60);        
+        setCalculation(valuePerHour);
+        setResult(true);
     }
-        console.log(valuePerMinute)
-
+   
     return (
         <ContainerCalculator>
             <HeaderDashboard/>
+            <ContainerMain>
 
             <MainCalculator>
 
@@ -73,7 +74,7 @@ const Calculator = () => {
                                 <option value=''>Selecione a linhguagem / tecnologia</option>
                                 { languages }
                             </select>
-                                <span>{errors.language?.message}</span>
+                            <span>{errors.language?.message}</span>
                     </div>
 
                     <div className='box__select'>
@@ -86,7 +87,7 @@ const Calculator = () => {
                             { ufValues }
 
                         </select>
-                            <span>{errors.region?.message}</span>
+                        <span>{errors.region?.message}</span>
                     </div>
 
                     <div className='box__select'>
@@ -96,6 +97,7 @@ const Calculator = () => {
                             id='experience'
                         >
                             <option value='' >Digite o período trabalhado</option>
+                            {/* { experience } */}
                             <option value='Menos de 1 ano'>Menos de 1 ano</option>
                             <option value='Entre 1 e 2 anos'>Entre 1 e 2 anos</option>
                             <option value='Entre 2 e 4 anos'>Entre 2 e 4 anos</option>
@@ -107,14 +109,28 @@ const Calculator = () => {
                             <option value='Mais de 20 anos'>Mais de 20 anos</option>
                         </select>
                         <span>{errors.experience?.message}</span>
-
                     </div>
 
                     <div className='box__btn'>
-                        <button type='submit'>Calcular</button>
+                        {
+                            !result ? <button type='submit'>Calcular</button> : 
+                            
+                                 <button 
+                                // className='btn_refrash'
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    reset()
+                                    setResult(!result)}
+                                }>
+                                    Calcule novamente
+                                    
+                                    {/* <VscRefresh/> */}
+                                    </button>
+                            
+                            // <button type='submit'>Calcule novamente</button>
+                        }
                     </div>
                 </FormCalculator>
-            </MainCalculator>
                 {
                     result &&
                     <Result>
@@ -126,7 +142,22 @@ const Calculator = () => {
                         </div>
                     </Result>
                 }
+            </MainCalculator>
+                </ContainerMain>
         </ContainerCalculator>
     );
 } 
 export default Calculator;
+
+// {
+//     result && <button 
+//     className='btn_refrash'
+//     onClick={() => {
+//         reset()
+//         setResult(!result)}
+//     }>
+//         refresh
+        
+//         {/* <VscRefresh/> */}
+//         </button>
+// }

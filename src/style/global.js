@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     --orange: #F66813;
     --orange-2: #DF3B19;
     --blue: #2927A6;
+    --blue-2: #272586;
     --red-1: #E83F5B;
     --green-1: #3FE864;
     --shadow: rgba(0, 0, 0, 0.6);
@@ -35,7 +36,7 @@ export const GlobalStyles = createGlobalStyle`
 
 export const ResetCSS = createGlobalStyle`
 
-  html, body, div, span, applet, object, iframe,
+  html,main, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
   del, dfn, em, img, ins, kbd, q, s, samp,
