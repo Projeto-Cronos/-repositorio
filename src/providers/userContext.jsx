@@ -17,6 +17,9 @@ const ProviderUser = ({ children }) => {
     useState(false);
   const navigate = useNavigate();
 
+
+  const [valuePerMinute, setValuePerMinute] = useState(0)
+
   const handleClickLogin = () => {
     setEyeClickLogin(!eyeClickLogin);
   };
@@ -107,12 +110,14 @@ const ProviderUser = ({ children }) => {
         eyeClickRegister,
         handleClickRegisterConfirmed,
         eyeClickLogin,
+        navigate,
+        valuePerMinute,
+        setValuePerMinute
       }}
     >
       {children}
     </Context.Provider>
   );
 };
-
 
 export default ProviderUser;
