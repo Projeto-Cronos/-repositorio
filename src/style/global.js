@@ -8,12 +8,16 @@ export const GlobalStyles = createGlobalStyle`
     --grey-2: #757575;
     --grey-3: #FAFAFA;
     --grey-4: #F4F4F4;
-    --orange: #F66813;
+    --grey-5: #D9D9D9;
+    --orange-1: #F66813;
     --orange-2: #DF3B19;
-    --blue: #2927A6;
+    --blue-1: #2927A6;
     --blue-2: #272586;
-    --red-1: #E83F5B;
+    --blue-3: #155BCB;
+    --red-1: #E60000;
+    --red-2: #F40000;
     --green-1: #3FE864;
+    --yellow-1: #FFCD07;
     --shadow: rgba(0, 0, 0, 0.6);
     --transparent: transparent;
   html, body, #root {
@@ -22,9 +26,10 @@ export const GlobalStyles = createGlobalStyle`
     margin:0;
     padding:0;
     font-family: 'Inter', sans-serif;
-  }
+  }  
+  
 
-  a, button {
+  a {
     cursor: pointer;
   }
 
@@ -32,9 +37,10 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 }
-  `
+  `;
 
 export const ResetCSS = createGlobalStyle`
+  @tailwind base;
 
   html,main, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -55,6 +61,10 @@ export const ResetCSS = createGlobalStyle`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    scroll-behavior: smooth;
+  }
+    @tailwind components;
+    @tailwind utilities;
   }
 
   article, aside, details, figcaption, figure, 
@@ -89,4 +99,4 @@ export const ResetCSS = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
-`
+`;

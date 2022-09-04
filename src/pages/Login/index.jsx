@@ -1,24 +1,34 @@
-import { Section } from "./style";
-import { motion } from "framer-motion";
-import Header from "../../components/Header";
-
-import imgPerson from "../../img/imgPerson.svg";
-import errorYup from "../../img/errorYup.svg";
-
-import { Form, Main } from "./style";
-
-import { Link } from "react-router-dom";
+import {
+  Section,
+  Div,
+  Form,
+  Title,
+  Input,
+  Label,
+  ButtonOrange,
+  ParagraphQuestion,
+} from "./style";
+import "react-toastify/dist/ReactToastify.css";
+import { formSchema } from "../../validators/userLogin";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { formSchema } from "../../validators/userLogin";
-import { useContext, useEffect } from "react";
+import { motion } from "framer-motion";
+import {
+  BsFillEyeFill,
+  BsFillEyeSlashFill,
+  BsExclamationCircle,
+  BsFillPersonFill,
+} from "react-icons/bs";
+import { useContext } from "react";
 import { Context } from "../../providers/userContext";
-
-import axios from "axios";
+import Header from "../../components/Header";
+import { Link } from "react-router-dom";
+import Lottie from "react-lottie";
 
 function Login() {
-  const { navigate } = useContext(Context);
-  const token = localStorage.getItem("@Cronos:token") || "";
+  const { eyeClickLogin, LoginUser, handleClickLogin } = useContext(Context);
+
+  const { animateState, defaultOptionsOne } = useContext(Context);
 
   const {
     register,
@@ -27,27 +37,10 @@ function Login() {
   } = useForm({
     resolver: yupResolver(formSchema),
   });
-  const onSubmit = (data) => {
-    //console.log(data);
-    loginRequest(data);
-  };
-
-  //Requisição Login
-  const url = "http://localhost:3001/";
-  const loginRequest = (options) => {
-    axios
-      .post(url + "login/users", options)
-      .then((res) => {
-        //console.log(res);
-        localStorage.setItem("@Cronos:token", res.data.accessToken);
-        navigate("/dashboard");
-      })
-      .catch((err) => console.log(err));
-  };
 
   return (
     <motion.div
-      initial={{ opacity: 0.75 }}
+      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
@@ -55,53 +48,106 @@ function Login() {
       <>
         <Section>
           <Header />
-          <Main>
-            <Form onSubmit={handleSubmit(onSubmit)}>
-              <h3>Login</h3>
-              <fieldset>
-                <label>
-                  <p>Usuários</p>
-                  <div className="groupInput">
-                    <input
-                      placeholder="Digite seu usuário"
-                      {...register("email")}
-                    />
-
-                    {errors.email?.message && (
-                      <div className="mensagemError">
-                        <img className="imgError" src={errorYup} alt="" />
-                        <span>{errors.email?.message}</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="line"></div>
-                </label>
-                <label>
-                  <p>Senha</p>
-                  <div className="groupInput">
-                    <input
+          <Div>
+            <Form onSubmit={handleSubmit(LoginUser)}>
+              <Title>Login</Title>
+              <div className="containerInput">
+                <Label htmlFor="email">Email</Label>
+                <div className="contentInput">
+                  <Input
+                    type="email"
+                    placeholder="Digite seu email"
+                    {...register("email")}
+                  />
+                  {errors.email?.message ? (
+                    <button type="button" className="alert dropdown">
+                      {errors.email?.message ? (
+                        <>
+                          <BsExclamationCircle />
+                          <div class="dropdown-content">
+                            <p>{errors.email?.message}</p>
+                          </div>
+                        </>
+                      ) : null}
+                    </button>
+                  ) : (
+                    <button type="button" className="fixed">
+                      <BsFillPersonFill />
+                    </button>
+                  )}
+                </div>
+              </div>
+              <div className="containerInput">
+                <Label htmlFor="password">Senha</Label>
+                {!eyeClickLogin ? (
+                  <div className="contentInput">
+                    <Input
                       type="password"
                       placeholder="Digite sua senha"
                       {...register("password")}
                     />
-
-                    {errors.password?.message && (
-                      <div className="mensagemError">
-                        <img className="imgError" src={errorYup} alt="" />
-                        <span>{errors.password?.message}</span>
-                      </div>
+                    {errors.password?.message ? (
+                      <button type="button" className="alert dropdown">
+                        {errors.password?.message ? (
+                          <>
+                            <BsExclamationCircle />
+                            <div class="dropdown-content">
+                              <p>{errors.password?.message}</p>
+                            </div>
+                          </>
+                        ) : null}
+                      </button>
+                    ) : (
+                      <button type="button" className="fixed">
+                        <BsFillEyeFill
+                          onClick={(e) => handleClickLogin(e.preventDefault())}
+                        />
+                      </button>
                     )}
                   </div>
-                  <div className="line"></div>
-                </label>
-              </fieldset>
-              <button>Entrar</button>
-              <p>
-                Não tem uma conta? <Link to={"/register"}>Cadastre-se</Link>
-              </p>
+                ) : (
+                  <div className="contentInput">
+                    <Input
+                      type="text"
+                      placeholder="Digite sua senha"
+                      {...register("password")}
+                    />
+                    {errors.password?.message ? (
+                      <button type="button" className="alert dropdown">
+                        {errors.password?.message ? (
+                          <BsExclamationCircle />
+                        ) : (
+                          "eaghrh"
+                        )}
+                      </button>
+                    ) : (
+                      <button type="button" className="fixed">
+                        <BsFillEyeSlashFill
+                          onClick={(e) => handleClickLogin(e.preventDefault())}
+                        />
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
+              <ButtonOrange type="submit">Entrar</ButtonOrange>
+              <ParagraphQuestion>
+                Não tem uma conta?{" "}
+                <span>
+                  <Link className="link" to="/register">
+                    Cadastre-se
+                  </Link>
+                </span>
+              </ParagraphQuestion>
             </Form>
-            <img className="img-responsive" src={imgPerson} alt="" />
-          </Main>
+            <div className="img">
+              <Lottie
+                options={defaultOptionsOne}
+                isStopped={animateState.isStopped}
+                isPaused={animateState.isPaused}
+              />
+            </div>
+          </Div>
         </Section>
       </>
     </motion.div>
