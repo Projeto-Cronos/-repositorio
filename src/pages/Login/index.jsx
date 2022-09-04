@@ -60,7 +60,7 @@ function Login() {
                     {...register("email")}
                   />
                   {errors.email?.message ? (
-                    <button className="alert dropdown">
+                    <button type="button" className="alert dropdown">
                       {errors.email?.message ? (
                         <>
                           <BsExclamationCircle />
@@ -71,7 +71,7 @@ function Login() {
                       ) : null}
                     </button>
                   ) : (
-                    <button className="fixed">
+                    <button type="button" className="fixed">
                       <BsFillPersonFill />
                     </button>
                   )}
@@ -87,7 +87,7 @@ function Login() {
                       {...register("password")}
                     />
                     {errors.password?.message ? (
-                      <button className="alert dropdown">
+                      <button type="button" className="alert dropdown">
                         {errors.password?.message ? (
                           <>
                             <BsExclamationCircle />
@@ -113,7 +113,7 @@ function Login() {
                       {...register("password")}
                     />
                     {errors.password?.message ? (
-                      <button className="alert dropdown">
+                      <button type="button" className="alert dropdown">
                         {errors.password?.message ? (
                           <BsExclamationCircle />
                         ) : (

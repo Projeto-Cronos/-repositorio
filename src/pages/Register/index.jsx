@@ -68,18 +68,18 @@ function Register() {
                     {...register("name")}
                   />
                   {errors.name?.message ? (
-                    <button className="alert dropdown">
+                    <button type="button" className="alert dropdown">
                       {errors.name?.message ? (
-                          <>
-                            <BsExclamationCircle />
-                            <div class="dropdown-content">
-                              <p>{errors.name?.message}</p>
-                            </div>
-                          </>
-                        ) : null}
+                        <>
+                          <BsExclamationCircle />
+                          <div class="dropdown-content">
+                            <p>{errors.name?.message}</p>
+                          </div>
+                        </>
+                      ) : null}
                     </button>
                   ) : (
-                    <button className="fixed">
+                    <button type="button" className="fixed">
                       <BsFillPersonFill />
                     </button>
                   )}
@@ -94,18 +94,18 @@ function Register() {
                     {...register("email")}
                   />
                   {errors.email?.message ? (
-                    <button className="alert dropdown">
+                    <button type="button" className="alert dropdown">
                       {errors.email?.message ? (
-                          <>
-                            <BsExclamationCircle />
-                            <div class="dropdown-content">
-                              <p>{errors.email?.message}</p>
-                            </div>
-                          </>
-                        ) : null}
+                        <>
+                          <BsExclamationCircle />
+                          <div class="dropdown-content">
+                            <p>{errors.email?.message}</p>
+                          </div>
+                        </>
+                      ) : null}
                     </button>
                   ) : (
-                    <button className="fixed">
+                    <button type="button" className="fixed">
                       <BsEnvelopeFill />
                     </button>
                   )}
@@ -121,7 +121,7 @@ function Register() {
                       {...register("password")}
                     />
                     {errors.password?.message ? (
-                      <button className="alert dropdown">
+                      <button type="button" className="alert dropdown">
                         {errors.password?.message ? (
                           <>
                             <BsExclamationCircle />
@@ -149,7 +149,7 @@ function Register() {
                       {...register("password")}
                     />
                     {errors.password?.message ? (
-                      <button className="alert dropdown">
+                      <button type="button" className="alert dropdown">
                         {errors.password?.message ? (
                           <>
                             <BsExclamationCircle />
@@ -181,7 +181,7 @@ function Register() {
                       {...register("confirmPassword")}
                     />
                     {errors.confirmPassword?.message ? (
-                      <button className="alert dropdown">
+                      <button type="button" className="alert dropdown">
                         {errors.confirmPassword?.message ? (
                           <>
                             <BsExclamationCircle />
@@ -209,7 +209,7 @@ function Register() {
                       {...register("confirmPassword")}
                     />
                     {errors.password?.message ? (
-                      <button className="alert dropdown">
+                      <button type="button" className="alert dropdown">
                         {errors.confirmPassword?.message ? (
                           <>
                             <BsExclamationCircle />
@@ -241,16 +241,19 @@ function Register() {
                   />
                   {errors.image?.message ? (
                     <>
-                    <button className="alert dropdown">
-                      {errors.image?.message? (
-                      <>
-                      <BsExclamationCircle /> 
-                      <div class="dropdown-content">
-                        <p>{errors.image?.message}</p></div></>): null}
-                    </button>
+                      <button type="button" className="alert dropdown">
+                        {errors.image?.message ? (
+                          <>
+                            <BsExclamationCircle />
+                            <div class="dropdown-content">
+                              <p>{errors.image?.message}</p>
+                            </div>
+                          </>
+                        ) : null}
+                      </button>
                     </>
                   ) : (
-                    <button className="fixed">
+                    <button type="button" className="fixed">
                       <BsFillImageFill />
                     </button>
                   )}
@@ -258,12 +261,10 @@ function Register() {
               </div>
               <ButtonOrange type="submit">Entrar</ButtonOrange>
               <ParagraphQuestion>
-                Tem uma conta?{" "}
-                <span>
-                  <Link className="link" to="/login">
-                    Conecte-se
-                  </Link>
-                </span>
+                Tem uma conta?
+                <Link className="link" to="/login">
+                  Conecte-se
+                </Link>
               </ParagraphQuestion>
             </Form>
             <div className="img">
