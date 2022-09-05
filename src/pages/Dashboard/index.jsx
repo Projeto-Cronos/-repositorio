@@ -5,8 +5,15 @@ import ListHeader from "./ListHeader";
 import ListItem from "./ListItem";
 import ListBody from "./ListBody";
 import ProjectList from "./ProjectList";
+import { useContext } from "react"
+import { Context } from "../../providers/userContext"
 
 function Dashboard() {
+  const { navigate, token } =useContext(Context)
+
+  if(!token) {
+    setTimeout(() => {navigate("/login")}, 100)
+}else {
   return (
     <>
       <HeaderDashboard username="Cronoszinho" email="cronoszinho@gmail.com" />
@@ -54,6 +61,7 @@ function Dashboard() {
       </DashboardMain>
     </>
   );
+}
 }
 
 export default Dashboard;
