@@ -14,19 +14,17 @@ export const Container = styled.div`
   background-color: var(--white);
   box-shadow: 0px 20px 32px rgba(0, 0, 0, 0.25);
   animation: showSidebar 0.4s;
+`;
 
-  img {
-    width: 20px;
-  }
-
-  a {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    font-family: "Inter", sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    text-decoration: none;
-    color: var(--black);
-  }
+export const SideBarButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--black);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 `;

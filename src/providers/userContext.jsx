@@ -20,6 +20,9 @@ const ProviderUser = ({ children }) => {
   const [news, setNews] = useState({});
   const navigate = useNavigate();
 
+
+  const [valuePerMinute, setValuePerMinute] = useState(0)
+
   const handleClickLogin = () => {
     setEyeClickLogin(!eyeClickLogin);
   };
@@ -151,6 +154,7 @@ const ProviderUser = ({ children }) => {
         eyeClickRegister,
         handleClickRegisterConfirmed,
         eyeClickLogin,
+<<<<<<< HEAD
         showDropDownBlog,
         closeDropDownBlog,
         dropDownBlog,
@@ -159,6 +163,11 @@ const ProviderUser = ({ children }) => {
         newsMain,
         /* newsBlog, */
         news
+=======
+        navigate,
+        valuePerMinute,
+        setValuePerMinute
+>>>>>>> de5a5360dc94ed6d253944e1ccf1e5583b69fe0f
       }}
     >
       {children}
