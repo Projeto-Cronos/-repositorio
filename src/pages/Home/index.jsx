@@ -1,4 +1,4 @@
-import { Section, HeaderContent, SecondSection, Scroll, LastSection} from "./style";
+import { Section, HeaderContent, SecondSection, Scroll, LastSection, Scroll2} from "./style";
 import { motion } from "framer-motion";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -80,13 +80,21 @@ function Home() {
 
             </div>
 
+            <Scroll>
+                <p className="Scrolldown">
+                <a className="Smoothscroll" href="#lastsection">
+                <i className="LearnMore"> <ArrowDownCircle /> </i>
+                </a>
+                </p>
+            </Scroll>
+
         </SecondSection>
 
         <LastSection>
 
-            <div className="Container">
+            <div className="Container" id="lastsection">
                 <h2 className="LastSectionTitle" id="resources">Compartilhe Os Recursos Que Ajudam Seus Clientes.</h2>
-                    <p className="LastSectionP">Descubra como a alala alalala alalal slsls slslsls slsl.</p> 
+                    <p className="LastSectionP">Descubra como a alala alalala alalals slsl.</p> 
             </div> 
 
             <div className="Resources">

@@ -7,6 +7,13 @@ export const StyledHeader = styled.header`
         padding: 10px 0;
         display: flex;
         gap: 20px;
+              @media (max-width: 950px) {
+                width: 60%;
+              }
+              @media (max-width: 600px) {
+                width: 90%;
+              }
+        }
 
     .contentHeader {
         display:flex;
@@ -32,3 +39,4 @@ export const StyledHeader = styled.header`
         width: 8vw;
     }
 `
+
