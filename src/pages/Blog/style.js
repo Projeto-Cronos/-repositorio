@@ -22,6 +22,18 @@ export const Main = styled.main`
     display: flex;
     flex-direction: column;
 
+    @media screen and (min-width: 768px) {
+        
+        width: 80%;
+        height: 88%;
+        margin: auto;
+
+        gap: 1rem;
+
+        overflow-y: scroll;
+
+    }
+
 
     h1 {
 
@@ -38,6 +50,17 @@ export const Main = styled.main`
 
     }
 
+    @media screen and (min-width: 768px) {
+        
+        h1{
+
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+
+        }
+
+    }
+
     .mainCard {
 
         width: 100%;
@@ -47,6 +70,50 @@ export const Main = styled.main`
         flex-direction: column;
         gap:0.2rem;
 
+    }
+
+    @media screen and (min-width: 768px) {
+        
+        .mainCard {
+
+            flex-direction: row-reverse;
+
+        }
+
+    }
+
+    .mainInfo {
+
+        display: none;
+
+    }
+
+    @media screen and (min-width: 768px) {
+        
+        .mainInfo {
+
+            width: 90%;
+            margin: 0 auto;
+
+            display: initial;
+
+        }
+
+    }
+
+    @media screen and (min-width: 768px){
+     
+        .mainContent {
+
+            width: 80%;
+
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: flex-end;
+            gap: 0.5rem;
+
+        }
+        
     }
 
     .mainCardImg {
@@ -62,6 +129,18 @@ export const Main = styled.main`
 
     }
 
+    @media screen and (min-width: 768px) {
+     
+        .mainCardImg {
+
+            width: 26rem;
+            height: 9rem;
+            margin-right: 2rem;
+
+        }
+        
+    }
+
     .mainText {
 
         width: 90%;
@@ -72,6 +151,19 @@ export const Main = styled.main`
         font-weight: 600;
         line-height: 15px;
 
+    }
+
+    @media screen {
+     
+        .mainText {
+
+            margin: 0 auto;
+
+            font-size: 0.6rem;
+            font-weight: none;
+
+        }
+        
     }
 
     h2 {
@@ -88,6 +180,31 @@ export const Main = styled.main`
 
     }
 
+    @media screen and (min-width: 768px) {
+        
+        h2 {
+
+            font-size: 2rem;
+            margin: 0 auto;
+
+        }
+
+    }
+
+    @media screen and (min-width: 768px) {
+     
+        ul {
+
+            width: 90%;
+            margin: 0 auto;
+
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+        
+    }
+
     li {
 
         width: 90%;
@@ -100,11 +217,62 @@ export const Main = styled.main`
 
     }
 
+    @media screen and (min-width: 768px) {
+     
+        li {
+
+            width: 45%;
+            height: 14rem;
+            margin: 0.5rem auto;
+
+            flex-direction: column;
+
+            
+
+        }
+        
+    }
+
+    .liText {
+
+        display: none;
+
+        width: 90%;
+        margin: auto;
+
+        font-family: "Montserrat";
+        font-size: 0.5rem;
+        font-weight: 600;
+        line-height: 15px;
+
+    }
+
+    @media screen and (min-width:768px) {
+        
+        .liText {
+
+            display: initial;
+
+        }
+
+    }
+
     .liCardImg {
 
         width: 84px;
         height: 70px;   
 
+    }
+
+    @media screen and (min-width: 768px) {
+     
+        .liCardImg {
+
+            width: 100%;
+            height: 8rem;
+
+        }
+        
     }
 
     .containerInfo {
