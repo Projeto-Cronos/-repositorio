@@ -7,7 +7,7 @@ export const Section = styled.section`
     width:100%;
     height:100vh;
     background-image: url(${background});
-    background-position:center;
+  background-position: left top;
     background-repeat:no-repeat;
     background-size:cover;
 `

@@ -30,6 +30,9 @@ export const Form = styled.form`
   background: var(--white);
   box-shadow: 0px 4px 40px -10px var(--shadow);
 
+  .cursor {
+    cursor:pointer;
+  }
   .dropdown {
     position: relative;
     display: inline-block;
@@ -187,6 +190,7 @@ export const Label = styled.label`
 export const ButtonOrange = styled.button`
   box-sizing: border-box;
   display: flex;
+  cursor:pointer;
   flex-direction: row;
   justify-content: center;
   align-items: center;
