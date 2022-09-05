@@ -9,11 +9,20 @@ export const StyledContainer = styled.div`
   /* cursor: pointer; */
   box-shadow: 0px 2px 16px rgba(153, 155, 168, 0.12);
 
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+
   form {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
   }
 
   .dropdown {

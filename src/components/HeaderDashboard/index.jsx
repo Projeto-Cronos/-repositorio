@@ -4,7 +4,7 @@ import logo1 from "../../assets/logo1.svg";
 import { HeaderContainer } from "./HeaderContainer";
 import SideBar from "./SideBar";
 
-const HeaderDashboard = () => {
+const HeaderDashboard = ({ username, email }) => {
   const [isSideBarVisible, setIsSideBarVisible] = useState(false);
 
   const showSideBar = () => setIsSideBarVisible(!isSideBarVisible);
@@ -22,8 +22,9 @@ const HeaderDashboard = () => {
       </div>
       {isSideBarVisible && (
         <SideBar
-          showSideBar={showSideBar}
           isSideBarVisible={isSideBarVisible}
+          username={username}
+          email={email}
         />
       )}
     </HeaderContainer>

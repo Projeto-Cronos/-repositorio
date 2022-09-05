@@ -9,7 +9,7 @@ import ProjectList from "./ProjectList";
 function Dashboard() {
   return (
     <>
-      <HeaderDashboard />
+      <HeaderDashboard username="Cronoszinho" email="cronoszinho@gmail.com" />
       <DashboardMain>
         <NewProjectContainer />
 

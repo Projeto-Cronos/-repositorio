@@ -11,6 +11,17 @@ export const StyledListItem = styled.li`
   box-shadow: 0px 2px 16px rgba(153, 155, 168, 0.12);
   cursor: pointer;
 
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 14px;
+  }
+
   input {
     width: 100%;
   }
