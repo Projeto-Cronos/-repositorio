@@ -10,6 +10,7 @@ import { useContext } from 'react';
 import VscRefresh from 'react-icons/vsc';
 import CauculaPorra from './calculate';
 
+
 const Calculator = () => {
     const {register, handleSubmit, formState:{errors}, reset} = useForm({
         resolver: yupResolver(formSchema)
@@ -65,6 +66,11 @@ const Calculator = () => {
     //     setResult(true);
     // }
    
+    const { navigate, token } =useContext(Context)
+
+    if(!token) {
+      setTimeout(() => {navigate("/login")}, 100)
+  }else {
     return (
         <ContainerCalculator>
             <HeaderDashboard/>
@@ -157,6 +163,7 @@ const Calculator = () => {
                 </ContainerMain>
         </ContainerCalculator>
     );
+}
 } 
 export default Calculator;
 
