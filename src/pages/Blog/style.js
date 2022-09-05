@@ -1,162 +1,69 @@
 import styled from "styled-components";
-import  background from "../../assets/image/background-orange-white.svg"
+import background from "../../assets/image/background-orange-white.svg";
 
 export const Section = styled.section`
-    display:flex;
-    flex-direction:column;
-    width:100%;
-    height:100vh;
-    background-image: url(${background});
-    background-position:center;
-    background-repeat:no-repeat;
-    background-size:cover;
-`
-
+ display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url(${background});
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media (min-width: 768px) {
+    gap: 1vw;
+    height: min-content;
+  }
+  @media (min-width: 1024px) {
+    height: min-content;
+    gap: 2vw;
+  }
+`;
 export const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height:min-content;
+  background-color: var(--white);
+  gap: 4vw;
+  padding: 2.5% 0;
+  margin: 0 0 1vw 0;
+  @media (min-width: 768px) {
+    height: min-content;
+    width: 78%;
+    gap: 3vw;
+    border-radius: 0.2vw;
+    box-shadow: 0px 4px 40px -10px var(--shadow);
+    padding: 2.5% 3%;
+  
+  }
+  @media (min-width: 1024px) {
+    height: min-content;
+    width: 78%;
+    gap: 0;
+    border-radius: 0.2vw;
+    box-shadow: 0px 4px 40px -10px var(--shadow);
+    padding: 2.5% 3%;
+  
+  }
+`;
 
-    width: 100%;
-    height: 100%;
-
-    background-color: #ffff;
-
-    display: flex;
-    flex-direction: column;
-
-
-    h1 {
-
-        margin: 1rem;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-family: "Jura";
-        font-size: 1.1rem;
-        font-weight: 700;
-        line-height: 28px;
-
-    }
-
-    .mainCard {
-
-        width: 100%;
-        margin-bottom: 1rem;
-
-        display: flex;
-        flex-direction: column;
-        gap:0.2rem;
-
-    }
-
-    .mainCardImg {
-
-        height: 147px;
-        width: 90%;
-        margin: auto;
-        margin-bottom: 0.2rem;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-    }
-
-    .mainText {
-
-        width: 90%;
-        margin: auto;
-
-        font-family: "Montserrat";
-        font-size: 0.8rem;
-        font-weight: 600;
-        line-height: 15px;
-
-    }
-
-    h2 {
-
-        width: 90%;
-        margin: auto;
-
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 1.3rem;
-
-        color: #2927A6;
-
-    }
-
-    li {
-
-        width: 90%;
-        height: 4.4rem;
-        margin: auto;
-        margin-bottom: 1rem;
-
-        display: flex;
-        gap: 0.2rem;
-
-    }
-
-    .liCardImg {
-
-        width: 84px;
-        height: 70px;   
-
-    }
-
-    .containerInfo {
-
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-    }
-
-    h3 {
-
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 0.7rem;
-        line-height: 12px;
-
-        color: #2927A6;
-
-
-    }
-
-    span {
-
-        height: 2.5rem;
-        
-        display: flex;
-        align-items: flex-end;
-
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 0.7rem;
-        line-height: 12px;
-
-        color: #383838;
-
-    }
-
-    a {
-
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 0.7rem;
-        line-height: 12px;
-        text-decoration: none;
-
-        color: #F66813;
-
-    }
-
-`
+export const Title = styled.h1`
+  font-weight: 700;
+  font-size: 5.7vw;
+  line-height: 9vw;
+  margin-top: 1.5vw;
+  color: var(--black);
+  text-align: center;
+  font-family: "Jura", sans-serif;
+  @media (min-width: 768px) {
+    font-size: 3vw;
+    line-height: 2vw;
+  }
+  @media (min-width: 1024px) {
+    font-size: 3.1vw;
+    line-height: 4vw;
+    margin-bottom: 1vw;
+  }
+`;

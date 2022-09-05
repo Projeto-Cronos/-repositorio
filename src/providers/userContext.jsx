@@ -1,10 +1,10 @@
-
 import Api from "../services/api";
+import ApiNews from "../services/apiNews"
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import loadingAnimated from "../assets/animation/VAPGxWYypp.json";
 import loadingAnimatedOne from "../assets/animation/DHYuRhgDuA.json";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -13,8 +13,11 @@ export const Context = createContext();
 const ProviderUser = ({ children }) => {
   const [eyeClickLogin, setEyeClickLogin] = useState(false);
   const [eyeClickRegister, setEyeClickRegister] = useState(false);
-  const [eyeClickRegisterConfirmed, setEyeClickRegisterConfirmed] =
-    useState(false);
+  const [dropDownBlog, setDropdownBlog] = useState("none");
+  const [eyeClickRegisterConfirmed, setEyeClickRegisterConfirmed] =useState(false);
+  const [listNews, setListNews] = useState([]);
+  const [newsMain, setNewsMain] = useState([]);
+  const [news, setNews] = useState({});
   const navigate = useNavigate();
 
   const handleClickLogin = () => {
@@ -68,6 +71,47 @@ const ProviderUser = ({ children }) => {
       )
       .catch(() => notifyLoginError("E-mail já existente"));
   };
+  
+  //Blog
+  
+  useEffect(() => {
+    ApiNews.get("", {
+      headers: {
+        'X-RapidAPI-Key': '06fbf8b391msh0fdd5694e7e7537p1c07e4jsn8a06ccfbe48d',
+        'X-RapidAPI-Host': 'free-news.p.rapidapi.com'
+      }
+    })
+    .then((res) =>{
+      setListNews(res.data.articles)
+      setNewsMain(res.data.articles.splice(0,1))
+
+    })
+    .catch((err) => console.log(err))
+},[setListNews, setNewsMain])
+
+/* const newsBlog = () => {
+  ApiNews.get("", {
+    headers: {
+      'X-RapidAPI-Key': '06fbf8b391msh0fdd5694e7e7537p1c07e4jsn8a06ccfbe48d',
+      'X-RapidAPI-Host': 'free-news.p.rapidapi.com'
+    }
+  })
+  .then((res) =>{
+    setListNews(res.data.articles)
+    setNewsMain(res.data.articles.splice(0,1))
+
+  })
+  .catch((err) => console.log(err))
+}; */
+
+  const showDropDownBlog = (elem) => {
+    setDropdownBlog("flex");
+    setNews(elem)
+  };
+
+  const closeDropDownBlog = () => {
+    setDropdownBlog("none");
+  };
 
   //Lottie
   const [animateState] = useState({
@@ -107,12 +151,19 @@ const ProviderUser = ({ children }) => {
         eyeClickRegister,
         handleClickRegisterConfirmed,
         eyeClickLogin,
+        showDropDownBlog,
+        closeDropDownBlog,
+        dropDownBlog,
+        setListNews,
+        listNews,
+        newsMain,
+        /* newsBlog, */
+        news
       }}
     >
       {children}
     </Context.Provider>
   );
 };
-
 
 export default ProviderUser;

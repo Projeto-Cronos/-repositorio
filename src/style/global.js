@@ -27,7 +27,6 @@ export const GlobalStyles = createGlobalStyle`
     padding:0;
     font-family: 'Inter', sans-serif;
   }  
-  
 
   a {
     cursor: pointer;
@@ -40,7 +39,6 @@ export const GlobalStyles = createGlobalStyle`
   `;
 
 export const ResetCSS = createGlobalStyle`
-  @tailwind base;
 
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -63,9 +61,6 @@ export const ResetCSS = createGlobalStyle`
     vertical-align: baseline;
     scroll-behavior: smooth;
   }
-    @tailwind components;
-    @tailwind utilities;
-  }
 
   article, aside, details, figcaption, figure, 
   footer, header, hgroup, menu, nav, section {
@@ -75,13 +70,13 @@ export const ResetCSS = createGlobalStyle`
     line-height: 1;
   }
   ::-webkit-scrollbar {
-  width: 7px;
+  width: 0.1px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--gray-4);
+    background: var(--grey-4);
   }
   ::-webkit-scrollbar-thumb {
-    background-color: var(--gray-2);
+    background-color: var(--orange-1);
     border-radius: 20px;     
   }
   ol, ul {
