@@ -20,7 +20,6 @@ function Blog() {
           <Main>
             <Title>Blog</Title>
             <ListCardNews />
-            
           </Main>
           <Footer />
         </Section>

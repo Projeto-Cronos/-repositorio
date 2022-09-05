@@ -6,3 +6,5 @@ const ApiNews = axios.create({
 });
 
 export default ApiNews;
+
+/* API de noticias */

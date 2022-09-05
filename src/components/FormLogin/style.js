@@ -23,7 +23,7 @@ export const Form = styled.form`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   flex-direction: column;
   padding: 8vw 3% 0 3%;
   align-items: center;
@@ -132,7 +132,7 @@ export const Form = styled.form`
       position: relative;
       display: inline-block;
     }
-    
+
     .dropdown-content {
       padding: 1vw 1vw;
       font-size: 0.9vw;
