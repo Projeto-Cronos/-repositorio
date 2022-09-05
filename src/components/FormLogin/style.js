@@ -1,53 +1,5 @@
 import styled from "styled-components";
-import background from "../../assets/image/background-orange-white.svg";
 
-export const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  background-image: url(${background});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  @media (min-width: 768px) {
-    gap: 10vw;
-  }
-  @media (min-width: 1024px) {
-    gap: 0;
-  }
-`;
-export const Div = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  gap: 10vw;
-
-  .img {
-    display: none;
-  }
-  @media (min-width: 768px) {
-    height: min-content;
-    width: 78%;
-    gap: 10vw;
-    .img {
-      display: flex;
-      width: 60%;
-    }
-  }
-  @media (min-width: 1024px) {
-    height: min-content;
-    width: 78%;
-    gap: 10vw;
-    .img {
-      display: flex;
-      width: 60%;
-    }
-  }
-`;
 export const Title = styled.h1`
   font-weight: 700;
   font-size: 5.7vw;
@@ -71,7 +23,7 @@ export const Form = styled.form`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   flex-direction: column;
   padding: 8vw 3% 0 3%;
   align-items: center;
@@ -180,7 +132,7 @@ export const Form = styled.form`
       position: relative;
       display: inline-block;
     }
-    
+
     .dropdown-content {
       padding: 1vw 1vw;
       font-size: 0.9vw;
