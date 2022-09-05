@@ -7,7 +7,6 @@ import loadingAnimatedOne from "../assets/animation/DHYuRhgDuA.json";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 export const Context = createContext();
 
 const ProviderUser = ({ children }) => {
@@ -17,8 +16,10 @@ const ProviderUser = ({ children }) => {
     useState(false);
   const navigate = useNavigate();
 
+    const [valuePerMinute, setValuePerMinute] = useState(0);
+    const [calculation, setCalculation] = useState(0);
+    const [result, setResult]           = useState(false);
 
-  const [valuePerMinute, setValuePerMinute] = useState(0)
 
   const handleClickLogin = () => {
     setEyeClickLogin(!eyeClickLogin);
@@ -112,7 +113,11 @@ const ProviderUser = ({ children }) => {
         eyeClickLogin,
         navigate,
         valuePerMinute,
-        setValuePerMinute
+        setValuePerMinute,
+        calculation,
+        setCalculation,
+        result,
+        setResult
       }}
     >
       {children}

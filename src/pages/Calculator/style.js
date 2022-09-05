@@ -93,7 +93,7 @@ export const FormCalculator = styled.form`
             
             color: var(--white);
 
-            background-color: var(--blue);
+            background-color: var(--blue-1);
         }
 
         button:hover{
