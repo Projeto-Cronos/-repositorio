@@ -6,4 +6,8 @@ export const StyledListBody = styled.ul`
   flex-direction: column;
   gap: 10px;
   width: 100%;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
 `;

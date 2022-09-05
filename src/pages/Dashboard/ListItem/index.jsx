@@ -13,27 +13,27 @@ const ListItem = ({
 }) => {
   return (
     <StyledListItem>
-      <ListColumn>
+      <ListColumn borderColor="blue">
         <input type="text" value={projectName} />
       </ListColumn>
 
-      <ListColumn>
+      <ListColumn borderColor="blue">
         <input type="date" value={startDate} />
       </ListColumn>
 
-      <ListColumn>
+      <ListColumn borderColor="blue">
         <input type="date" value={endDate} />
       </ListColumn>
 
-      <ListColumn>
+      <ListColumn borderColor="blue">
         <input type="text" value={tags} />
       </ListColumn>
 
-      <ListColumn>
+      <ListColumn borderColor="blue">
         <input type="text" value={pricePerHour} />
       </ListColumn>
 
-      <ListColumn>
+      <ListColumn borderColor="red">
         <input type="text" value={stopwatch} />
       </ListColumn>
 
