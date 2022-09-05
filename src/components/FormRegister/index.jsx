@@ -52,7 +52,7 @@ function FormRegister() {
               {...register("name")}
             />
             {errors.name?.message ? (
-              <button type="button" className="alert dropdown">
+              <button type="button" className="alert dropdown" disabled>
                 {errors.name?.message ? (
                   <>
                     <BsExclamationCircle />
@@ -63,7 +63,7 @@ function FormRegister() {
                 ) : null}
               </button>
             ) : (
-              <button type="button" className="fixed">
+              <button type="button" className="fixed" disabled>
                 <BsFillPersonFill />
               </button>
             )}
@@ -78,7 +78,7 @@ function FormRegister() {
               {...register("email")}
             />
             {errors.email?.message ? (
-              <button type="button" className="alert dropdown">
+              <button type="button" className="alert dropdown" disabled>
                 {errors.email?.message ? (
                   <>
                     <BsExclamationCircle />
@@ -89,7 +89,7 @@ function FormRegister() {
                 ) : null}
               </button>
             ) : (
-              <button type="button" className="fixed">
+              <button type="button" className="fixed" disabled>
                 <BsEnvelopeFill />
               </button>
             )}
@@ -105,7 +105,7 @@ function FormRegister() {
                 {...register("password")}
               />
               {errors.password?.message ? (
-                <button type="button" className="alert dropdown">
+                <button type="button" className="alert dropdown" disabled>
                   {errors.password?.message ? (
                     <>
                       <BsExclamationCircle />
@@ -116,7 +116,7 @@ function FormRegister() {
                   ) : null}
                 </button>
               ) : (
-                <button type="button" className="fixed">
+                <button type="button" className="fixed cursor" disabled>
                   <BsFillEyeFill
                     onClick={(e) =>
                       handleClickRegister(e.preventDefault())
@@ -133,7 +133,7 @@ function FormRegister() {
                 {...register("password")}
               />
               {errors.password?.message ? (
-                <button type="button" className="alert dropdown">
+                <button type="button" className="alert dropdown" disabled>
                   {errors.password?.message ? (
                     <>
                       <BsExclamationCircle />
@@ -144,7 +144,7 @@ function FormRegister() {
                   ) : null}
                 </button>
               ) : (
-                <button type="button" className="fixed">
+                <button type="button" className="fixed cursor" disabled>
                   <BsFillEyeSlashFill
                     onClick={(e) =>
                       handleClickRegister(e.preventDefault())
@@ -165,7 +165,7 @@ function FormRegister() {
                 {...register("confirmPassword")}
               />
               {errors.confirmPassword?.message ? (
-                <button type="button" className="alert dropdown">
+                <button type="button" className="alert dropdown" disabled>
                   {errors.confirmPassword?.message ? (
                     <>
                       <BsExclamationCircle />
@@ -176,7 +176,7 @@ function FormRegister() {
                   ) : null}
                 </button>
               ) : (
-                <button type="button" className="fixed">
+                <button type="button" className="fixed cursor" disabled>
                   <BsFillEyeFill
                     onClick={(e) =>
                       handleClickRegisterConfirmed(e.preventDefault())
@@ -193,7 +193,7 @@ function FormRegister() {
                 {...register("confirmPassword")}
               />
               {errors.password?.message ? (
-                <button type="button" className="alert dropdown">
+                <button type="button" className="alert dropdown" disabled>
                   {errors.confirmPassword?.message ? (
                     <>
                       <BsExclamationCircle />
@@ -204,7 +204,7 @@ function FormRegister() {
                   ) : null}
                 </button>
               ) : (
-                <button type="button" className="fixed">
+                <button type="button" className="fixed cursor" disabled>
                   <BsFillEyeSlashFill
                     onClick={(e) =>
                       handleClickRegisterConfirmed(e.preventDefault())
@@ -225,7 +225,7 @@ function FormRegister() {
             />
             {errors.image?.message ? (
               <>
-                <button type="button" className="alert dropdown">
+                <button type="button" className="alert dropdown" disabled>
                   {errors.image?.message ? (
                     <>
                       <BsExclamationCircle />
@@ -237,7 +237,7 @@ function FormRegister() {
                 </button>
               </>
             ) : (
-              <button type="button" className="fixed">
+              <button type="button" className="fixed" disabled>
                 <BsFillImageFill />
               </button>
             )}

@@ -12,8 +12,12 @@ import FormLogin from "../../components/FormLogin";
 
 function Login() {
 
-  const { animateState, defaultOptionsOne } = useContext(Context);
+  const { animateState, defaultOptionsOne, token, navigate} = useContext(Context);
 
+  if(token) {
+    setTimeout(() => {navigate("/dashboard")}, 100)
+}else {
+  
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -38,6 +42,7 @@ function Login() {
       </>
     </motion.div>
   );
+}
 }
 
 export default Login;
