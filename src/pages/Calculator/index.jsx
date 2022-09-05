@@ -7,7 +7,8 @@ import { MainCalculator, ContainerMain, FormCalculator, ContainerCalculator, cal
 import dataBase from '../../assets/dataBase/media-salarial-programadores-2022';
 import { Context } from '../../providers/userContext';
 import { useContext } from 'react';
-import VscRefresh from 'react-icons/vsc'
+import VscRefresh from 'react-icons/vsc';
+import CauculaPorra from './calculate';
 
 const Calculator = () => {
     const {register, handleSubmit, formState:{errors}, reset} = useForm({
@@ -16,10 +17,19 @@ const Calculator = () => {
 
     const {salary_by_brazil_uf, salary_by_languages, salary_by_experience} = dataBase;
 
-    const {valuePerMinute, setValuePerMinute} = useContext(Context);
+    const {
+            // valuePerMinute,
+            // setValuePerMinute,
+            valuePerMinute,
+            setValuePerMinute,
+            calculation,
+            setCalculation,
+            result,
+            setResult
+        } = useContext(Context);
 
-    const [calculation, setCalculation] = useState(0);
-    const [result, setResult]           = useState(false);
+    // const [calculation, setCalculation] = useState(0);
+    // const [result, setResult]           = useState(false);
 
     const ufValues = salary_by_brazil_uf.ufValues.map((uf) => {
         // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -38,22 +48,22 @@ const Calculator = () => {
     //     const id = useId();
     //     return (<option key={ id }value={experience.value}>{experience.experience}</option>)
     // })
-
-    const calculate = (data, workedDays, hoursWorkedInDay) => {
-        const { language, region } = data
+    // calculate
+    // const calculate = (data, workedDays, hoursWorkedInDay) => {
+    //     const { language, region } = data
         
-        const averageMonthlyValue = ((Number(language) + Number(region))/2);
+    //     const averageMonthlyValue = ((Number(language) + Number(region))/2);
 
-        workedDays = 22;
+    //     workedDays = 22;
 
-        hoursWorkedInDay = 8;
+    //     hoursWorkedInDay = 8;
 
-        const valuePerHour = ((averageMonthlyValue/workedDays)/hoursWorkedInDay).toFixed(2)
+    //     const valuePerHour = ((averageMonthlyValue/workedDays)/hoursWorkedInDay).toFixed(2)
 
-        setValuePerMinute(valuePerHour/60);        
-        setCalculation(valuePerHour);
-        setResult(true);
-    }
+    //     setValuePerMinute(valuePerHour/60);        
+    //     setCalculation(valuePerHour);
+    //     setResult(true);
+    // }
    
     return (
         <ContainerCalculator>
@@ -64,7 +74,7 @@ const Calculator = () => {
 
                 <h1>Calcule quanto vale sua hora</h1>
 
-                <FormCalculator onSubmit={handleSubmit(calculate)}>
+                <FormCalculator onSubmit={handleSubmit(CauculaPorra)}>
                     <div className='box__select'>
                         <label htmlFor='selecionar-Linguagem'>Linguagem / Tecnologia utilizada</label>
                             <select 
@@ -115,17 +125,18 @@ const Calculator = () => {
                         {
                             !result ? <button type='submit'>Calcular</button> : 
                             
-                                 <button 
-                                // className='btn_refrash'
-                                onClick={(e) => {
-                                    e.preventDefault()
-                                    reset()
-                                    setResult(!result)}
-                                }>
+                                <button 
+                                    // className='btn_refrash'
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        reset()
+                                        setResult(!result)}
+                                    }
+                                >
                                     Calcule novamente
                                     
                                     {/* <VscRefresh/> */}
-                                    </button>
+                                </button>
                             
                             // <button type='submit'>Calcule novamente</button>
                         }

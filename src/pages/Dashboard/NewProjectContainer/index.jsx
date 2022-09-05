@@ -1,5 +1,6 @@
 import { BsCalendarDate, BsTag, BsCurrencyDollar } from "react-icons/bs";
-import { StyledContainer } from "./style";
+import { StyledContainer, BoxTimer } from "./style";
+import TimerToCount from "./timer";
 
 const NewProjectContainer = () => {
   return (
@@ -38,8 +39,10 @@ const NewProjectContainer = () => {
             <input type="text" placeholder="Insira o valor por hora" />
           </div>
         </div>
-
-        <button type="submit">Start</button>
+        <BoxTimer className="boxTimer">
+          <TimerToCount/>
+        </BoxTimer>
+        {/* <button type="submit">Start</button> */}
       </form>
     </StyledContainer>
   );
