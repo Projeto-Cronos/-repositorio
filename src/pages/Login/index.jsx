@@ -1,32 +1,43 @@
-import imgPerson from "../../img/imgPerson.svg";
+import {
+  Section,
+  Div,
+} from "./style";
+import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
+import { useContext } from "react";
+import { Context } from "../../providers/userContext";
+import Header from "../../components/Header";
+import Lottie from "react-lottie";
+import FormLogin from "../../components/FormLogin";
 
-import { Form, Main } from "./style";
+function Login() {
 
-import { Link } from "react-router-dom";
+  const { animateState, defaultOptionsOne } = useContext(Context);
 
-export const Login = () => {
   return (
-    <Main>
-      <Form>
-        <h3>Loguin</h3>
-        <fieldset>
-          <label>
-            <p>Usuários</p>
-            <input type="email" placeholder="Digite seu usuário" />
-            <div></div>
-          </label>
-          <label>
-            <p>Senha</p>
-            <input type="password" placeholder="Digite seu usuário" />
-            <div></div>
-          </label>
-        </fieldset>
-        <button>Entrar</button>
-        <p>
-          Não tem uma conta? <Link to={"/"}>Cadastre-se</Link>
-        </p>
-      </Form>
-      <img className="img-responsive" src={imgPerson} alt="" />
-    </Main>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <>
+        <Section>
+          <Header />
+          <Div>
+            <FormLogin />
+            <div className="img">
+              <Lottie
+                options={defaultOptionsOne}
+                isStopped={animateState.isStopped}
+                isPaused={animateState.isPaused}
+              />
+            </div>
+          </Div>
+        </Section>
+      </>
+    </motion.div>
   );
-};
+}
+
+export default Login;

@@ -1,173 +1,320 @@
 import styled from "styled-components";
+import background from "../../assets/image/background-orange-white.svg";
 
-export const Main = styled.main`
+export const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url(${background});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media (min-width: 768px) {
+    gap: 10vw;
+  }
+  @media (min-width: 1024px) {
+    gap: 0;
+  }
+`;
+export const Div = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 10vw;
 
-    width: 100%;
-    height: 29rem;
-    
-    @media (min-width: 600px) {
-        
-        margin:1rem;
-        margin-top: 3rem;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        
-
+  .img {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    height: min-content;
+    width: 78%;
+    gap: 10vw;
+    .img {
+      display: flex;
+      width: 60%;
     }
-
-    .img-responsive {
-
-        height: 23rem;
-        width: 23rem;
-
+  }
+  @media (min-width: 1024px) {
+    height: min-content;
+    width: 78%;
+    gap: 10vw;
+    .img {
+      display: flex;
+      width: 60%;
     }
-
-
-    @media (max-width: 700px) {
-        
-        .img-responsive {
-
-            display: none;
-
-        }
-
-    }
-
-    
-
-`
-
+  }
+`;
+export const Title = styled.h1`
+  font-weight: 700;
+  font-size: 5.7vw;
+  line-height: 9vw;
+  margin-bottom: 5vw;
+  color: var(--black);
+  text-align: center;
+  font-family: "Jura", sans-serif;
+  @media (min-width: 768px) {
+    font-size: 1.2vw;
+    line-height: 2vw;
+    margin-bottom: 1vw;
+  }
+  @media (min-width: 1024px) {
+    font-size: 1.2vw;
+    line-height: 2vw;
+    margin-bottom: 1vw;
+  }
+`;
 export const Form = styled.form`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  padding: 8vw 3% 0 3%;
+  align-items: center;
+  gap: 5vw;
+  background: var(--white);
+  box-shadow: 0px 4px 40px -10px var(--shadow);
 
-    width: 100%;
-    height: 29rem;
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
 
-    display: flex ;
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 50px;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 10px 3px 10px 3px;
+    z-index: 1;
+    font-size: 2.5vw;
+    border-radius: 0.15vw;
+    color: var(--red-2) tex;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .containerInput {
+    display: flex;
     flex-direction: column;
+    width: 90%;
+  }
+  .contentInput {
+    display: flex;
+    width: 100%;
+    background: var(--white);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.15vw solid var(--black);
+  }
+  .fixed {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
-
-    background-color: rgba(255, 255, 255, 0.5);
-
-    @media (min-width: 600px) {
-
-        height: 25rem;
-        width: 40%;
-        border-radius: 4px;
-
-        display: flex ;
-        flex-direction: column;
-        justify-content: center;
-
-
+    font-size: 6.5vw;
+    margin-right: 0;
+    color: var(--black);
+    background: var(--white);
+    border: none;
+  }
+  .fixed-eye {
+    display: flex;
+    align-items: center;
+    font-size: 6.5vw;
+    margin-right: 0;
+    cursor: pointer;
+    color: var(--black);
+    background: var(--white);
+    border: none;
+  }
+  .alert {
+    display: flex;
+    align-items: center;
+    font-size: 6.5vw;
+    margin-right: 0;
+    color: var(--red-1);
+    background: var(--white);
+    border: none;
+  }
+  @media (min-width: 768px) {
+    width: 40%;
+    height: min-content;
+    padding: 3% 3% 3% 3%;
+    gap: 1vw;
+    border-radius: 0.3vw;
+    .dropdown {
+      position: relative;
+      display: inline-block;
     }
 
-    @media (min-width: 600px) {
-        
-        
-
+    .dropdown-content {
+      padding: 1vw 1vw;
+      font-size: 0.9vw;
     }
 
-    h3 {
-
-        width: 100%;
-
-        display: flex ;
-        align-items: center;
-        justify-content: center;
-
-        font-family: 'Jura';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 1.2rem;
-        line-height: 28px;
-
+    .fixed {
+      font-size: 1.3vw;
     }
 
-    p {
-
-        font-family: 'Jura';
-        font-size: 0.8rem;
-
+    .fixed-eye {
+      font-size: 1.3vw;
     }
 
-    fieldset {
-
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
+    .alert {
+      font-size: 1.3vw;
+    }
+  }
+  @media (min-width: 1024px) {
+    width: 40%;
+    height: min-content;
+    padding: 5% 3% 5% 3%;
+    gap: 1vw;
+    border-radius: 0.3vw;
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      padding: 1vw 1vw;
+      font-size: 0.9vw;
     }
 
-    label {
-
-        width: 90%;
-        height: 3.13rem;
-        margin: 0 0.8rem;
-
+    .fixed {
+      font-size: 1.3vw;
     }
 
-    input {
-        
-        margin-top: 0.5rem;
-
-        border: none;
-
+    .fixed-eye {
+      font-size: 1.3vw;
     }
 
-    input::placeholder {
-
-        font-family: 'Public Sans';
-        font-size: 0.8rem;
-
+    .alert {
+      font-size: 1.3vw;
     }
+  }
+`;
+export const Input = styled.input`
+  outline: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  width: 100%;
+  height: 5.5vh;
+  background: var(--white);
+  font-weight: 400;
+  font-size: 4.5vw;
+  color: var(--grey-2);
+  border: none;
+  @media (min-width: 768px) {
+    font-size: 1.05vw;
+  }
 
-    button {
+  @media (min-width: 1024px) {
+    font-size: 1.05vw;
+  }
+`;
+export const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  font-size: 4.5vw;
+  color: var(--black);
+  font-family: "Jura", sans-serif;
+  text-align: start;
+  @media (min-width: 768px) {
+    font-size: 1vw;
+  }
+  @media (min-width: 1024px) {
+    font-size: 1vw;
+  }
+`;
+export const ButtonOrange = styled.button`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 91%;
+  height: 7.3vh;
+  background: var(--orange-1);
+  border: 0.1vw solid var(--orange-1);
+  border-radius: 1vw;
+  font-weight: 600;
+  margin-top: 1vw;
+  font-size: 5vw;
+  color: var(--white);
+  font-family: "Jura", sans-serif;
 
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 0px 22.3336px;
-        gap: 10.15px;
+  &:hover {
+    background: var(--orange-2);
+    border: 0.1vw solid var(--orange-2);
+  }
+  @media (min-width: 768px) {
+    width: 100%;
+    height: 6.6vh;
+    border-radius: 0.2vw;
+    font-weight: 600;
+    font-size: 1.05vw;
+  }
+  @media (min-width: 1024px) {
+    width: 100%;
+    height: 6.6vh;
+    border-radius: 0.2vw;
+    font-weight: 600;
+    font-size: 1.05vw;
+  }
+`;
+export const ParagraphQuestion = styled.p`
+  width: 100%;
+  font-weight: 600;
+  font-size: 3.8vw;
+  line-height: 4.5vw;
+  color: var(--gray-1);
+  margin-top: 3vw;
+  text-align: center;
+  font-family: "Jura", sans-serif;
 
-        width: 17rem;
-        height: 3rem;
+  .link {
+    color: var(--orange-1);
+    text-decoration: none;
 
-        background: #F66813;
-
-        border: 1.2182px solid #F66813;
-        border-radius: 4.06066px;
-
-        font-family: 'Jura';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 1rem;
-        line-height: 26px;
-
-        color: #FFFFFF;
-
+    &:hover {
+      color: var(--orange-2);
     }
+  }
+  @media (min-width: 768px) {
+    font-size: 0.8vw;
+    line-height: 1.1vw;
+    margin-top: 1vw;
 
-    a {
+    .link {
+      color: var(--orange-1);
+      text-decoration: none;
 
-        color: #F66813;
-
+      :hover {
+        color: var(--orange-2);
+      }
     }
+  }
+  @media (min-width: 1024px) {
+    font-size: 0.8vw;
+    line-height: 1.1vw;
+    margin-top: 1vw;
 
-    div {
+    .link {
+      color: var(--orange-1);
+      text-decoration: none;
 
-        width: 100%;
-        height: 0.5px;
-        background-color:#383838;
-
-        margin-top: 0.5rem;
+      :hover {
+        color: var(--orange-2);
+      }
     }
-
-`
+  }
+`;

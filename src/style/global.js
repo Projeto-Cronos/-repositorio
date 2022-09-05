@@ -1,27 +1,48 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
 :root {
-  --orange: #F66813;
-  --blue: #2927A6;
-  --white: #F4F4F4;
-  --black: #000000;
-}
+    --white:#FFFFFF;
+    --black: #000000;
+    --grey-1: #383838;
+    --grey-2: #757575;
+    --grey-3: #FAFAFA;
+    --grey-4: #F4F4F4;
+    --grey-5: #D9D9D9;
+    --orange-1: #F66813;
+    --orange-2: #DF3B19;
+    --blue-1: #2927A6;
+    --blue-2: #272586;
+    --blue-3: #155BCB;
+    --red-1: #E60000;
+    --red-2: #F40000;
+    --green-1: #3FE864;
+    --yellow-1: #FFCD07;
+    --shadow: rgba(0, 0, 0, 0.6);
+    --transparent: transparent;
   html, body, #root {
     width: 100%;
     height: 100%;
-    font-family: Inter, sans-serif;
-    background-color: var(--white);
-  }
-  a, button {
+    margin:0;
+    padding:0;
+    font-family: 'Inter', sans-serif;
+  }  
+  
+
+  a {
     cursor: pointer;
   }
+
   * {
     box-sizing: border-box;
   }
+}
   `;
+
 export const ResetCSS = createGlobalStyle`
-  html, body, div, span, applet, object, iframe,
+  @tailwind base;
+
+  html,main, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
   del, dfn, em, img, ins, kbd, q, s, samp,
@@ -31,7 +52,7 @@ export const ResetCSS = createGlobalStyle`
   fieldset, form, label, legend,
   table, caption, tbody, tfoot, thead, tr, th, td,
   article, aside, canvas, details, embed,
-  figure, figcaption, footer, header, hgroup,
+  figure, figcaption, footer, header, hgroup, 
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
     margin: 0;
@@ -40,8 +61,13 @@ export const ResetCSS = createGlobalStyle`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    scroll-behavior: smooth;
   }
-  article, aside, details, figcaption, figure,
+    @tailwind components;
+    @tailwind utilities;
+  }
+
+  article, aside, details, figcaption, figure, 
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
@@ -56,7 +82,7 @@ export const ResetCSS = createGlobalStyle`
   }
   ::-webkit-scrollbar-thumb {
     background-color: var(--gray-2);
-    border-radius: 20px;
+    border-radius: 20px;     
   }
   ol, ul {
     list-style: none;
