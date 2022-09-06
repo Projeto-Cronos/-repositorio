@@ -14,11 +14,11 @@ const TimerToCount = () => {
     const [isCounter, setIsCounter] = useState(false)
     const [time, setTime] = useState(0);
     const [isPause, setIsPause] = useState(false)
-    const [totalTime, setTotalTime] = useState(0)
+    const [tempo, setTempo] = useState({horas:0, minutos: 0, segundos:0})
   
-    // let sec = tempo.segundos;
-    // let hrs = tempo.horas;
-    // let min = tempo.segundos;
+    let sec = tempo.segundos;
+    let hrs = tempo.horas;
+    let min = tempo.segundos;
   
     const schema = yup.object({
         hours: yup.number('coloque um numero').required('horas'),
@@ -41,40 +41,30 @@ const TimerToCount = () => {
         let hrs = 0
         let min = 0;
         let sec = 0;
-        let totalTime = 0
         
-        let elapsedTime = duration;
+        let elapsedTime = duration
 
         setTimeInterval(setInterval(() => {
             elapsedTime ++
-            totalTime ++
+            min = parseInt((elapsedTime)/60);
+            sec = parseInt((elapsedTime)%60);
 
-            min = Math.floor((elapsedTime)/60);
-            sec = Math.floor((elapsedTime)%60);
-
-            // setTime(elapsedTime);
-            setTotalTime(totalTime)
-            // console.log(time)
+            setTime(elapsedTime);
+            console.log(time)
             
-            // min === 60 &&  
-           if(min === 60){
-                elapsedTime = 0;
-
-                hrs += 1;
-            }
-        console.log(totalTime)
+            min === 60 && hrs ++
 
             setTimer(
-                <span>{hrs < 10 ? "0" + hrs : hrs}:{min < 10 ? "0"+ min : min}:{sec < 10 ? "0"+ sec : sec}</span>
+                <span>{hrs < 10 ? "0" + hrs: hrs}:{min < 10 ? "0"+ min : min}:{sec < 10 ? "0"+ sec : sec}</span>
             )          
                       
-        },1))
+        },1000))
     }
         // setTimeInterval(coutnInterval)
         // coutnInterval()
         // !isCounter && clearInterval(coutnInterval)
     
-    // console.log(time)
+    console.log(time)
  
     //   function timerToCount (){
     //     // const {minutes, seconds, hours} = data
@@ -89,42 +79,25 @@ const TimerToCount = () => {
     //   }
       
     function resume(){
-        let hrs = 0;
+        let hrs = 0
         let min = 0;
         let sec = 0;
-        let timeCount = 0
-
-        let elapsedTime = totalTime
+        
+        let elapsedTime = time
         
         setTimeInterval(setInterval(() => {
             elapsedTime ++
-            timeCount ++
-
-            min = Math.floor((elapsedTime)/60);
-            sec = Math.floor((elapsedTime)%60);
-
-            // setTime(elapsedTime);
-            setTotalTime(timeCount)
-            // console.log(time)
-            
-            // min === 60 &&  
-           if(min === 60){
-                elapsedTime = 0;
-
-                hrs += 1;
-            }
-        console.log(totalTime)
-
-            setTimer(
-                <span>{hrs < 10 ? "0" + hrs : hrs}:{min < 10 ? "0"+ min : min}:{sec < 10 ? "0"+ sec : sec}</span>
-            )          
-                      
-        },1))
+            min = parseInt((elapsedTime)/60);
+            sec = parseInt((elapsedTime)%60);
+          
+            setTimer(<span>{hrs < 10 ? "0" + hrs: hrs}:{min < 10 ? "0"+ min : min}:{sec < 10 ? "0"+ sec : sec}</span>)          
+                    
+        },1000))
             // countInterval()
         setCountIntervalResume('vai')
     }
         
-    // console.log(countIntervalResume)
+    console.log(countIntervalResume)
 
     function pauseTimer(){
         // isCounter && setIsCounter(!isCounter)
