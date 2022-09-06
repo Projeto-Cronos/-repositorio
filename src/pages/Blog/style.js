@@ -279,6 +279,7 @@ export const Main = styled.main`
 
         height: 100%;
         display: flex;
+        gap: 0.3rem;
         flex-direction: column;
         justify-content: space-between;
 
@@ -291,6 +292,11 @@ export const Main = styled.main`
         font-weight: 600;
         font-size: 0.7rem;
         line-height: 12px;
+        color: #2927A6;
+        max-width: 56ch;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         color: ${(props) => props.theme.blue1};
 
@@ -300,15 +306,24 @@ export const Main = styled.main`
     span {
 
         height: 2.5rem;
-        
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-align-items: flex-end;
+        -webkit-box-align: flex-end;
+        -ms-flex-align: flex-end;
         align-items: flex-end;
-
         font-family: 'Montserrat';
         font-style: normal;
         font-weight: 400;
         font-size: 0.7rem;
-        line-height: 12px;
+        line-height: 0.8rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
 
         color: ${(props) => props.theme.grey};
 
