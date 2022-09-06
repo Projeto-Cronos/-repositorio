@@ -11,6 +11,8 @@ export const Section = styled.section`
   background-position: left top;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: ${(props) => props.theme.grey4};
+
   @media (min-width: 768px) {
     gap: 10vw;
   }

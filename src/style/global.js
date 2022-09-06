@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
+
 export const GlobalStyles = createGlobalStyle`
 :root {
     --white:#FFFFFF;
@@ -40,7 +41,6 @@ export const GlobalStyles = createGlobalStyle`
   `;
 
 export const ResetCSS = createGlobalStyle`
-  @tailwind base;
 
   html,main, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -63,9 +63,6 @@ export const ResetCSS = createGlobalStyle`
     vertical-align: baseline;
     scroll-behavior: smooth;
   }
-    @tailwind components;
-    @tailwind utilities;
-  }
 
   article, aside, details, figcaption, figure, 
   footer, header, hgroup, menu, nav, section {
@@ -73,6 +70,7 @@ export const ResetCSS = createGlobalStyle`
   }
   body {
     line-height: 1;
+    
   }
   ::-webkit-scrollbar {
   width: 7px;

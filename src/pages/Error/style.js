@@ -11,6 +11,7 @@ export const ContainerSection = styled.section`
     background-image: url(${background});
     background-repeat:no-repeat;
     background-size:cover;
+    background-color: ${(props) => props.theme.grey4};
     
     .img {
         width: 30%;

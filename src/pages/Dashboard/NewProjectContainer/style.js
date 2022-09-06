@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
-  background-color: var(--white);
+  background-color: ${(props) => props.theme.white};
   width: 100%;
   padding: 10px 20px;
   border-radius: 4px;
@@ -42,12 +42,12 @@ export const StyledContainer = styled.div`
     z-index: 1;
     border-radius: 4px;
     padding: 4px;
-    background-color: var(--white);
+    background-color: ${(props) => props.theme.white};
     box-shadow: 0px 2px 16px rgba(153, 155, 168, 0.12);
   }
 
   button {
-    background: var(--blue-1);
+    background: ${(props) => props.theme.blue1};
     background: transparent;
     padding: 10px 16px;
     border: none;
@@ -55,10 +55,39 @@ export const StyledContainer = styled.div`
     font: inherit;
     font-weight: 500;
     color: white;
-    color: var(--grey-1);
+    color: ${(props) => props.theme.grey1};
 
     :hover {
       /* background-color: var(--blue-2); */
     }
   }
 `;
+
+export const BoxTimer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 18%;
+  .boxTimer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    span{
+
+    }
+  }
+  .boxBtn{
+    display: flex;
+    width: 18%;
+    gap: 20%;
+    button{
+      width: max-content;
+      cursor: pointer;
+      padding: 0;
+      :focus{
+        color: ${(props) => props.theme.orange2};
+      }
+    }
+  }
+`

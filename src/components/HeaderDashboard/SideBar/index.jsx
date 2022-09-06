@@ -6,21 +6,21 @@ import {
   BsGear,
   BsMoon,
   BsBoxArrowRight,
-  BsPerson,
 } from "react-icons/bs";
 import { useContext } from "react";
 import { Context } from "../../../providers/userContext";
 
 const SideBar = ({ isSideBarVisible, username, email }) => {
-
-  const {navigate} = useContext(Context);
+  const { navigate, user, getOpositeTheme, setCurrentTheme } = useContext(Context);
 
   return (
     <Container isSideBarVisible={isSideBarVisible}>
       <div className="profile">
-        <BsPerson />
-        <h3 className="userName">{username}</h3>
-        <p className="userEmail">{email}</p>
+        <div className="img">
+          <img src={user.image} alt="" />
+        </div>
+        <h3 className="userName">{user.name}</h3>
+        <p className="userEmail">{user.email}</p>
       </div>
       <div className="menu">
         <SideBarButton>
@@ -43,15 +43,17 @@ const SideBar = ({ isSideBarVisible, username, email }) => {
           Configurações
         </SideBarButton>
 
-        <SideBarButton>
+        <SideBarButton onClick={() => setCurrentTheme(getOpositeTheme())}>
           <BsMoon />
-          Tema escuro
+          Tema {getOpositeTheme()}
         </SideBarButton>
 
-        <SideBarButton onClick={() => {
-                        window.localStorage.clear()
-                        navigate("/login")
-                    }}>
+        <SideBarButton
+          onClick={() => {
+            window.localStorage.clear();
+            navigate("/login");
+          }}
+        >
           <BsBoxArrowRight />
           Sair
         </SideBarButton>
