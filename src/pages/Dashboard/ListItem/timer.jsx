@@ -30,7 +30,8 @@ const TimerToCount = () => {
         resolver: yupResolver(schema)
     });
 
-    const intervalRef = useRef()
+    const intervalRef = useRef(0)
+
     function startCount(){
         setIsCounter(!isCounter)
         const time_minutes = 0;
@@ -41,96 +42,69 @@ const TimerToCount = () => {
         let hrs = 0
         let min = 0;
         let sec = 0;
-        let totalTime = 0
+        // let timeCount = 0
         
         let elapsedTime = duration;
 
         setTimeInterval(setInterval(() => {
             elapsedTime ++
-            totalTime ++
+            intervalRef.current ++
 
             min = Math.floor((elapsedTime)/60);
             sec = Math.floor((elapsedTime)%60);
 
             // setTime(elapsedTime);
-            setTotalTime(totalTime)
-            // console.log(time)
-            
-            // min === 60 &&  
-           if(min === 60){
+            setTotalTime(intervalRef.current)
+            // intervalRef = timeCount
+           if(min >= 60){
                 elapsedTime = 0;
 
                 hrs += 1;
             }
-        console.log(totalTime)
 
             setTimer(
                 <span>{hrs < 10 ? "0" + hrs : hrs}:{min < 10 ? "0"+ min : min}:{sec < 10 ? "0"+ sec : sec}</span>
             )          
                       
         },1))
-    }
-        // setTimeInterval(coutnInterval)
-        // coutnInterval()
-        // !isCounter && clearInterval(coutnInterval)
-    
-    // console.log(time)
- 
-    //   function timerToCount (){
-    //     // const {minutes, seconds, hours} = data
-    //     setIsCounter(!isCounter)
-    //     const time_minutes = 0;
-    //     const time_seconds = 0; 
-        
-    //     const duration = (time_minutes*60) + time_seconds
-    //     // console.log(duration )
-        
-    //     startCount(duration)
-    //   }
-      
+    }    
+console.log(intervalRef)
     function resume(){
         let hrs = 0;
         let min = 0;
         let sec = 0;
-        let timeCount = 0
+        // let timeCount = intervalRef.current
 
-        let elapsedTime = totalTime
-        
+        let elapsedTime = intervalRef.current
+        console.log(intervalRef)
         setTimeInterval(setInterval(() => {
             elapsedTime ++
-            timeCount ++
+            intervalRef.current ++
+            // console.log(elapsedTime)
 
             min = Math.floor((elapsedTime)/60);
             sec = Math.floor((elapsedTime)%60);
 
             // setTime(elapsedTime);
-            setTotalTime(timeCount)
-            // console.log(time)
-            
-            // min === 60 &&  
-           if(min === 60){
+            setTotalTime(elapsedTime)
+            // intervalRef = timeCount
+           if(min >= 60){
                 elapsedTime = 0;
 
                 hrs += 1;
             }
-        console.log(totalTime)
+        // console.log(totalTime)
 
             setTimer(
                 <span>{hrs < 10 ? "0" + hrs : hrs}:{min < 10 ? "0"+ min : min}:{sec < 10 ? "0"+ sec : sec}</span>
             )          
-                      
         },1))
-            // countInterval()
         setCountIntervalResume('vai')
     }
         
-    // console.log(countIntervalResume)
-
     function pauseTimer(){
-        // isCounter && setIsCounter(!isCounter)
-          
+          setIsPause(!isPause)
         clearInterval(timeInterval)
-        // isCounter && setIsPause(!isPause)
     }
         
     function pauseResume(){
@@ -167,7 +141,7 @@ const TimerToCount = () => {
                 </button>      
             }
             {
-                !isPause &&
+                
                 <button 
                     onClick={(e) =>{
                         e.preventDefault();
