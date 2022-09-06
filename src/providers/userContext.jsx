@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 export const Context = createContext();
 
 const ProviderUser = ({ children }) => {
+  const token = JSON.parse(window.localStorage.getItem("authToken"))
+  const user = JSON.parse(window.localStorage.getItem("authUser"))
   const [eyeClickLogin, setEyeClickLogin] = useState(false);
   const [eyeClickRegister, setEyeClickRegister] = useState(false);
   const [eyeClickRegisterConfirmed, setEyeClickRegisterConfirmed] =
@@ -117,7 +119,9 @@ const ProviderUser = ({ children }) => {
         calculation,
         setCalculation,
         result,
-        setResult
+        setResult,
+        token,
+        user
       }}
     >
       {children}

@@ -1,9 +1,11 @@
-function Projects() {
  
+  function Projects() {
+
+  
     return (
         <>
         </>
-    )
-}
-
-export default Projects
+    );
+  }
+  
+  export default Projects;

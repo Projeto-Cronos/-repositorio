@@ -8,8 +8,13 @@ import {
   BsBoxArrowRight,
   BsPerson,
 } from "react-icons/bs";
+import { useContext } from "react";
+import { Context } from "../../../providers/userContext";
 
 const SideBar = ({ isSideBarVisible, username, email }) => {
+
+  const {navigate} = useContext(Context);
+
   return (
     <Container isSideBarVisible={isSideBarVisible}>
       <div className="profile">
@@ -43,7 +48,10 @@ const SideBar = ({ isSideBarVisible, username, email }) => {
           Tema escuro
         </SideBarButton>
 
-        <SideBarButton>
+        <SideBarButton onClick={() => {
+                        window.localStorage.clear()
+                        navigate("/login")
+                    }}>
           <BsBoxArrowRight />
           Sair
         </SideBarButton>
