@@ -7,7 +7,7 @@ export const StyledListItem = styled.li`
   width: 100%;
   padding: 10px 20px;
   border-radius: 4px;
-  background-color: var(--white);
+  background-color: ${(props) => props.theme.white};
   box-shadow: 0px 2px 16px rgba(153, 155, 168, 0.12);
   cursor: pointer;
 

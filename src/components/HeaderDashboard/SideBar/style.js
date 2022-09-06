@@ -11,7 +11,7 @@ export const Container = styled.div`
   width: 280px;
   top: 64px;
   left: ${(props) => (props.isSideBarVisible ? "0" : "-100%")};
-  background-color: var(--white);
+  background-color: ${(props) => props.theme.white};
   box-shadow: 0px 20px 32px rgba(0, 0, 0, 0.25);
   animation: showSidebar 0.4s;
 
@@ -24,6 +24,20 @@ export const Container = styled.div`
       opacity: 1;
       transform: translateX(0);
     }
+  }
+  .img {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    clip-path: circle(50% at 50% 50%);
+    width:108px;
+    height:108px;
+    background-color:red;
+  }
+  .img img {
+    width:188.925px;
+    clip-path: circle(50% at 50% 50%);
   }
 
   .menu {
@@ -47,12 +61,12 @@ export const Container = styled.div`
     h3 {
       font-size: 22px;
       font-weight: 500;
-      color: var(--grey-1);
+      color: ${(props) => props.theme.grey2};
     }
 
     p {
       font-size: 14px;
-      color: var(--grey-2);
+      color: ${(props) => props.theme.grey2};
     }
   }
 `;
@@ -64,7 +78,7 @@ export const SideBarButton = styled.button`
   font-family: "Inter", sans-serif;
   font-size: 18px;
   font-weight: 500;
-  color: var(--black);
+  color: ${(props) => props.theme.black};
   background-color: transparent;
   border: none;
   cursor: pointer;

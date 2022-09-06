@@ -26,7 +26,7 @@ const lightTheme = {
     grey1: "#383838",
     grey2: "#9e9689",
     grey3: "#FAFAFA",
-    grey4: "#F4F4F4",
+    grey4: "#180a1b",
     grey5: "#D9D9D9",
     orange1: "#bf4c07",
     orange2: "#b22f14",
@@ -41,7 +41,7 @@ const lightTheme = {
   };
   
   export const themes = {
-    light: lightTheme,
-    dark: darkTheme,
+    claro: lightTheme,
+    escuro: darkTheme,
   };
   

@@ -1,11 +1,16 @@
 import styled from "styled-components";
+import background from "../../assets/image/background-dashboard.svg";
 
 export const DashboardMain = styled.main`
-  background-color: var(--grey-4);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url(${background});
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: ${(props) => props.theme.grey4};
   gap: 30px;
   width: 100%;
   min-height: 100vh;

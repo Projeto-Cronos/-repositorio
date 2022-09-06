@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
-  background-color: var(--white);
+  background-color: ${(props) => props.theme.white};
   width: 100%;
   padding: 10px 20px;
   border-radius: 4px;
@@ -42,12 +42,12 @@ export const StyledContainer = styled.div`
     z-index: 1;
     border-radius: 4px;
     padding: 4px;
-    background-color: var(--white);
+    background-color: ${(props) => props.theme.white};
     box-shadow: 0px 2px 16px rgba(153, 155, 168, 0.12);
   }
 
   button {
-    background: var(--blue-1);
+    background: ${(props) => props.theme.blue1};
     background: transparent;
     padding: 10px 16px;
     border: none;
@@ -55,7 +55,7 @@ export const StyledContainer = styled.div`
     font: inherit;
     font-weight: 500;
     color: white;
-    color: var(--grey-1);
+    color: ${(props) => props.theme.grey1};
 
     :hover {
       /* background-color: var(--blue-2); */
@@ -85,7 +85,7 @@ export const BoxTimer = styled.div`
       cursor: pointer;
       padding: 0;
       :focus{
-        color: var(--orange-2);
+        color: ${(props) => props.theme.orange2};
       }
     }
   }

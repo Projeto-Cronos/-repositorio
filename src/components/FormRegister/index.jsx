@@ -44,7 +44,7 @@ function FormRegister() {
         <Form onSubmit={handleSubmit(registerUser)}>
         <Title>Cadastre-se</Title>
         <div className="containerInput">
-          <Label htmlFor="text">Nome</Label>
+    <Label htmlFor="text">Nome</Label>
           <div className="contentInput">
             <Input
               type="text"
