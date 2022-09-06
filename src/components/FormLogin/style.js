@@ -31,6 +31,10 @@ export const Form = styled.form`
   background: var(--white);
   box-shadow: 0px 4px 40px -10px var(--shadow);
 
+  .cursor {
+    cursor:pointer;
+  }
+
   .dropdown {
     position: relative;
     display: inline-block;
@@ -192,6 +196,7 @@ export const ButtonOrange = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  cursor:pointer;
   align-items: center;
   width: 91%;
   height: 7.3vh;
@@ -228,7 +233,7 @@ export const ParagraphQuestion = styled.p`
   font-weight: 600;
   font-size: 3.8vw;
   line-height: 4.5vw;
-  color: var(--gray-1);
+  color: var(--grey-1);
   margin-top: 3vw;
   text-align: center;
   font-family: "Jura", sans-serif;

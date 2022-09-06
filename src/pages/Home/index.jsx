@@ -11,8 +11,16 @@ import Footer from "../../components/Footer";
 import { ArrowDownCircle, Gear, Calculator, Pen } from "react-bootstrap-icons";
 import Home1 from "../../assets/image/Home1.jpg";
 import Home2 from "../../assets/image/Home2.jpg";
+import { useContext } from "react";
+import { Context } from "../../providers/userContext";
 
 function Home() {
+
+  const {  token, navigate} = useContext(Context);
+
+  if(token) {
+    setTimeout(() => {navigate("/dashboard")}, 100)
+}else {
   return (
     <motion.div
       initial={{ opacity: 0.75 }}
@@ -150,6 +158,7 @@ function Home() {
       </>
     </motion.div>
   );
+}
 }
 
 export default Home;

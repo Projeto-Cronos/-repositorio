@@ -1,10 +1,16 @@
 import { Main, Section } from "./style";
 import { motion } from "framer-motion";
 import Header from "../../components/Header";
-
+import { useContext } from "react";
+import { Context } from "../../providers/userContext";
 import imgTest from "../../img/teste.jpg";
 
 function Blog() {
+  const {  token, navigate} = useContext(Context);
+
+  if(token) {
+    setTimeout(() => {navigate("/dashboard")}, 100)
+}else {
   return (
     <motion.div
       initial={{ opacity: 0.75 }}
@@ -97,6 +103,7 @@ function Blog() {
       </>
     </motion.div>
   );
+}
 }
 
 export default Blog;

@@ -43,7 +43,7 @@ function FormLogin() {
             {...register("email")}
           />
           {errors.email?.message ? (
-            <button type="button" className="alert dropdown">
+            <button type="button" className="alert dropdown" disabled>
               {errors.email?.message ? (
                 <>
                   <BsExclamationCircle />
@@ -54,7 +54,7 @@ function FormLogin() {
               ) : null}
             </button>
           ) : (
-            <button type="button" className="fixed">
+            <button type="button" className="fixed" disabled>
               <BsFillPersonFill />
             </button>
           )}
@@ -70,7 +70,7 @@ function FormLogin() {
               {...register("password")}
             />
             {errors.password?.message ? (
-              <button type="button" className="alert dropdown">
+              <button type="button" className="alert dropdown" disabled>
                 {errors.password?.message ? (
                   <>
                     <BsExclamationCircle />
@@ -81,7 +81,7 @@ function FormLogin() {
                 ) : null}
               </button>
             ) : (
-              <button type="button" className="fixed">
+              <button type="button" className="fixed cursor" disabled>
                 <BsFillEyeFill
                   onClick={(e) => handleClickLogin(e.preventDefault())}
                 />
@@ -96,11 +96,11 @@ function FormLogin() {
               {...register("password")}
             />
             {errors.password?.message ? (
-              <button type="button" className="alert dropdown">
+              <button type="button" className="alert dropdown" disabled>
                 {errors.password?.message ? <BsExclamationCircle /> : "eaghrh"}
               </button>
             ) : (
-              <button type="button" className="fixed">
+              <button type="button" className="fixed cursor" disabled>
                 <BsFillEyeSlashFill
                   onClick={(e) => handleClickLogin(e.preventDefault())}
                 />
