@@ -62,6 +62,7 @@ export const StyledContainer = styled.div`
     }
   }
 `;
+
 export const BoxTimer = styled.div`
   display: flex;
   justify-content: space-around;
