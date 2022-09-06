@@ -75,7 +75,7 @@ export const StyledHeader = styled.header`
         text-decoration:none;
         text-transform: uppercase;
         font-family: 'Jura', sans-serif;
-        color: var(--black);
+        color: ${(props) => props.theme.black};
         font-weight: 600;
         font-size: 1.3vw;
     }

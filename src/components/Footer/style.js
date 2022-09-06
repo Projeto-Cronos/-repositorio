@@ -5,7 +5,7 @@ export const StyledFooter = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: var(--orange-1);
+  background-color: ${(props) => props.theme.orange1};
 
   .FooterHome {
     display: flex;
@@ -25,7 +25,7 @@ export const StyledFooter = styled.div`
     padding-right: 2vw;
   }
   @media (min-width: 768px) {
-    background-color: var(--white);
+    background-color: ${(props) => props.theme.white};
     .FooterHome {
       width: 78%;
     }
@@ -38,7 +38,7 @@ export const StyledFooter = styled.div`
     }
   }
   @media (min-width: 1024px) {
-    background-color: var(--white);
+    background-color: ${(props) => props.theme.white};
     .FooterHome {
       width: 78%;
     }
@@ -49,6 +49,7 @@ export const StyledFooter = styled.div`
 
     .Copyright {
       font-size: 12px;
+      color: ${(props) => props.theme.black};
     }
   }
 `;

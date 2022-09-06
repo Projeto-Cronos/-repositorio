@@ -1,27 +1,25 @@
-
 import Api from "../services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import loadingAnimated from "../assets/animation/VAPGxWYypp.json";
 import loadingAnimatedOne from "../assets/animation/DHYuRhgDuA.json";
-import { createContext, useState } from "react";
+import { createContext, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Context = createContext();
 
 const ProviderUser = ({ children }) => {
-  const token = JSON.parse(window.localStorage.getItem("authToken"))
-  const user = JSON.parse(window.localStorage.getItem("authUser"))
+  const token = JSON.parse(window.localStorage.getItem("authToken"));
+  const user = JSON.parse(window.localStorage.getItem("authUser"));
   const [eyeClickLogin, setEyeClickLogin] = useState(false);
   const [eyeClickRegister, setEyeClickRegister] = useState(false);
   const [eyeClickRegisterConfirmed, setEyeClickRegisterConfirmed] =
     useState(false);
   const navigate = useNavigate();
-
-    const [valuePerMinute, setValuePerMinute] = useState(0);
-    const [calculation, setCalculation] = useState(0);
-    const [result, setResult]           = useState(false);
-
+  const [valuePerMinute, setValuePerMinute] = useState(0);
+  const [calculation, setCalculation] = useState(0);
+  const [result, setResult] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState("claro");
 
   const handleClickLogin = () => {
     setEyeClickLogin(!eyeClickLogin);
@@ -99,6 +97,13 @@ const ProviderUser = ({ children }) => {
     },
   };
 
+  //DarkTheme
+
+  const getOpositeTheme = useCallback(
+    () => (currentTheme === "claro" ? "escuro" : "claro"),
+    [currentTheme]
+  );
+
   return (
     <Context.Provider
       value={{
@@ -121,7 +126,10 @@ const ProviderUser = ({ children }) => {
         result,
         setResult,
         token,
-        user
+        user,
+        currentTheme, 
+        setCurrentTheme,
+        getOpositeTheme
       }}
     >
       {children}

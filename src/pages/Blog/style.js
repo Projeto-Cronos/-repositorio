@@ -17,7 +17,7 @@ export const Main = styled.main`
     width: 100%;
     height: 100%;
 
-    background-color: #ffff;
+    background-color: ${(props) => props.theme.white};
 
     display: flex;
     flex-direction: column;
@@ -176,7 +176,7 @@ export const Main = styled.main`
         font-weight: 500;
         font-size: 1.3rem;
 
-        color: #2927A6;
+        color: ${(props) => props.theme.blue1};
 
     }
 
@@ -292,7 +292,7 @@ export const Main = styled.main`
         font-size: 0.7rem;
         line-height: 12px;
 
-        color: #2927A6;
+        color: ${(props) => props.theme.blue1};
 
 
     }
@@ -310,7 +310,7 @@ export const Main = styled.main`
         font-size: 0.7rem;
         line-height: 12px;
 
-        color: #383838;
+        color: ${(props) => props.theme.grey};
 
     }
 
@@ -323,7 +323,7 @@ export const Main = styled.main`
         line-height: 12px;
         text-decoration: none;
 
-        color: #F66813;
+        color: ${(props) => props.theme.orange1};
 
     }
 

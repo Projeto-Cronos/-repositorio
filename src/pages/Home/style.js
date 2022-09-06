@@ -10,6 +10,7 @@ export const Section = styled.section`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: ${(props) => props.theme.grey4};
 `;
 
 export const HeaderContent = styled.div`
@@ -39,7 +40,7 @@ export const HeaderContent = styled.div`
     text-align: left;
     letter-spacing: -1.2385px;
 
-    color: #fafafa;
+    color: ${(props) => props.theme.grey3};
 
     left: 167px;
     top: 459px;
@@ -58,7 +59,7 @@ export const SecondSection = styled.section`
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  background: #fff;
+  background: ${(props) => props.theme.white};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -82,7 +83,7 @@ export const SecondSection = styled.section`
   }
 
   .CronosP {
-    color: #f66813;
+    color: ${(props) => props.theme.orange1};
     text-align: center;
     font-weight: 600;
   }
@@ -177,14 +178,14 @@ export const Scroll = styled.div`
     width: 146px;
     font-size: 20px;
     line-height: 42px;
-    color: #fff;
+    color: ${(props) => props.theme.white};
     border-radius: 100%;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
   }
 
   .Smoothscroll:hover {
-    color: #f66813;
+    color: ${(props) => props.theme.orange1};
   }
 
   i {
@@ -209,7 +210,7 @@ export const Scroll = styled.div`
     top: 30px;
     bottom: -53px;
     border-radius: 50%;
-    border: 2px solid #f66813;
+    border: 2px solid ${(props) => props.theme.orange1};
     animation: animar 2s infinite;
   }
 
@@ -233,7 +234,7 @@ export const LastSection = styled.section`
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  background-color: #f66813;
+  background-color: ${(props) => props.theme.orange1};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -251,7 +252,7 @@ export const LastSection = styled.section`
     text-align: center;
     padding-top: 30px;
     font-weight: 500;
-    color: #fff;
+    color: ${(props) => props.theme.white};
   }
 
   .LastSectionP {
@@ -262,7 +263,7 @@ export const LastSection = styled.section`
     text-align: center;
     padding-top: 13px;
     justify-content: center;
-    color: #fff;
+    color: ${(props) => props.theme.white};
   }
 
   .Resources {
@@ -287,15 +288,15 @@ export const LastSection = styled.section`
     margin-top: 50px;
     float: left;
     margin-left: 10px;
-    background-color: #fff;
+    background-color: ${(props) => props.theme.white};
     border-radius: 50px;
     padding: 28px 0 0 27px;
-    color: #2927a6;
+    color: ${(props) => props.theme.blue1};
   }
 
   .Div1 h3 {
     text-align: center;
-    color: #fff;
+    color: ${(props) => props.theme.white};
     font-family: inter;
     font-size: 24px;
     font-weight: 600;
@@ -303,7 +304,7 @@ export const LastSection = styled.section`
 
   .Div1 p {
     text-align: center;
-    color: #fff;
+    color: ${(props) => props.theme.white};
     font-family: inter;
     font-size: 14px;
   }
@@ -321,15 +322,15 @@ export const LastSection = styled.section`
     margin-top: 50px;
     float: left;
     margin-left: 10px;
-    background-color: #fff;
+    background-color: ${(props) => props.theme.white};
     border-radius: 50px;
     padding: 28px 0 0 27px;
-    color: #2927a6;
+    color: ${(props) => props.theme.blue2};
   }
 
   .Div2 h3 {
     text-align: center;
-    color: #fff;
+    color: ${(props) => props.theme.white};
     font-family: inter;
     font-size: 24px;
     font-weight: 600;
@@ -337,7 +338,7 @@ export const LastSection = styled.section`
 
   .Div2 p {
     text-align: center;
-    color: #fff;
+    color: ${(props) => props.theme.white};
     font-family: inter;
     font-size: 14px;
   }
@@ -355,15 +356,15 @@ export const LastSection = styled.section`
     margin-top: 50px;
     float: left;
     margin-left: 10px;
-    background-color: #fff;
+    background-color: ${(props) => props.theme.white};
     border-radius: 50px;
     padding: 28px 0 0 27px;
-    color: #2927a6;
+    color: ${(props) => props.theme.blue2};
   }
 
   .Div3 h3 {
     text-align: center;
-    color: #fff;
+    color: ${(props) => props.theme.white};
     font-family: inter;
     font-size: 24px;
     font-weight: 600;
@@ -371,7 +372,7 @@ export const LastSection = styled.section`
 
   .Div3 p {
     text-align: center;
-    color: #fff;
+    color: ${(props) => props.theme.white};
     font-family: inter;
     font-size: 14px;
   }
