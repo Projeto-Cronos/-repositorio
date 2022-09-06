@@ -1,9 +1,11 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import Api from "../services/api";
 
 export const ProjectsContext = createContext({});
 
 const ProjectsProvider = ({ children }) => {
+  const [allProjects, setAllProjects] = useState([]);
+
   const getAllProjects = async () => {
     const userId = window.localStorage.getItem("authId");
     console.log(userId);
@@ -12,7 +14,7 @@ const ProjectsProvider = ({ children }) => {
     if (token) Api.defaults.headers.common.Authorization = token;
 
     const data = await Api.get(`/users/${userId}/projects`)
-      .then((res) => res.data)
+      .then((res) => setAllProjects(res.data))
       .catch((err) => console.error(err));
 
     return data;
@@ -65,6 +67,7 @@ const ProjectsProvider = ({ children }) => {
   return (
     <ProjectsContext.Provider
       value={{
+        allProjects,
         getAllProjects,
         getProject,
         createProject,
