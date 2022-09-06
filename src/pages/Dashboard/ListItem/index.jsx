@@ -1,8 +1,8 @@
 import { BsTrash } from "react-icons/bs";
 import ListColumn from "../ListColumn";
 import ListSmallColumn from "../ListSmallColumn";
-import { StyledListItem } from "./style";
-
+import { StyledListItem, BoxTimer } from "./style";
+import TimerToCount from "./timer";
 const ListItem = ({
   projectName,
   startDate,
@@ -33,9 +33,12 @@ const ListItem = ({
         <input type="text" value={pricePerHour} />
       </ListColumn>
 
-      <ListColumn borderColor="red">
-        <input type="text" value={stopwatch} />
-      </ListColumn>
+      {/* <ListColumn borderColor="red"> */}
+      <BoxTimer className="boxTimer">
+          <TimerToCount/>
+        </BoxTimer>
+        {/* <input type="text" value={stopwatch} /> */}
+      {/* </ListColumn> */}
 
       <ListSmallColumn>
         <BsTrash />

@@ -26,3 +26,41 @@ export const StyledListItem = styled.li`
     width: 100%;
   }
 `;
+export const BoxTimer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 12%;
+  .boxTimer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    span{
+
+    }
+  }
+  .boxBtn{
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    /* gap: 20%; */
+    button{
+      width: max-content;
+      cursor: pointer;
+      background: transparent;
+      padding: 0;
+
+    border: none;
+    font: inherit;
+    font-weight: 500;
+    color: var(--grey-1);
+
+
+
+      :focus{
+        color: var(--orange-2);
+      }
+    }
+  }
+`

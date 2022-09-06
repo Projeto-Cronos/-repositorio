@@ -62,31 +62,3 @@ export const StyledContainer = styled.div`
     }
   }
 `;
-export const BoxTimer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 18%;
-  .boxTimer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25%;
-    span{
-
-    }
-  }
-  .boxBtn{
-    display: flex;
-    width: 18%;
-    gap: 20%;
-    button{
-      width: max-content;
-      cursor: pointer;
-      padding: 0;
-      :focus{
-        color: var(--orange-2);
-      }
-    }
-  }
-`
