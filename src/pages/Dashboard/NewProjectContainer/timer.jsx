@@ -58,7 +58,7 @@ const TimerToCount = () => {
                 <span>{hrs < 10 ? "0" + hrs: hrs}:{min < 10 ? "0"+ min : min}:{sec < 10 ? "0"+ sec : sec}</span>
             )          
                       
-        },1000))
+        },10))
     }
         // setTimeInterval(coutnInterval)
         // coutnInterval()
@@ -79,7 +79,7 @@ const TimerToCount = () => {
     //   }
       
     function resume(){
-        let hrs = 0
+        let hrs = 0;
         let min = 0;
         let sec = 0;
         
@@ -90,9 +90,13 @@ const TimerToCount = () => {
             min = parseInt((elapsedTime)/60);
             sec = parseInt((elapsedTime)%60);
           
+            setTime(elapsedTime);
+
+            min === 60 && hrs ++
+
             setTimer(<span>{hrs < 10 ? "0" + hrs: hrs}:{min < 10 ? "0"+ min : min}:{sec < 10 ? "0"+ sec : sec}</span>)          
                     
-        },1000))
+        },10))
             // countInterval()
         setCountIntervalResume('vai')
     }
