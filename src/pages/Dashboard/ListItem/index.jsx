@@ -2,7 +2,11 @@ import { BsTrash } from "react-icons/bs";
 import ListColumn from "../ListColumn";
 import ListSmallColumn from "../ListSmallColumn";
 import { StyledListItem, BoxTimer } from "./style";
+
+import { useContext } from "react";
+import { Context } from "../../../providers/userContext";
 import TimerToCount from "../../../components/Timer";
+
 const ListItem = ({
   projectName,
   startDate,
@@ -11,6 +15,7 @@ const ListItem = ({
   pricePerHour,
   stopwatch,
 }) => {
+  const { showDropdownDelete } = useContext(Context);
   return (
     <StyledListItem>
       <ListColumn borderColor="blue">
@@ -41,7 +46,9 @@ const ListItem = ({
       {/* </ListColumn> */}
 
       <ListSmallColumn>
-        <BsTrash />
+        <button onClick={showDropdownDelete}>
+          <BsTrash />
+        </button>
       </ListSmallColumn>
     </StyledListItem>
   );
