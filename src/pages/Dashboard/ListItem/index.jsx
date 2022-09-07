@@ -2,8 +2,10 @@ import { BsTrash } from "react-icons/bs";
 import ListColumn from "../ListColumn";
 import ListSmallColumn from "../ListSmallColumn";
 import { StyledListItem, BoxTimer } from "./style";
-import TimerToCount from "../../../components/Timer";
+
 import { useContext } from "react";
+import { Context } from "../../../providers/userContext";
+import TimerToCount from "../../../components/Timer";
 import { ProjectsContext } from "../../../providers/projectsContext";
 
 const ListItem = ({
@@ -17,6 +19,7 @@ const ListItem = ({
 }) => {
   const { deleteProject } = useContext(ProjectsContext);
 
+  const { showDropdownDelete } = useContext(Context);
   return (
     <StyledListItem>
       <ListColumn borderColor="blue">
@@ -46,7 +49,9 @@ const ListItem = ({
       </ListColumn>
 
       <ListSmallColumn>
-        <BsTrash />
+        <button onClick={showDropdownDelete}>
+          <BsTrash />
+        </button>
       </ListSmallColumn>
     </StyledListItem>
   );

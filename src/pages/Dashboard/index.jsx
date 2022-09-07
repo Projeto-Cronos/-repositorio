@@ -6,8 +6,10 @@ import ListItem from "./ListItem";
 import ListBody from "./ListBody";
 import ProjectList from "./ProjectList";
 import { useContext, useEffect } from "react";
-import { Context } from "../../providers/userContext";
 import { ProjectsContext } from "../../providers/projectsContext";
+import { Context } from "../../providers/userContext";
+import ModalEdit from "./Modal/ModalEdit";
+import ModalDelete from "./Modal/ModalDelete";
 
 function Dashboard() {
   const { navigate, token } = useContext(Context);
@@ -87,6 +89,8 @@ function Dashboard() {
               )}
             </ListBody>
           </ProjectList>
+          <ModalEdit />
+          <ModalDelete />
         </DashboardMain>
       </>
     );

@@ -353,7 +353,33 @@ const dataBase = {
                 "value": 19250.50,
                 "language":"HCL"
             }
-        ]   
+        ],
+        
+    },
+    salary_by_level : {
+        "level_values": [
+            {
+                "value": 1744.24,
+                "level":"Estágio"
+            },
+            {
+                "value": 3658.92,
+                "level":"Júnior"
+            },
+            {
+                "value": 7387.42,
+                "level": "Pleno"
+            },
+            {
+                "value": 14399.49,
+                "level": "Sênior"
+            },
+            {
+                "value": 13012.34,
+                "level": "Outro"
+            }
+        ] 
     }
 }
+
 export default dataBase;

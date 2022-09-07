@@ -3,8 +3,9 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import loadingAnimated from "../assets/animation/VAPGxWYypp.json";
 import loadingAnimatedOne from "../assets/animation/DHYuRhgDuA.json";
-import { createContext, useState, useCallback } from "react";
+import { createContext, useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import ApiNews from "../services/apiNews";
 
 export const Context = createContext();
 
@@ -13,6 +14,9 @@ const ProviderUser = ({ children }) => {
   const user = JSON.parse(window.localStorage.getItem("authUser"));
   const [eyeClickLogin, setEyeClickLogin] = useState(false);
   const [eyeClickRegister, setEyeClickRegister] = useState(false);
+
+  const [dropDownDelete, setDropdownDelete] = useState("none");
+  const [dropDownEdit, setDropdownEdit] = useState("none");
   const [eyeClickRegisterConfirmed, setEyeClickRegisterConfirmed] =
     useState(false);
   const navigate = useNavigate();
@@ -21,6 +25,7 @@ const ProviderUser = ({ children }) => {
   const [totalTime, setTotalTime] = useState(0);
   const [result, setResult] = useState(false);
   const [currentTheme, setCurrentTheme] = useState("claro");
+  const [userProfile, setUserProfile] = useState(user);
 
   const handleClickLogin = () => {
     setEyeClickLogin(!eyeClickLogin);
@@ -41,7 +46,9 @@ const ProviderUser = ({ children }) => {
       .then((res) => {
         if (res.status === 200) {
           notifyLoginSuccess("Conta logada com sucesso!");
-          window.localStorage.clear();
+          window.localStorage.removeItem("authUser");
+          window.localStorage.removeItem("authId");
+          window.localStorage.removeItem("authToken");
           window.localStorage.setItem(
             "authUser",
             JSON.stringify(res.data.user)
@@ -55,6 +62,7 @@ const ProviderUser = ({ children }) => {
             JSON.stringify(res.data.accessToken)
           );
           navigate("/dashboard");
+          setUserProfile(res.data.user);
         } else {
           return null;
         }
@@ -72,6 +80,52 @@ const ProviderUser = ({ children }) => {
           : null
       )
       .catch(() => notifyLoginError("E-mail já existente"));
+  };
+
+  //Dashboard
+  const editProfile = (data) => {
+    Api.patch(`/users/${user.id}`, data, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => {
+        setDropdownEdit("none");
+        notifyLoginSuccess("Perfil editado com sucesso!");
+        localStorage.removeItem("authUser");
+        localStorage.setItem("authUser", JSON.stringify(res.data));
+        setUserProfile(res.data);
+      })
+      .catch(() => {
+        notifyLoginError("Ops! Algo deu errado");
+      });
+  };
+
+  const deleteProject = (id) => {
+    Api.delete(`/projects/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then(() => {
+        setDropdownDelete("none");
+        notifyLoginSuccess("Projeto deletado com sucesso!");
+      })
+      .catch(() => {
+        notifyLoginError("Ops! Algo deu errado");
+      });
+  };
+
+  const showDropdownDelete = () => {
+    setDropdownDelete("flex");
+  };
+
+  const closeDropdownDelete = () => {
+    setDropdownDelete("none");
+  };
+
+  const showDropdownEdit = () => {
+    setDropdownEdit("flex");
+  };
+
+  const closeDropdownEdit = () => {
+    setDropdownEdit("none");
   };
 
   //Lottie
@@ -105,6 +159,26 @@ const ProviderUser = ({ children }) => {
     [currentTheme]
   );
 
+  useEffect(() => {
+    const themeMain = window.localStorage.getItem("authTheme");
+    if (themeMain) {
+      setCurrentTheme(themeMain === "claro" ? "escuro" : "claro");
+    }
+  }, []);
+
+  //Blog
+  const [listNews, setListNews] = useState([]);
+  useEffect(() => {
+    ApiNews.get("", {
+      headers: {
+        "X-RapidAPI-Key": "640a561322mshf0c98926cbaf968p111e5ejsn08e0e943de10",
+        "X-RapidAPI-Host": "free-news.p.rapidapi.com",
+      },
+    }).then((res) => {
+      setListNews(res.data.articles);
+    });
+  }, []);
+
   return (
     <Context.Provider
       value={{
@@ -131,8 +205,18 @@ const ProviderUser = ({ children }) => {
         currentTheme,
         setCurrentTheme,
         getOpositeTheme,
+        showDropdownDelete,
+        closeDropdownDelete,
+        showDropdownEdit,
+        closeDropdownEdit,
+        dropDownDelete,
+        dropDownEdit,
+        editProfile,
+        userProfile,
+        deleteProject,
         totalTime,
         setTotalTime,
+        listNews,
       }}
     >
       {children}
