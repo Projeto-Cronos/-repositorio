@@ -16,6 +16,7 @@ export const Main = styled.main`
 
     width: 100%;
     height: 100%;
+    
 
     background-color: ${(props) => props.theme.white};
 
@@ -27,6 +28,7 @@ export const Main = styled.main`
         width: 80%;
         height: 88%;
         margin: auto;
+        box-shadow: 0px 4px 32px 0px #00000040;
 
         gap: 1rem;
 
@@ -259,8 +261,8 @@ export const Main = styled.main`
 
     .liCardImg {
 
-        width: 84px;
-        height: 70px;   
+        width: 5.25rem;
+        height: 4.4rem;   
 
     }
 
@@ -275,12 +277,58 @@ export const Main = styled.main`
         
     }
 
+    @media screen and (min-width: 768px){
+        
+        .mainCardImg {
+    
+            width: 50%;
+            height: 100%;
+
+        }
+
+    }
+
+    @media screen and (min-width: 1024px){
+        
+        .mainCardImg {
+
+            width: 57rem;
+            height: 15rem;
+
+        }
+
+        .liCardImg {
+            
+            height: 12rem;
+
+        }
+
+        li {
+
+            height: 19rem;
+
+        }
+
+    }
+
     .containerInfo {
 
         height: 100%;
+        width:70%;
         display: flex;
+        gap: 0.3rem;
         flex-direction: column;
         justify-content: space-between;
+
+    }
+
+    @media screen and (min-width: 768px) {
+
+        .containerInfo {
+
+            width: initial;
+
+        }
 
     }
 
@@ -291,6 +339,11 @@ export const Main = styled.main`
         font-weight: 600;
         font-size: 0.7rem;
         line-height: 12px;
+        color: #2927A6;
+        max-width: 56ch;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         color: ${(props) => props.theme.blue1};
 
@@ -300,17 +353,36 @@ export const Main = styled.main`
     span {
 
         height: 2.5rem;
-        
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-align-items: flex-end;
+        -webkit-box-align: flex-end;
+        -ms-flex-align: flex-end;
         align-items: flex-end;
-
         font-family: 'Montserrat';
         font-style: normal;
         font-weight: 400;
         font-size: 0.7rem;
-        line-height: 12px;
+        line-height: 0.8rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
 
         color: ${(props) => props.theme.grey};
+
+    }
+
+    @media screen and (min-width: 768px){
+        
+        span {
+
+            width: 100%;
+
+        }
 
     }
 
