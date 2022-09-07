@@ -33,14 +33,17 @@ const ProjectsProvider = ({ children }) => {
   };
 
   const createProject = async (newProject) => {
-    const token = window.localStorage.getItem("authToken");
-    if (token) Api.defaults.headers.common.Authorization = token;
-
+    const token = JSON.parse(window.localStorage.getItem("authToken"));
+    const userId = window.localStorage.getItem("authId");
+    newProject.userId = Number(userId);
+    if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
+    console.log(Api.defaults.headers);
     const data = await Api.post(`/projects`, newProject)
-      .then((res) => res.data)
+      .then((res) => {
+        getAllProjects();
+        return res.data;
+      })
       .catch((err) => console.error(err));
-
-    return data;
   };
 
   const editProject = async (projectId, editedProject) => {
