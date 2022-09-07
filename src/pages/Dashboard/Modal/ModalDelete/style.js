@@ -74,7 +74,7 @@ export const Form = styled.form`
   font-weight: 500;
   font-size: 3.2vw;
   padding: 8% 4%;
-  color: 0.15vw solid ${(props) => props.theme.black};
+  color: ${(props) => props.theme.black};
   }
   @media (min-width: 768px) {
     border-radius: 0 0 0.5vw 0.5vw;

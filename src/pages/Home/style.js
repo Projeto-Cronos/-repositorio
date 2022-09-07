@@ -16,11 +16,10 @@ export const Section = styled.section`
 export const HeaderContent = styled.div`
   .HeaderTitle {
     height: 404px;
-    width: 382px;
-    left: 167px;
-    top: 125px;
+    width:min-content;
+ 
     border-radius: 0px;
-    font-size: 80px;
+    font-size:30px;
     font-family: "Jura";
     font-weight: 600;
 
@@ -42,8 +41,6 @@ export const HeaderContent = styled.div`
 
     color: ${(props) => props.theme.grey3};
 
-    left: 167px;
-    top: 459px;
     border-radius: 0px;
     font-family: "Jura";
     font-weight: 700;
@@ -58,13 +55,14 @@ export const SecondSection = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: min-content;
   background: ${(props) => props.theme.white};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
   .SecondSectionTitle {
+    width: 100%;
     font-family: "Inter";
     font-size: 44px;
     text-align: center;
@@ -73,6 +71,7 @@ export const SecondSection = styled.section`
   }
 
   .SecondSectionP {
+    width: 100%;
     display: flex;
     flex-direction: row;
     font-family: "Inter";
@@ -83,12 +82,14 @@ export const SecondSection = styled.section`
   }
 
   .CronosP {
+    width: 100%;
     color: ${(props) => props.theme.orange1};
     text-align: center;
     font-weight: 600;
   }
 
   .Content {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -98,7 +99,6 @@ export const SecondSection = styled.section`
     padding: 37px 35px 0 35px;
     row-gap: 0px;
     column-gap: 10px;
-    margin: 0 55px 0 55px;
 
     flex: none;
     order: 1;
@@ -106,35 +106,37 @@ export const SecondSection = styled.section`
   }
 
   .Image1 {
-    width: 380px;
+    width: 100%;
     height: 220px;
   }
 
   .Image1 img {
-    width: 380px;
+    width: 100%;
     height: 220px;
   }
 
   .FirstTopic {
-    width: 400px;
+    width: 100%;
+ 
     height: 240px;
     padding: 30px 2px 3px 32px;
   }
 
   .FirstTopic h2 {
+    width: 100%;
     font-family: "Jura";
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
   }
 
   .FirstContent {
-    width: 380px;
+    width: 100%;
     height: 220px;
     font-size: 14px;
   }
 
   .SecondTopic {
-    width: 400px;
+    width: 100%;
     height: 240px;
     padding: 30px 2px 3px 1px;
   }
@@ -146,18 +148,18 @@ export const SecondSection = styled.section`
   }
 
   .SecondContent {
-    width: 380px;
+    width: 100%;
     height: 220px;
     font-size: 14px;
   }
 
   .Image2 {
-    width: 380px;
+    width: 100%;
     height: 220px;
   }
 
   .Image2 img {
-    width: 380px;
+    width: 100%;
     height: 220px;
   }
 `;
@@ -233,7 +235,7 @@ export const LastSection = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: min-content;
   background-color: ${(props) => props.theme.orange1};
   background-position: center;
   background-repeat: no-repeat;
@@ -247,6 +249,7 @@ export const LastSection = styled.section`
   }
 
   .LastSectionTitle {
+    width: 100%;
     font-family: "Inter";
     font-size: 44px;
     text-align: center;
@@ -256,6 +259,7 @@ export const LastSection = styled.section`
   }
 
   .LastSectionP {
+    width: 100%;
     display: flex;
     flex-direction: row;
     font-family: "Inter";
@@ -268,11 +272,12 @@ export const LastSection = styled.section`
 
   .Resources {
     display: flex;
-    justify-content: space-evenly;
-    width: auto;
-    height: inherit;
-    margin: 0px 50px 0px 50px;
-    column-gap: 30px;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: auto;
+            height: inherit;
+            margin: 0px 50px 0px 50px;
+            column-gap: 30px;
   }
 
   .Div1 {
