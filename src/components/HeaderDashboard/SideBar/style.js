@@ -76,7 +76,7 @@ export const SideBarButton = styled.button`
   align-items: center;
   gap: 12px;
   font-family: "Inter", sans-serif;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 500;
   color: ${(props) => props.theme.black};
   background-color: transparent;

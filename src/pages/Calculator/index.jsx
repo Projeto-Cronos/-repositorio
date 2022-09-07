@@ -14,9 +14,9 @@ const Calculator = () => {
     resolver: yupResolver(formSchema),
   });
 
-  const { calculation, result, setResult } = useContext(Context);
+  const { calculation, result, setResult, navigate, token } = useContext(Context);
 
-  const { calculate } = useContext(CalculatorContext)
+  const { calculate } = useContext(CalculatorContext);
 
   const { salary_by_brazil_uf, salary_by_languages, salary_by_level } = dataBase;
 
@@ -36,9 +36,7 @@ const Calculator = () => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const id = useId();
       return <option key={ id }value={level.value}>{level.level}</option>;
-  })
-
-  const { navigate, token } = useContext(Context);
+  });
 
   if (!token) {
     setTimeout(() => {
@@ -53,6 +51,7 @@ const Calculator = () => {
             <h1>Calcule quanto vale sua hora</h1>
 
             <FormCalculator onSubmit={handleSubmit(calculate)}>
+
               <div className="box__select">
                 <label htmlFor="selecionar-Linguagem">
                   Linguagem / Tecnologia utilizada
@@ -88,11 +87,7 @@ const Calculator = () => {
                     <button type="submit">Calcular</button>
                   ) : (
                     <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        reset();
-                        setResult(!result);
-                      }}
+                      onClick={(e) => { e.preventDefault(); reset(); setResult(!result);}}
                     >
                       Calcule novamente
                     </button>
