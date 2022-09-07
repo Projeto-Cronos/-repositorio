@@ -6,6 +6,14 @@ export const StyledListSmallColumn = styled.div`
   justify-content: center;
   align-items: center;
 
+  button {
+    color: ${(props) => props.theme.black};
+    background-color: transparent;
+    border:none;
+    cursor:pointer;
+    width:min-content;
+  }
+
   @media (max-width: 768px) {
     box-sizing: initial;
     padding: 8px;

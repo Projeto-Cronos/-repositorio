@@ -7,6 +7,8 @@ import ListBody from "./ListBody";
 import ProjectList from "./ProjectList";
 import { useContext } from "react"
 import { Context } from "../../providers/userContext"
+import ModalEdit from "./Modal/ModalEdit"
+import ModalDelete from "./Modal/ModalDelete"
 
 function Dashboard() {
   const { navigate, token } =useContext(Context)
@@ -56,9 +58,13 @@ function Dashboard() {
               pricePerHour={"R$ 280,00"}
               stopwatch={"02:58:07"}
             />
+            
           </ListBody>
         </ProjectList>
+        <ModalEdit />
+        <ModalDelete />
       </DashboardMain>
+   
     </>
   );
 }
