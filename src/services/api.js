@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-  baseURL: "https://project-cronos.herokuapp.com/",
+  baseURL: "https://cronos-project.herokuapp.com/",
   timeout: 5000,
 });
 
