@@ -17,36 +17,29 @@ const NewProjectContainer = () => {
   return (
     <StyledContainer>
       <form onSubmit={handleSubmit(createProject)}>
-        <input
-          {...register("title")}
-          type="text"
-          placeholder="Nome do projeto"
-        />
-        <div className="dropdown">
-          <span>
-            Início: <BsCalendarDate />
-          </span>
+        <div className="boxNameProject">
+          <input
+            {...register("title")}
+            type="text"
+            placeholder="Nome do projeto"
+          />
+        </div>
+
+        <div className="dropdown labelDate">
+          <div className="boxLabelDate">
+            <label htmlFor="date">
+              Início: 
+            </label>
+            <BsCalendarDate />
+          </div>
           <div className="dropdownContent">
-            <input {...register("start_date")} type="date" />
+            <input id="date" className="date" {...register("start_date")} type="date" />
           </div>
         </div>
-        <div className="dropdown">
-          <span>
-            Término: <BsCalendarDate />
-          </span>
-          <div className="dropdownContent">
-            <input type="date" />
-          </div>
-        </div>
-        <div className="dropdown">
-          <BsTag />
-          <div className="dropdownContent">
-            <input type="text" placeholder="Insira uma tag" />
-          </div>
-        </div>
-        <div className="dropdown">
+ 
+        <div className="dropdown valuePerHour">
           <BsCurrencyDollar />
-          <div className="dropdownContent">
+          <div className="dropdownContent ">
             <input
               {...register("price_per_hour")}
               type="text"
@@ -54,9 +47,6 @@ const NewProjectContainer = () => {
             />
           </div>
         </div>
-        {/* <BoxTimer className="boxTimer">
-          <TimerToCount/>
-        </BoxTimer> */}
         <button type="submit">Add</button>
       </form>
     </StyledContainer>
