@@ -26,6 +26,7 @@ const ProviderUser = ({ children }) => {
   const [result, setResult] = useState(false);
   const [currentTheme, setCurrentTheme] = useState("claro");
   const [userProfile, setUserProfile] = useState(user);
+  const [listNews, setListNews] = useState([]);
 
   const handleClickLogin = () => {
     setEyeClickLogin(!eyeClickLogin);
@@ -46,7 +47,9 @@ const ProviderUser = ({ children }) => {
       .then((res) => {
         if (res.status === 200) {
           notifyLoginSuccess("Conta logada com sucesso!");
-          window.localStorage.clear();
+          window.localStorage.removeItem("authUser");
+          window.localStorage.removeItem("authId");
+          window.localStorage.removeItem("authToken");
           window.localStorage.setItem(
             "authUser",
             JSON.stringify(res.data.user)
@@ -158,8 +161,14 @@ const deleteProject = (id) => {
     [currentTheme]
   );
 
+  useEffect(() => {
+    const themeMain = window.localStorage.getItem("authTheme");
+    if (themeMain) {
+      setCurrentTheme(themeMain === "claro" ? "escuro" : "claro");
+    }
+  }, []);
+
   //Blog
-  const [listNews, setListNews] = useState([]);
   useEffect(() => {
     ApiNews.get("", {
       headers: {
@@ -205,7 +214,7 @@ const deleteProject = (id) => {
         dropDownEdit,
         editProfile,
         userProfile,
-        deleteProject
+        deleteProject,
         totalTime,
         setTotalTime,
         listNews,

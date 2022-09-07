@@ -11,7 +11,12 @@ import { useContext } from "react";
 import { Context } from "../../../providers/userContext";
 
 const SideBar = ({ isSideBarVisible }) => {
-  const { navigate,userProfile, getOpositeTheme, setCurrentTheme, showDropdownEdit } = useContext(Context);
+  const { navigate,userProfile, getOpositeTheme, setCurrentTheme, currentTheme, showDropdownEdit } = useContext(Context);
+  
+  const toggleTheme = () => {
+    setCurrentTheme(getOpositeTheme())
+    window.localStorage.setItem("authTheme",currentTheme);
+  }
 
   return (
     <Container isSideBarVisible={isSideBarVisible}>
@@ -43,7 +48,7 @@ const SideBar = ({ isSideBarVisible }) => {
           Configurações
         </SideBarButton>
 
-        <SideBarButton onClick={() => setCurrentTheme(getOpositeTheme())}>
+        <SideBarButton onClick={toggleTheme}>
           <BsMoon />
           Tema {getOpositeTheme()}
         </SideBarButton>
