@@ -44,6 +44,7 @@ function Dashboard() {
                   }) => (
                     <ListItem
                       key={id}
+                      projectId={id}
                       projectName={title}
                       startDate={start_date}
                       endDate={end_date}

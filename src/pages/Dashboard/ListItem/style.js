@@ -28,39 +28,36 @@ export const StyledListItem = styled.li`
 `;
 export const BoxTimer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  width: 12%;
-  .boxTimer{
+  width: 100%;
+  .boxTimer {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 55%;
-    span{
-
+    span {
     }
   }
-  .boxBtn{
+  .boxBtn {
     display: flex;
     justify-content: space-between;
     width: fit-content;
 
-    button{
+    button {
       width: max-content;
       cursor: pointer;
       background: transparent;
       padding: 0;
 
-    border: none;
-    font: inherit;
-    font-weight: 500;
-    color: var(--grey-1);
+      border: none;
+      font: inherit;
+      font-weight: 500;
+      color: var(--grey-1);
 
-
-
-      :focus{
+      :focus {
         color: var(--orange-2);
       }
     }
   }
-`
+`;
