@@ -90,7 +90,7 @@ const TimerToCount = () => {
 
         clearInterval(timeInterval)
 
-        const endDate = new Date();
+        // const endDate = new Date();
 
         setTimer(<span>00:00:00</span>);
     }
