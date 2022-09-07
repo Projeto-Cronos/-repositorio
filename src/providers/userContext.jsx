@@ -13,8 +13,7 @@ const ProviderUser = ({ children }) => {
   const user = JSON.parse(window.localStorage.getItem("authUser"));
   const [eyeClickLogin, setEyeClickLogin] = useState(false);
   const [eyeClickRegister, setEyeClickRegister] = useState(false);
-  const [eyeClickRegisterConfirmed, setEyeClickRegisterConfirmed] =
-    useState(false);
+  const [eyeClickRegisterConfirmed, setEyeClickRegisterConfirmed] = useState(false);
   const navigate = useNavigate();
   const [valuePerMinute, setValuePerMinute] = useState(0);
   const [calculation, setCalculation] = useState(0);
