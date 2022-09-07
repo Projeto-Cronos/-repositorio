@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react'
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { BsFillPlayFill, BsPauseFill } from 'react-icons/bs'
+import { BsFillPlayFill, BsPauseFill, BsStopFill } from 'react-icons/bs'
 import { useRef } from 'react';
 
 const TimerToCount = () => {
@@ -10,16 +10,18 @@ const TimerToCount = () => {
         <span>00:00:00</span>
     );
     const [timeInterval, setTimeInterval] = useState(null);
-    const [countIntervalResume,setCountIntervalResume] = useState(0)
     const [isCounter, setIsCounter] = useState(false)
     const [time, setTime] = useState(0);
     const [isPause, setIsPause] = useState(false)
     const [totalTime, setTotalTime] = useState(0)
-  
-    // let sec = tempo.segundos;
-    // let hrs = tempo.horas;
-    // let min = tempo.segundos;
-  
+
+    const intervalRef = useRef(0)
+
+    let hrs = 0
+    let min = 0;
+    let sec = 0;
+
+    
     const schema = yup.object({
         hours: yup.number('coloque um numero').required('horas'),
         minutes: yup.number('coloque um numero').required('minutos'),
@@ -30,19 +32,13 @@ const TimerToCount = () => {
         resolver: yupResolver(schema)
     });
 
-    const intervalRef = useRef(0)
+    const startCount = () => {
+        setIsCounter(!isCounter);
 
-    function startCount(){
-        setIsCounter(!isCounter)
         const time_minutes = 0;
         const time_seconds = 0; 
     
         const duration = (time_minutes*60) + time_seconds
-
-        let hrs = 0
-        let min = 0;
-        let sec = 0;
-        // let timeCount = 0
         
         let elapsedTime = duration;
 
@@ -53,64 +49,59 @@ const TimerToCount = () => {
             min = Math.floor((elapsedTime)/60);
             sec = Math.floor((elapsedTime)%60);
 
-            // setTime(elapsedTime);
-            setTotalTime(intervalRef.current)
-            // intervalRef = timeCount
-           if(min >= 60){
+            setTotalTime(intervalRef.current);
+
+            if(min >= 60){
                 elapsedTime = 0;
 
                 hrs += 1;
             }
 
-            setTimer(
-                <span>{hrs < 10 ? "0" + hrs : hrs}:{min < 10 ? "0"+ min : min}:{sec < 10 ? "0"+ sec : sec}</span>
-            )          
+            setTimer(<span>{hrs < 10 ? `0${hrs}`:hrs}:{min < 10 ? `0${min}`: min}:{sec < 10 ? `0${sec}`:sec}</span>);
                       
-        },1))
-    }    
-console.log(intervalRef)
-    function resume(){
-        let hrs = 0;
-        let min = 0;
-        let sec = 0;
-        // let timeCount = intervalRef.current
+        },1));
+    } 
+
+    const resume = () => {
+        setIsCounter(!isCounter);
 
         let elapsedTime = intervalRef.current
-        console.log(intervalRef)
+
         setTimeInterval(setInterval(() => {
             elapsedTime ++
             intervalRef.current ++
-            // console.log(elapsedTime)
 
             min = Math.floor((elapsedTime)/60);
             sec = Math.floor((elapsedTime)%60);
 
-            // setTime(elapsedTime);
-            setTotalTime(elapsedTime)
-            // intervalRef = timeCount
+            setTotalTime(elapsedTime);
+
            if(min >= 60){
-                elapsedTime = 0;
+                elapsedTime -= 3600;
 
                 hrs += 1;
             }
-        // console.log(totalTime)
 
-            setTimer(
-                <span>{hrs < 10 ? "0" + hrs : hrs}:{min < 10 ? "0"+ min : min}:{sec < 10 ? "0"+ sec : sec}</span>
-            )          
-        },1))
-        setCountIntervalResume('vai')
+            setTimer(<span>{hrs < 10 ? `0${hrs}`:hrs}:{min < 10 ? `0${min}`: min}:{sec < 10 ? `0${sec}`:sec}</span>);
+
+        },1));
     }
-        
-    function pauseTimer(){
-          setIsPause(!isPause)
+
+    const pauseTimer = () => {
+
+        setIsCounter(false);
+
+        setIsPause(!isPause)
         clearInterval(timeInterval)
     }
-        
-    function pauseResume(){
-        isCounter && setIsPause(!isPause)
-        clearInterval(countIntervalResume)
+
+    const stop = () => {
+
+        clearInterval(timeInterval)
+        setTimer(<span>00:00:00</span>);
+
     }
+        
     return(
         <>
             <div className='boxTimer'>
@@ -119,22 +110,16 @@ console.log(intervalRef)
 
             <div className='boxBtn'>
             {
-                !isCounter & !isPause?
+                !isCounter & !isPause ?
                 <button 
-                    onClick={(e) => { 
-                        e.preventDefault() 
-                        startCount()
-                    }}
+                    onClick={() => startCount()}
                 >
                     <BsFillPlayFill/>
                     {/* Play */}
                 </button> 
                 : 
                 <button 
-                    onClick={(e) => {
-                        e.preventDefault();
-                        resume()
-                    }}
+                    onClick={() => resume()}
                 >
                     <BsFillPlayFill/>
                     {/* Return */}
@@ -142,15 +127,19 @@ console.log(intervalRef)
             }
             {
                 
-                <button 
-                    onClick={(e) =>{
-                        e.preventDefault();
-                        pauseTimer()
-                    }}
+               isCounter  ? 
+               <button 
+                    onClick={() => pauseTimer()}
                 >
                     <BsPauseFill/>
                     {/* Pause */}
                 </button> 
+                : isPause &&
+                <button
+                    onClick={() => stop()}
+                >
+                    <BsStopFill/>
+                </button>
             }        
             </div>
         </>  
