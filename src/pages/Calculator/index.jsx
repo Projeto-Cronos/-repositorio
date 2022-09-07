@@ -1,34 +1,24 @@
-import { useState, useId } from "react";
+import { useId } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import formSchema from "../../validators/calculator";
 import HeaderDashboard from "../../components/HeaderDashboard";
-import { MainCalculator, ContainerMain, FormCalculator, ContainerCalculator, calculation, Result } from "./style";
+import { MainCalculator, ContainerMain, FormCalculator, ContainerCalculator,  Result } from "./style";
 import dataBase from "../../assets/dataBase/media-salarial-programadores-2022";
 import { Context } from "../../providers/userContext";
+import { CalculatorContext } from "../../providers/calculatorContext";
 import { useContext } from "react";
-import { VscRefresh } from "react-icons/vsc";
-import CauculaPorra from "./calculate";
 
 const Calculator = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(formSchema),
   });
 
-  const { salary_by_brazil_uf, salary_by_languages, salary_by_level } = dataBase;
+  const { calculation, result, setResult } = useContext(Context);
 
-  const {
-    setValuePerMinute,
-    calculation,
-    setCalculation,
-    result,
-    setResult,
-  } = useContext(Context);
+  const { calculate } = useContext(CalculatorContext)
+
+  const { salary_by_brazil_uf, salary_by_languages, salary_by_level } = dataBase;
 
   const ufValues = salary_by_brazil_uf.ufValues.map((uf) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -48,26 +38,6 @@ const Calculator = () => {
       return <option key={ id }value={level.value}>{level.level}</option>;
   })
 
-  const calculate = (data, workedDays, hoursWorkedInDay) => {
-    const { language, region, level } = data;
-
-    const averageMonthlyValue = (Number(language) + Number(region) + Number(level)) / 2;
-
-    workedDays = 22;
-
-    hoursWorkedInDay = 8;
-
-    const valuePerHour = (
-      averageMonthlyValue /
-      workedDays /
-      hoursWorkedInDay
-    ).toFixed(2);
-
-    setValuePerMinute(valuePerHour/60);
-    setCalculation(valuePerHour);
-    setResult(true);
-  };
-
   const { navigate, token } = useContext(Context);
 
   if (!token) {
@@ -75,23 +45,6 @@ const Calculator = () => {
       navigate("/login");
     }, 100);
   } else {
-    // calculate
-    // const calculate = (data, workedDays, hoursWorkedInDay) => {
-    //     const { language, region } = data
-
-    //     const averageMonthlyValue = ((Number(language) + Number(region))/2);
-
-    //     workedDays = 22;
-
-    //     hoursWorkedInDay = 8;
-
-    //     const valuePerHour = ((averageMonthlyValue/workedDays)/hoursWorkedInDay).toFixed(2)
-
-    //     setValuePerMinute(valuePerHour/60);
-    //     setCalculation(valuePerHour);
-    //     setResult(true);
-    // }
-
     return (
       <ContainerCalculator>
         <HeaderDashboard />
@@ -142,7 +95,6 @@ const Calculator = () => {
                       }}
                     >
                       Calcule novamente
-                      {/* <VscRefresh/>y== */}
                     </button>
                   )
                 }

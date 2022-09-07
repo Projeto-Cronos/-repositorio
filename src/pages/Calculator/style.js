@@ -4,18 +4,20 @@ import background from "../../assets/image/background-calculator.svg";
 export const ContainerCalculator = styled.div`
   display: flex;
   justify-content: center;
+  
+  max-height: 1000px;
+  height: 120vh;
   width: 100%;
-  height: 100vh;
+
+  gap: 20px;
+
   background-image: url(${background});
   background-position: right bottom;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: ${(props) => props.theme.grey4};
+
   font-family: "Jura", sans-serif;
-  gap: 20px;
-  /* min-height: 130vh; */
-  max-height: 1000px;
-  height: 120vh;
 `;
 export const ContainerMain = styled.div`
   display: flex;
@@ -23,7 +25,6 @@ export const ContainerMain = styled.div`
   align-items: center;
 
   position: absolute;
-  /* height: 100%; */
 
   top: 20%;
   background-color: ${(props) => props.theme.grey4};
@@ -33,6 +34,7 @@ export const MainCalculator = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
   margin: 0 auto;
   height: 100%;
   gap: 30px;
