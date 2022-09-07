@@ -205,7 +205,7 @@ const deleteProject = (id) => {
         dropDownEdit,
         editProfile,
         userProfile,
-        deleteProject
+        deleteProject,
         totalTime,
         setTotalTime,
         listNews,
