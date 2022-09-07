@@ -1,12 +1,18 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
   background-color: ${(props) => props.theme.white};
+
   width: 100%;
   padding: 10px 20px;
   border-radius: 4px;
   font-size: 16px;
-  /* cursor: pointer; */
+
   box-shadow: 0px 2px 16px rgba(153, 155, 168, 0.12);
 
   @media (max-width: 768px) {
@@ -17,11 +23,24 @@ export const StyledContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* margin: 0 auto; */
     width: 100%;
 
     @media (max-width: 768px) {
       flex-wrap: wrap;
       gap: 10px;
+    }
+    .boxNameProject{
+      border-radius: 4px;
+      width: 30%;
+      input{
+        width: 100%;
+        outline: none;
+        background-color: var(--grey-4);
+      }
+    @media (max-width: 768px) {
+      width: 100%;
+    }
     }
   }
 
@@ -31,9 +50,23 @@ export const StyledContainer = styled.div`
     align-items: center;
     cursor: pointer;
 
+    width: 30%;
+    
     :hover .dropdownContent {
       display: block;
     }
+  }
+  .labelDate{
+    width: 30%;
+    .boxLabelDate{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  .valuePerHour{
+    width: fit-content;
   }
 
   .dropdownContent {
@@ -44,21 +77,29 @@ export const StyledContainer = styled.div`
     padding: 4px;
     background-color: ${(props) => props.theme.white};
     box-shadow: 0px 2px 16px rgba(153, 155, 168, 0.12);
+    outline: none;
+    width: fit-content;
+
+    input{
+      outline: none ;
+      width: 185px;
+      height: 48px;
+    }
   }
 
   button {
     background: ${(props) => props.theme.blue1};
-    background: transparent;
-    padding: 10px 16px;
+    /* background: transparent; */
+    padding: 10px 12px;
     border: none;
     border-radius: 8px;
     font: inherit;
     font-weight: 500;
-    color: white;
     color: ${(props) => props.theme.grey1};
+    color: white;
 
     :hover {
-      /* background-color: var(--blue-2); */
+      background-color: var(--blue-2);
     }
   }
 `;

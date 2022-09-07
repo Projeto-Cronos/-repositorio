@@ -34,7 +34,10 @@ function Blog() {
                         alt="foto"
                       />
                       <div className="mainContent">
-                        <span className="mainInfo">{element.summary}</span>
+                        <a className="mainRedirect" href={element.link}>MAIS INFORMAÇÕES</a>
+                        <span className="mainInfo spanMain">
+                          {element.summary}
+                        </span>
                         <p className="mainText">{element.published_date}</p>
                         <h2>{element.title}</h2>
                       </div>
@@ -58,7 +61,7 @@ function Blog() {
                         <div className="containerInfo">
                           <h3>{element.title}</h3>
                           <span>{element.summary}</span>
-                          <a href={element.link}>READ MORE</a>
+                          <a href={element.link}>MAIS INFORMAÇÕES</a>
                         </div>
                       </li>
                     )

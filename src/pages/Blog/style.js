@@ -5,7 +5,7 @@ export const Section = styled.section`
     display:flex;
     flex-direction:column;
     width:100%;
-    height:100vh;
+    height:100%;
     background-image: url(${background});
   background-position: left top;
     background-repeat:no-repeat;
@@ -15,13 +15,14 @@ export const Section = styled.section`
 export const Main = styled.main`
 
     width: 100%;
-    height: 100%;
-    
+    height: min-content;
 
     background-color: ${(props) => props.theme.white};
-
+    
     display: flex;
     flex-direction: column;
+
+    border-radius: 2px;
 
     @media screen and (min-width: 768px) {
         
@@ -45,7 +46,7 @@ export const Main = styled.main`
         align-items: center;
         justify-content: center;
 
-        font-family: "Jura";
+        font-family: "Jura", sans-serif;
         font-size: 1.1rem;
         font-weight: 700;
         line-height: 28px;
@@ -58,6 +59,8 @@ export const Main = styled.main`
 
             font-size: 2.5rem;
             margin-bottom: 2rem;
+            margin-top: 3rem;
+
 
         }
 
@@ -66,7 +69,7 @@ export const Main = styled.main`
     .mainCard {
 
         width: 100%;
-        margin-bottom: 1rem;
+        margin-bottom: 3rem;
 
         display: flex;
         flex-direction: column;
@@ -79,6 +82,8 @@ export const Main = styled.main`
         .mainCard {
 
             flex-direction: row-reverse;
+            margin-bottom: 1.5rem;
+            padding: 0 2rem;
 
         }
 
@@ -94,10 +99,38 @@ export const Main = styled.main`
         
         .mainInfo {
 
-            width: 90%;
+            height: min-content;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+
+            /* width: 90%;
             margin: 0 auto;
 
-            display: initial;
+            display: initial; */
+
+        }
+
+    }
+
+    .mainContent {
+        
+        a {
+                
+            width: 90%;
+            margin: 0 auto;
+                
+                font-style: normal;
+                font-weight: 400;
+                font-size: 0.7rem;
+                line-height: 12px;
+                text-decoration: none;
+
+                color: ${(props) => props.theme.orange1};
+
+    
 
         }
 
@@ -111,8 +144,24 @@ export const Main = styled.main`
 
             display: flex;
             flex-direction: column-reverse;
-            justify-content: flex-end;
+            justify-content: space-between;
             gap: 0.5rem;
+
+            a {
+                
+                width: 100%;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 0.7rem;
+                    line-height: 12px;
+                    text-decoration: none;
+    
+                    color: ${(props) => props.theme.orange1};
+    
+        
+    
+            }
+            
 
         }
         
@@ -137,7 +186,7 @@ export const Main = styled.main`
 
             width: 26rem;
             height: 9rem;
-            margin-right: 2rem;
+            margin-right: 1rem;
 
         }
         
@@ -148,18 +197,19 @@ export const Main = styled.main`
         width: 90%;
         margin: auto;
 
-        font-family: "Montserrat";
+        
         font-size: 0.8rem;
         font-weight: 600;
         line-height: 15px;
 
     }
 
-    @media screen {
+
+    @media screen and (min-width: 768px) {
      
         .mainText {
 
-            margin: 0 auto;
+            margin: 0;
 
             font-size: 0.6rem;
             font-weight: none;
@@ -173,7 +223,7 @@ export const Main = styled.main`
         width: 90%;
         margin: auto;
 
-        font-family: 'Montserrat';
+        font-family: 'Jura';
         font-style: normal;
         font-weight: 500;
         font-size: 1.3rem;
@@ -186,8 +236,15 @@ export const Main = styled.main`
         
         h2 {
 
-            font-size: 2rem;
-            margin: 0 auto;
+            font-size: 1.5rem;
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+
+
 
         }
 
@@ -202,6 +259,7 @@ export const Main = styled.main`
 
             display: flex;
             flex-wrap: wrap;
+            gap: 18px;
 
         }
         
@@ -210,12 +268,17 @@ export const Main = styled.main`
     li {
 
         width: 90%;
-        height: 4.4rem;
+        height: 5.4rem;
         margin: auto;
         margin-bottom: 1rem;
+        padding: 0.6rem;
+
+        border-radius: 5px;
 
         display: flex;
         gap: 0.2rem;
+        background: #FFFFFF;
+        
 
     }
 
@@ -224,7 +287,7 @@ export const Main = styled.main`
         li {
 
             width: 45%;
-            height: 14rem;
+            height: 16rem;
             margin: 0.5rem auto;
 
             flex-direction: column;
@@ -242,7 +305,7 @@ export const Main = styled.main`
         width: 90%;
         margin: auto;
 
-        font-family: "Montserrat";
+        
         font-size: 0.5rem;
         font-weight: 600;
         line-height: 15px;
@@ -254,6 +317,7 @@ export const Main = styled.main`
         .liText {
 
             display: initial;
+            font-size: 0.6rem;
 
         }
 
@@ -277,12 +341,27 @@ export const Main = styled.main`
         
     }
 
+    img {
+
+        border-radius: 5px;
+
+    }
+
     @media screen and (min-width: 768px){
         
         .mainCardImg {
     
-            width: 50%;
+            width: 100%;
             height: 100%;
+            margin: 0;
+            overflow: hidden;
+        
+            
+            
+            img {
+                width: min-content;
+                height: min-content;
+            }
 
         }
 
@@ -327,6 +406,7 @@ export const Main = styled.main`
         .containerInfo {
 
             width: initial;
+            gap: 0.5rem;
 
         }
 
@@ -334,7 +414,7 @@ export const Main = styled.main`
 
     h3 {
 
-        font-family: 'Montserrat';
+        font-family: "Jura", sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 0.7rem;
@@ -350,28 +430,41 @@ export const Main = styled.main`
 
     }
 
+    @media screen and (min-width: 768px) {
+        
+        h3 {
+
+            font-size: 1.2vw;
+
+        }
+
+    }
+
+    @media screen and (min-width: 768px) {
+
+        .spanMain {
+
+            height: min-content;
+            width: 100%;
+
+        }
+
+    }
+
     span {
 
         height: 2.5rem;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: flex-end;
-        -webkit-box-align: flex-end;
-        -ms-flex-align: flex-end;
+      
         align-items: flex-end;
-        font-family: 'Montserrat';
+        
         font-style: normal;
         font-weight: 400;
         font-size: 0.7rem;
-        line-height: 0.8rem;
+        line-height: 0.75rem;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-
+      
         color: ${(props) => props.theme.grey};
 
     }
@@ -381,22 +474,29 @@ export const Main = styled.main`
         span {
 
             width: 100%;
+            font-size: 1vw;
+            line-height: 1.2rem;
 
         }
 
     }
 
     a {
+                
+            
+                display: flex;
+                
+                
+                font-style: normal;
+                font-weight: 400;
+                font-size: 0.7rem;
+                line-height: 12px;
+                text-decoration: none;
 
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 0.7rem;
-        line-height: 12px;
-        text-decoration: none;
+                color: ${(props) => props.theme.orange1};
 
-        color: ${(props) => props.theme.orange1};
+    
 
-    }
+        }
 
 `

@@ -10,15 +10,15 @@ const ProjectsProvider = ({ children }) => {
 
   const getAllProjects = async () => {
     const userId = window.localStorage.getItem("authId");
-    console.log(userId);
-
+    
     const token = JSON.parse(window.localStorage.getItem("authToken"));
     if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
-
+    
     const data = await Api.get(`users/${userId}/projects`)
-      .then((res) => setAllProjects(res.data))
-      .catch((err) => console.error(err));
-
+    .then((res) => setAllProjects(res.data))
+    .catch((err) => console.error(err));
+    
+    console.log(data);
     return data;
   };
 
