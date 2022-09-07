@@ -94,6 +94,8 @@ export const FormCalculator = styled.form`
 
       font-family: "Jura", sans-serif;
 
+      cursor: pointer;
+
       border: none;
       border-radius: 4px;
 

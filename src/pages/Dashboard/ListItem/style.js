@@ -35,7 +35,7 @@ export const BoxTimer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 55%;
     span{
 
     }
@@ -43,8 +43,8 @@ export const BoxTimer = styled.div`
   .boxBtn{
     display: flex;
     justify-content: space-between;
-    width: 25%;
-    /* gap: 20%; */
+    width: fit-content;
+
     button{
       width: max-content;
       cursor: pointer;
