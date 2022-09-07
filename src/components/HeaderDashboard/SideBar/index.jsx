@@ -10,17 +10,17 @@ import {
 import { useContext } from "react";
 import { Context } from "../../../providers/userContext";
 
-const SideBar = ({ isSideBarVisible, username, email }) => {
-  const { navigate, user, getOpositeTheme, setCurrentTheme } = useContext(Context);
+const SideBar = ({ isSideBarVisible }) => {
+  const { navigate,userProfile, getOpositeTheme, setCurrentTheme, showDropdownEdit } = useContext(Context);
 
   return (
     <Container isSideBarVisible={isSideBarVisible}>
       <div className="profile">
         <div className="img">
-          <img src={user.image} alt="" />
+          <img src={userProfile.image} alt="" />
         </div>
-        <h3 className="userName">{user.name}</h3>
-        <p className="userEmail">{user.email}</p>
+        <h3 className="userName">{userProfile.name}</h3>
+        <p className="userEmail">{userProfile.email}</p>
       </div>
       <div className="menu">
         <SideBarButton>
@@ -38,7 +38,7 @@ const SideBar = ({ isSideBarVisible, username, email }) => {
           Projetos
         </SideBarButton>
 
-        <SideBarButton>
+        <SideBarButton onClick={showDropdownEdit}>
           <BsGear />
           Configurações
         </SideBarButton>

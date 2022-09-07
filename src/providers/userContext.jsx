@@ -13,6 +13,8 @@ const ProviderUser = ({ children }) => {
   const user = JSON.parse(window.localStorage.getItem("authUser"));
   const [eyeClickLogin, setEyeClickLogin] = useState(false);
   const [eyeClickRegister, setEyeClickRegister] = useState(false);
+  const [dropDownDelete, setDropdownDelete] = useState("none");
+  const [dropDownEdit, setDropdownEdit] = useState("none");
   const [eyeClickRegisterConfirmed, setEyeClickRegisterConfirmed] =
     useState(false);
   const navigate = useNavigate();
@@ -20,6 +22,7 @@ const ProviderUser = ({ children }) => {
   const [calculation, setCalculation] = useState(0);
   const [result, setResult] = useState(false);
   const [currentTheme, setCurrentTheme] = useState("claro");
+  const [userProfile, setUserProfile] = useState(user);
 
   const handleClickLogin = () => {
     setEyeClickLogin(!eyeClickLogin);
@@ -54,6 +57,7 @@ const ProviderUser = ({ children }) => {
             JSON.stringify(res.data.accessToken)
           );
           navigate("/dashboard");
+          setUserProfile(res.data.user)
         } else {
           return null;
         }
@@ -72,6 +76,53 @@ const ProviderUser = ({ children }) => {
       )
       .catch(() => notifyLoginError("E-mail já existente"));
   };
+
+  //Dashboard
+  const editProfile = (data) => {
+    Api.patch(`/users/${user.id}`,data, {
+        headers: {Authorization: `Bearer ${token}`}
+        })
+        .then((res) => {
+            setDropdownEdit("none")
+            notifyLoginSuccess("Perfil editado com sucesso!")
+           localStorage.removeItem("authUser")
+           localStorage.setItem("authUser",JSON.stringify(res.data));
+            setUserProfile(res.data)
+        })
+        .catch(() => {
+            notifyLoginError("Ops! Algo deu errado")
+        })
+}
+
+const deleteProject = (id) => {
+  Api.delete(`/projects/${id}`, {
+      headers: {Authorization: `Bearer ${token}`}
+      })
+      .then(() => {
+          setDropdownDelete("none")
+          notifyLoginSuccess("Projeto deletado com sucesso!")
+      })
+      .catch(() => {
+          notifyLoginError("Ops! Algo deu errado")
+      })
+}
+
+    const showDropdownDelete = () => {
+      setDropdownDelete("flex");
+    }
+
+    const closeDropdownDelete = () => {
+      setDropdownDelete("none");
+    };
+
+    const showDropdownEdit = () => {
+    setDropdownEdit("flex");
+    }
+
+    const closeDropdownEdit = () => {
+    setDropdownEdit("none");
+    };
+
 
   //Lottie
   const [animateState] = useState({
@@ -129,7 +180,16 @@ const ProviderUser = ({ children }) => {
         user,
         currentTheme, 
         setCurrentTheme,
-        getOpositeTheme
+        getOpositeTheme,
+        showDropdownDelete,
+        closeDropdownDelete,
+        showDropdownEdit,
+        closeDropdownEdit,
+        dropDownDelete,
+        dropDownEdit,
+        editProfile,
+        userProfile,
+        deleteProject
       }}
     >
       {children}
