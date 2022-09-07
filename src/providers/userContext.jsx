@@ -18,6 +18,7 @@ const ProviderUser = ({ children }) => {
   const navigate = useNavigate();
   const [valuePerMinute, setValuePerMinute] = useState(0);
   const [calculation, setCalculation] = useState(0);
+  const [totalTime, setTotalTime] = useState(0)
   const [result, setResult] = useState(false);
   const [currentTheme, setCurrentTheme] = useState("claro");
 
@@ -129,7 +130,9 @@ const ProviderUser = ({ children }) => {
         user,
         currentTheme, 
         setCurrentTheme,
-        getOpositeTheme
+        getOpositeTheme,
+        totalTime,
+        setTotalTime
       }}
     >
       {children}
