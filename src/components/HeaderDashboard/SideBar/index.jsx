@@ -28,12 +28,16 @@ const SideBar = ({ isSideBarVisible }) => {
         <p className="userEmail">{userProfile.email}</p>
       </div>
       <div className="menu">
-        <SideBarButton>
+        <SideBarButton
+          onClick={() => navigate("/dashboard")}
+        >
           <BsClock />
-          Rastreador de tempo
+          Gerenciador de projetos
         </SideBarButton>
 
-        <SideBarButton>
+        <SideBarButton 
+          onClick={() => navigate("/calculator")}
+        >
           <BsCalculator />
           Calculadora
         </SideBarButton>
