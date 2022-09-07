@@ -6,6 +6,7 @@ export const ProjectsContext = createContext({});
 
 const ProjectsProvider = ({ children }) => {
   const [allProjects, setAllProjects] = useState([]);
+  const [projecToDelete, setProjectToDelete] = useState(0);
 
   const getAllProjects = async () => {
     const userId = window.localStorage.getItem("authId");
@@ -57,11 +58,11 @@ const ProjectsProvider = ({ children }) => {
     return data;
   };
 
-  const deleteProject = async (projectId) => {
+  const deleteProject = async () => {
     const token = JSON.parse(window.localStorage.getItem("authToken"));
     if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
 
-    const data = await Api.delete(`/projects/${projectId}`)
+    const data = await Api.delete(`/projects/${projecToDelete}`)
       .then((res) => {
         toast.success("Projeto deletado com sucesso!", {
           autoClose: 2000,
@@ -86,6 +87,7 @@ const ProjectsProvider = ({ children }) => {
         createProject,
         editProject,
         deleteProject,
+        setProjectToDelete,
       }}
     >
       {children}

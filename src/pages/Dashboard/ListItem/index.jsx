@@ -17,7 +17,7 @@ const ListItem = ({
   pricePerHour,
   stopwatch,
 }) => {
-  const { deleteProject } = useContext(ProjectsContext);
+  const { setProjectToDelete } = useContext(ProjectsContext);
 
   const { showDropdownDelete } = useContext(Context);
   return (
@@ -49,7 +49,12 @@ const ListItem = ({
       </ListColumn>
 
       <ListSmallColumn>
-        <button onClick={showDropdownDelete}>
+        <button
+          onClick={() => {
+            setProjectToDelete(projectId);
+            showDropdownDelete();
+          }}
+        >
           <BsTrash />
         </button>
       </ListSmallColumn>
