@@ -11,9 +11,12 @@ const ProjectsProvider = ({ children }) => {
     console.log(userId);
 
     const token = window.localStorage.getItem("authToken");
-    if (token) Api.defaults.headers.common.Authorization = token;
+    console.log(token);
+    if (token) {
+      Api.defaults.headers.common.Authorization = `Bearer ${token}`;
+    }
 
-    const data = await Api.get(`/users/${userId}/projects`)
+    const data = await Api.get(`projects`)
       .then((res) => setAllProjects(res.data))
       .catch((err) => console.error(err));
 
