@@ -3,8 +3,9 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import loadingAnimated from "../assets/animation/VAPGxWYypp.json";
 import loadingAnimatedOne from "../assets/animation/DHYuRhgDuA.json";
-import { createContext, useState, useCallback } from "react";
+import { createContext, useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import ApiNews from "../services/apiNews";
 
 export const Context = createContext();
 
@@ -104,6 +105,19 @@ const ProviderUser = ({ children }) => {
     [currentTheme]
   );
 
+  //Blog
+  const [listNews, setListNews] = useState([]);
+  useEffect(() => {
+    ApiNews.get("", {
+      headers: {
+        "X-RapidAPI-Key": "640a561322mshf0c98926cbaf968p111e5ejsn08e0e943de10",
+        "X-RapidAPI-Host": "free-news.p.rapidapi.com",
+      },
+    }).then((res) => {
+      setListNews(res.data.articles);
+    });
+  }, []);
+
   return (
     <Context.Provider
       value={{
@@ -131,7 +145,8 @@ const ProviderUser = ({ children }) => {
         setCurrentTheme,
         getOpositeTheme,
         totalTime,
-        setTotalTime
+        setTotalTime,
+        listNews,
       }}
     >
       {children}
