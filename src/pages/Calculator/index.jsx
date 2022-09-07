@@ -49,7 +49,7 @@ const Calculator = () => {
   })
 
   const calculate = (data, workedDays, hoursWorkedInDay) => {
-    const { language, region, level, level} = data;
+    const { language, region, level} = data;
 
     const averageMonthlyValue = (Number(language) + Number(region) + Number(level)) / 2;
 
