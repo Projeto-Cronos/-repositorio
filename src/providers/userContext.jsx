@@ -7,15 +7,21 @@ import loadingAnimatedOne from "../assets/animation/DHYuRhgDuA.json";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 export const Context = createContext();
 
 const ProviderUser = ({ children }) => {
+  const token = JSON.parse(window.localStorage.getItem("authToken"))
+  const user = JSON.parse(window.localStorage.getItem("authUser"))
   const [eyeClickLogin, setEyeClickLogin] = useState(false);
   const [eyeClickRegister, setEyeClickRegister] = useState(false);
   const [eyeClickRegisterConfirmed, setEyeClickRegisterConfirmed] =
     useState(false);
   const navigate = useNavigate();
+
+    const [valuePerMinute, setValuePerMinute] = useState(0);
+    const [calculation, setCalculation] = useState(0);
+    const [result, setResult]           = useState(false);
+
 
   const handleClickLogin = () => {
     setEyeClickLogin(!eyeClickLogin);
@@ -107,12 +113,20 @@ const ProviderUser = ({ children }) => {
         eyeClickRegister,
         handleClickRegisterConfirmed,
         eyeClickLogin,
+        navigate,
+        valuePerMinute,
+        setValuePerMinute,
+        calculation,
+        setCalculation,
+        result,
+        setResult,
+        token,
+        user
       }}
     >
       {children}
     </Context.Provider>
   );
 };
-
 
 export default ProviderUser;

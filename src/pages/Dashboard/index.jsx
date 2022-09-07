@@ -1,58 +1,67 @@
 import HeaderDashboard from "../../components/HeaderDashboard";
-import { DashboardMain, NewProjectContainer } from "./style";
-import { BsCalendarDate, BsTag, BsCurrencyDollar } from "react-icons/bs";
+import { DashboardMain } from "./style";
+import NewProjectContainer from "./NewProjectContainer";
+import ListHeader from "./ListHeader";
+import ListItem from "./ListItem";
+import ListBody from "./ListBody";
+import ProjectList from "./ProjectList";
+import { useContext } from "react"
+import { Context } from "../../providers/userContext"
 
 function Dashboard() {
+  const { navigate, token } =useContext(Context)
+
+  if(!token) {
+    setTimeout(() => {navigate("/login")}, 100)
+}else {
   return (
     <>
-      <HeaderDashboard />
+      <HeaderDashboard username="Cronoszinho" email="cronoszinho@gmail.com" />
       <DashboardMain>
-        <NewProjectContainer>
-          <form>
-            <input type="text" placeholder="Nome do projeto" />
+        <NewProjectContainer />
 
-            <div className="dropdown">
-              <span>
-                Início: <BsCalendarDate />
-              </span>
-              <div className="dropdownContent">
-                <input type="date" />
-              </div>
-            </div>
+        <ProjectList>
+          <ListHeader />
 
-            <div className="dropdown">
-              <span>
-                Término: <BsCalendarDate />
-              </span>
-              <div className="dropdownContent">
-                <input type="date" />
-              </div>
-            </div>
-
-            <div className="dropdown">
-              <BsTag />
-              <div className="dropdownContent">
-                <input type="text" placeholder="Insira uma tag" />
-              </div>
-            </div>
-
-            <div className="dropdown">
-              <BsCurrencyDollar />
-              <div className="dropdownContent">
-                <input type="text" placeholder="Insira o preço/hora" />
-              </div>
-            </div>
-
-            <button type="submit">Start</button>
-          </form>
-        </NewProjectContainer>
-        <div className="projectsList">
-          <div className="listHeader">listHeader</div>
-          <div className="listBody">projectsList</div>
-        </div>
+          <ListBody>
+            <ListItem
+              projectName={"Joguinho maroto"}
+              startDate={"2022-03-26"}
+              endDate={"2022-03-28"}
+              tags={"jogo, nintendo"}
+              pricePerHour={"R$ 280,00"}
+              stopwatch={"02:58:07"}
+            />
+            <ListItem
+              projectName={"Joguinho maroto"}
+              startDate={"2022-03-26"}
+              endDate={"2022-03-28"}
+              tags={"jogo, nintendo"}
+              pricePerHour={"R$ 280,00"}
+              stopwatch={"02:58:07"}
+            />
+            <ListItem
+              projectName={"Joguinho maroto"}
+              startDate={"2022-03-26"}
+              endDate={"2022-03-28"}
+              tags={"jogo, nintendo"}
+              pricePerHour={"R$ 280,00"}
+              stopwatch={"02:58:07"}
+            />
+            <ListItem
+              projectName={"Joguinho maroto"}
+              startDate={"2022-03-26"}
+              endDate={"2022-03-28"}
+              tags={"jogo, nintendo"}
+              pricePerHour={"R$ 280,00"}
+              stopwatch={"02:58:07"}
+            />
+          </ListBody>
+        </ProjectList>
       </DashboardMain>
     </>
   );
+}
 }
 
 export default Dashboard;

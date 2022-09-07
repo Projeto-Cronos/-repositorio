@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import  background from "../../assets/image/background-home.svg";
+import background from "../../assets/image/background-home.svg";
 
 export const Section = styled.section`
     display:flex;
@@ -10,23 +10,17 @@ export const Section = styled.section`
     background-position:center;
     background-repeat:no-repeat;
     background-size:cover;
-
-    @media (max-width: 768px){
-        width:118%;
-        height:100vh;
-    }
+    background-color: ${(props) => props.theme.grey4}; 
 `
 
 
 export const HeaderContent = styled.div`
 
     .HeaderTitle {
-        height: 404px;
-        width: 382px;
-        left: 167px;
-        top: 125px;
+        width: min-content;
+
         border-radius: 0px;
-        font-size: 80px;
+        font-size: 50px;
         font-family: "Jura";
         font-weight: 600;
 
@@ -34,202 +28,49 @@ export const HeaderContent = styled.div`
         flex-direction: column;
         align-items: flex-start;
         padding: 0px;
-        margin: 0 0 0 0;
-
-        position: absolute;
+        margin: 80px 0 0 35px;
 
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    
-        @media (max-width: 768px){
-            left: 20px;
+        z-index: 0;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            height: 404px;
+            width: 382px;
+            left: 167px;
+            top: 125px;
+            font-size: 80px;
+
+            margin: 43px 0 0 167px;
         }
     }
 
     .HeaderSubtitle {
-        font-size: 30px;
+        font-size: 20px;
         text-align: left;
         letter-spacing: -1.2385px;
 
-        color: #FAFAFA;
+        color: #fff;
 
-        left: 167px;
-        top: 459px;
         border-radius: 0px;
         font-family: "Jura";
         font-weight: 700;
-        padding: 0px;
-        margin: 0 0 0 0;
+        padding: 10px 0 0 40px;
+        margin: 0 0 0 0; 
 
-        position: absolute;
-
-        @media (max-width: 768px){
-            left: 20px;
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            font-size: 30px;
+            left: 167px;
+            top: 459px;    
+            padding: 0;
+            margin: -67px 0 0 175px;
+            text-align: left;
         }
     }
 `
-
-export const SecondSection = styled.section`
-    position: relative;
-    display:flex;
-    flex-direction:column;
-    width:93%;
-    height:100vh;
-    background: #fff;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-size:cover;
-
-    @media (max-width: 768px){
-        width:118%;
-        height:160vh;
-    }
-
-    .SecondSectionTitle {
-        font-family: "Inter";
-        font-size: 44px;
-        text-align: center;
-        padding-top: 30px;
-        font-weight: 500;
-
-        @media (max-width: 768px){
-            font-size: 38px;
-        }
-    }
-
-    .SecondSectionP {
-        display: flex;
-        flex-direction: row;
-        font-family: "Inter";
-        font-size: 18px;
-        text-align: center;
-        padding-top: 13px;
-        justify-content: center;
-
-        @media (max-width: 768px){
-            font-size: 16px;
-        }
-    }
-
-    .CronosP {
-        color: #F66813;
-        text-align: center;
-        font-weight: 600;
-    }
-
-    .Content {
-        display: flex;
-        flex-direction: row;
-        align-items: stretch;
-        align-content: flex-end;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding-top: 40px;
-        row-gap: 0px;
-        column-gap: 10px;
-        margin: 0 0 0 0;
-
-        flex: none;
-        order: 1;
-        flex-grow: 0;
-    }
-
-    .Image1 {
-        width: 380px;
-        height: 220px;
-    }
-
-    .Image1 img {
-        width: 380px;
-        height: 220px;
-
-        @media (max-width: 768px){
-           width: 350px;
-           display: flex;
-           margin: auto;
-        }
-    }
-
-    .FirstTopic {
-        width: 400px;
-        height: 210px;
-        padding: 30px 0px 3px 0px;
-    }
-
-    .FirstTopic h2 {
-        font-family: "Jura";
-        font-size: 30px;
-        font-weight: 600;
-        text-align: center;
-    }
-
-    .FirstContent {
-        width: 380px;
-        height: 220px;
-        font-size: 14px;
-        text-align: center;
-
-        @media (max-width: 768px){
-            width: 390px;
-            height: 120px;
-            font-size: 14px;
-         }
-    }
-
-    .SecondTopic {
-        width: 400px;
-        height: 240px;
-        padding: 30px 0px 3px 0px;
-
-        @media (max-width: 768px){
-            padding-top: 0px;
-            height: 180px;
-         }
-    }
-
-    .SecondTopic h2 {
-        font-family: "Jura";
-        font-size: 30px;
-        font-weight: 600;
-        text-align: center;
-    }
-
-    .SecondContent {
-        width: 380px;
-        height: 220px;
-        font-size: 14px;
-        text-align: center;
-
-        @media (max-width: 768px){
-            width: 390px;
-            height: 120px;
-            font-size: 14px;
-         }
-    }
-
-    .Image2 {
-        width: 380px;
-        height: 220px;
-        margin-bottom: 20px;
-
-        @media (max-width: 768px){
-            width: 350px;
-            display: flex;
-            margin: auto;
-         }
-    }
-
-    .Image2 img {
-        width: 380px;
-        height: 220px;
-
-        @media (max-width: 768px){
-           width: 350px;
-           display: flex;
-           margin: auto;
-        }
-    }
-`
-
 
 export const Scroll = styled.div`
 
@@ -241,28 +82,34 @@ export const Scroll = styled.div`
     .Smoothscroll {
         position: absolute;
         bottom: 78px;
-        left: 50%;
+        left: 54%;
         margin-left: -47px;
         display: block;
         height: 42px;
         width: 146px;
-        font-size: 20px;
+        font-size: 15px;
         line-height: 42px;
         color: #fff;
         border-radius: 100%;
         text-decoration: none;
         transition: all .3s ease-in-out; 
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            left: 50%;
+        }
     }
 
     .Smoothscroll:hover { 
-        color: #F66813;
+        color: #f66813;
     }
 
     i {
         display: flex;
         justify-content: center;
         margin: 0;
-        padding: 4px 36px 0 0; 
+        padding: 4px 69px 0 0; 
         border: 0;
         outline: 0;
         font-size: 170%;
@@ -274,6 +121,11 @@ export const Scroll = styled.div`
         -ms-animation: pulse 1s ease infinite;
         -o-animation: pulse 1s ease infinite;
         animation: pulse 1s ease infinite;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+        }
     }    
     
     i:before,
@@ -281,86 +133,18 @@ export const Scroll = styled.div`
         content: "";
         display: block;
         position: absolute;
-        left: 20px;
-        right: 55px;
+        left: 12px;
+        right: 80px;
         top: 30px;
-        bottom: -53px;
-        border-radius: 50%;
-        border: 2px solid #F66813;
-        animation: animar 2s infinite;
-    }
-
-    @keyframes animar {
-        0% {
-            transform: scale(0.5);
-            opacity: 0;
-        }
-        50% {
-            opacity: 1;
-        }
-        100% {
-            transform: scale(1.0);
-            opacity: 0;
-        }
-`
-
-export const Scroll2 = styled.div`
-
-    position: relative;
-
-    .ScrollDown2 {
-       margin: 0 0 0 0;
-       scroll-behavior: smooth; 
-    }
-
-    .Smoothscroll2 {
-        position: absolute;
-        bottom: 210px;
-        left: 50%;
-        margin-left: -47px;
-        display: block;
-        height: 42px;
-        width: 146px;
-        font-size: 20px;
-        line-height: 42px;
-        color: #000000;
-        border-radius: 100%;
-        text-decoration: none;
-        transition: all .3s ease-in-out; 
-    }
-
-    .Smoothscroll2:hover { 
-        color: #F66813;
-    }
-
-    i {
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        padding: 4px 36px 0 0; 
-        border: 0;
-        outline: 0;
-        font-size: 170%;
-        vertical-align: baseline;
-        background: transparent;
-
-        -webkit-animation: pulse 1s ease infinite;
-        -moz-animation: pulse 1s ease infinite;
-        -ms-animation: pulse 1s ease infinite;
-        -o-animation: pulse 1s ease infinite;
-        animation: pulse 1s ease infinite;
-    }    
-    
-    i:before, i:after {
-        content: "";
-        display: block;
-        position: absolute;
-        left: 29px;
-        right: 65px;
-        top: -4px;
-        bottom: -9px;
+        bottom: -45px;
         border-radius: 50%;
         border: 2px solid #f66813;
+        animation: animar 2s infinite;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+        }
     }
 
     @keyframes animar {
@@ -377,77 +161,308 @@ export const Scroll2 = styled.div`
         }
 `
 
+export const SecondSection = styled.section`
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:min-content;
+    background: ${(props) => props.theme.white};
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover; 
+    
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1024px) {
+        height:min-content;
+        position: relative;
+    }
+
+    .SecondSectionTitle {
+        width: 100%;
+        font-family: "Inter";
+        font-size: 22px;
+        text-align: center;
+        padding-top: 30px;
+        font-weight: 500;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            font-size: 44px;
+        }
+    }
+
+    .SecondSectionP {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        font-family: "Inter";
+        font-size: 12px;
+        text-align: center;
+        padding-top: 13px;
+        justify-content: center;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            font-size: 18px;
+        }
+    }
+
+    .CronosP {
+        width: 20%;
+        color: #f66813;
+        text-align: center;
+        font-weight: 600;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            width: 7%;
+        }
+    }
+
+    .Content {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        align-content: flex-end;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 37px 20px 0 20px;
+        row-gap: 0px;
+        column-gap: 10px;
+
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+
+        @media (min-width: 768px) {
+            padding: 37px 20px 65px 20px;
+        }
+        @media (min-width: 1024px) {
+            padding: 20px 130px 20px 130px;
+            flex-direction: wrap;
+            flex-wrap: wrap;
+        }
+    }
+
+    .Image1 {
+        width: 100%;
+        height: 205px;
+
+        @media (min-width: 768px) {
+            width: 60%;
+        }
+        @media (min-width: 1024px) {
+            width: 380px;
+            height: 220px;
+        }
+    }
+
+    .Image1 img {
+        width: 100%;
+        height: 185px;
+        @media (min-width: 768px) {
+            height: 220px;
+        }
+        @media (min-width: 1024px) {
+            width: 380px;
+            height: 220px;
+        }
+    }
+
+    .FirstTopic {
+        width: 100%;
+        height: 190px;
+        padding: 15px 2px 3px 18px;
+        @media (min-width: 768px) {
+            height: 150px;
+        }
+        @media (min-width: 1024px) {
+            width: 400px;
+            height: 210px;
+            padding: 30px 0px 3px 0px;
+        }
+    }
+
+    .FirstTopic h2 {
+        width: 100%;
+        font-family: "Jura";
+        font-size: 18px;
+        font-weight: 600;
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            font-size: 30px;
+        text-align: center;
+        }
+    }
+
+    .FirstContent {
+        width: 100%;
+        height: 115px;
+        font-size: 14px;
+        @media (min-width: 768px) {
+            height: 200px;
+        }
+        @media (min-width: 1024px) {
+            width: 380px;
+            height: 220px;
+            text-align: center;
+        }
+    }
+
+    .SecondTopic {
+        width: 100%;
+        height: 190px;
+        padding: 0px 2px 3px 16px;
+        @media (min-width: 768px) {
+            height: 150px;
+        }
+        @media (min-width: 1024px) {
+            width: 400px;
+        height: 240px;
+        padding: 30px 0px 3px 0px;
+        }
+    }
+
+    .SecondTopic h2 {
+        width: 100%;
+        font-family: "Jura";
+        font-size: 18px;
+        font-weight: 600;
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            font-size: 30px;
+        text-align: center;
+        }
+    }
+
+    .SecondContent {
+        width: 100%;
+        height: 190px;
+        font-size: 14px;      
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            width: 380px;
+            height: 220px;
+            text-align: center;
+        } 
+    }
+
+    .Image2 {
+        width: 100%;
+        height: 205px;   
+        @media (min-width: 768px) {
+            width: 60%;
+        }
+        @media (min-width: 1024px) {
+            width: 380px;
+        height: 220px;
+        margin-bottom: 20px;
+        }   
+    }
+
+    .Image2 img {
+        width: 100%;
+        height: 185px;
+        @media (min-width: 768px) {
+            height: min-content;
+        }
+        @media (min-width: 1024px) {
+            width: 380px;
+            height: 220px;
+        }
+    }
+`
 
 export const LastSection = styled.section`
     display:flex;
     flex-direction:column;
     width:100%;
-    height:100vh;
+    height: min-content;
+    height:min-content;
     background-color: #f66813;
     background-position:center;
     background-repeat:no-repeat;
-    background-size:cover;
-
-    @media (max-width: 768px){
-        width: 118%;
-        height: 160vh;
-     }
+    background-size:cover;   
+    
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1024px) {
+        height:100vh;
+    position: relative;
+    }
 
     .Container {
         width: 70%;
         align-self: center;
         margin: auto;
-        padding-top: 80px;
+        padding-top: 10px;
 
-        @media (max-width: 768px){
-            width: 100%;
-            padding-top: 25px;
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            padding-top: 80px;
         }
     }
 
     .LastSectionTitle {
+        width: 100%;
         font-family: "Inter";
-        font-size: 44px;
+        font-size: 22px;
         text-align: center;
         padding-top: 30px;
         font-weight: 500;
         color: #fff;
 
-        @media (max-width: 768px){
-            font-size: 34px;
-            padding-left: 6px;
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            font-size: 44px;
         }
     }
 
     .LastSectionP {
+        width: 100%;
         display: flex;
         flex-direction: row;
         font-family: "Inter";
-        font-size: 18px;
+        font-size: 14px;
         text-align: center;
         padding-top: 13px;
         justify-content: center;
         color: #fff; 
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            font-size: 18px;
+        color: #000000;
+        }
     }
 
     .Resources {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        width: auto;
-        height: inherit;
-        margin: 0px 50px 0px 50px;
-        column-gap: 30px;
-
-        @media (max-width: 768px){
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             width: auto;
             height: inherit;
-            margin: 0px 50px 0px 50px;
+            margin: 0px 50px 80px 50px;
             column-gap: 30px;
-        }
+
+            @media (min-width: 768px) {
+            }
+            @media (min-width: 1024px) {
+                flex-direction: row;
+                justify-content: space-evenly;
+                margin: 0px 50px 0px 50px;
+            }
     }
 
     .Div1 {
@@ -460,13 +475,20 @@ export const LastSection = styled.section`
     .Div1 i {
         width: 100px;
         height: 100px;
-        margin-top: 50px;
+        margin-top: 40px;
         float: left;
         margin-left: 10px;
         background-color: #fff;
         border-radius: 50px;
-        padding: 28px 0 0 27px;
-        color: #2927A6;
+        padding: 26px 0 0 25px;
+        color: #272586;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            margin-top: 50px;
+            padding: 28px 0 0 27px;
+        }
     }
 
     .Div1 h3 {
@@ -481,26 +503,45 @@ export const LastSection = styled.section`
         text-align: center;
         color: #fff;
         font-family: inter;
-        font-size: 14px;
+        font-size: 12px;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+           font-size: 14px;
+        }
     }
 
     .Div2 {
         display: flex;
         flex-direction: column;
         align-items: center;
-        row-gap: 15px;
+        row-gap: 5px;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            row-gap: 15px;
+        }
     }
 
     .Div2 i {
         width: 100px;
         height: 100px;
-        margin-top: 50px;
+        margin-top: 40px;
         float: left;
         margin-left: 10px;
         background-color: #fff;
         border-radius: 50px;
-        padding: 28px 0 0 27px;
-        color: #2927A6;
+        padding: 26px 0 0 25px;
+        color: #272586;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            margin-top: 50px;
+            padding: 28px 0 0 27px;
+        }
     }
 
     .Div2 h3 {
@@ -515,26 +556,45 @@ export const LastSection = styled.section`
         text-align: center;
         color: #fff;
         font-family: inter;
-        font-size: 14px;
+        font-size: 12px;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+           font-size: 14px;
+        }
     }
 
     .Div3 {
         display: flex;
         flex-direction: column;
         align-items: center;
-        row-gap: 15px;
+        row-gap: 5px;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+           row-gap: 15px;
+        }
     }
 
     .Div3 i {
         width: 100px;
         height: 100px;
-        margin-top: 50px;
+        margin-top: 40px;
         float: left;
         margin-left: 10px;
         background-color: #fff;
         border-radius: 50px;
-        padding: 28px 0 0 27px;
-        color: #2927A6;
+        padding: 26px 0 0 25px;
+        color: #272586;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+           margin-top: 50px;
+           padding: 28px 0 0 27px;
+        }
     }
 
     .Div3 h3 {
@@ -549,7 +609,13 @@ export const LastSection = styled.section`
         text-align: center;
         color: #fff;
         font-family: inter;
-        font-size: 14px;
+        font-size: 12px;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+           font-size: 14px;
+        }
     }
 
     .Div1, .Div2, .Div3 path {
@@ -557,3 +623,65 @@ export const LastSection = styled.section`
     }
 `
 
+export const Scroll3 = styled.div`
+
+    .ScrollDown3 {
+        margin: 0 0 30px 0;
+        scroll-behavior: smooth;
+    }
+       
+    .Smoothscroll3 {
+        bottom: 78px;
+        left: 50%;
+        margin: auto;
+        display: block;
+        height: 60px;
+        width: 146px;
+        font-size: 20px;
+        line-height: 42px;
+        color: #000000;
+        border-radius: 100%;
+        text-decoration: none;
+        transition: all .3s ease-in-out; 
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            position: absolute;
+            margin-left: -47px;
+            heigth: 42px;
+        }
+    }
+
+    .Smoothscroll3:hover { 
+        color: #Fff;
+    }
+
+    i {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0px 0 0 0; 
+        border: 0;
+        outline: 0;
+        font-size: 165%;
+        vertical-align: baseline;
+        background: transparent;
+
+        -webkit-animation: pulse 1s ease infinite;
+        -moz-animation: pulse 1s ease infinite;
+        -ms-animation: pulse 1s ease infinite;
+        -o-animation: pulse 1s ease infinite;
+        animation: pulse 1s ease infinite;
+
+        @media (min-width: 768px) {
+        }
+        @media (min-width: 1024px) {
+            position: relative;
+            padding: 63px 34px 0 0; 
+            font-size: 170%;
+        }
+    }    
+    
+   
+`

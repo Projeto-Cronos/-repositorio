@@ -1,39 +1,53 @@
-import { Link } from "react-router-dom";
-import { Container } from "./style";
-import calculadora from "../../../assets/icons/calculadora.svg";
-import projetos from "../../../assets/icons/projetos.svg";
-import rastreador from "../../../assets/icons/rastreador.svg";
-import temaEscuro from "../../../assets/icons/temaEscuro.svg";
-import configuracoes from "../../../assets/icons/configuracoes.svg";
-import sair from "../../../assets/icons/sair.svg";
+import { Container, SideBarButton } from "./style";
+import {
+  BsClock,
+  BsCalculator,
+  BsFolder,
+  BsGear,
+  BsMoon,
+  BsBoxArrowRight,
+  BsPerson,
+} from "react-icons/bs";
 
-const SideBar = ({ isSideBarVisible }) => {
+const SideBar = ({ isSideBarVisible, username, email }) => {
   return (
     <Container isSideBarVisible={isSideBarVisible}>
-      <Link to="/">
-        <img src={rastreador} alt="Rastreador de tempo" />
-        Rastreador de tempo
-      </Link>
-      <Link to="/register">
-        <img src={calculadora} alt="Calculadora" />
-        Calculadora
-      </Link>
-      <Link to="/login">
-        <img src={projetos} alt="Projetos" />
-        Projetos
-      </Link>
-      <Link to="/blog">
-        <img src={configuracoes} alt="Configurações" />
-        Configurações
-      </Link>
-      <Link to="/blog">
-        <img src={temaEscuro} alt="Tema escuro" />
-        Tema escuro
-      </Link>
-      <Link to="/blog">
-        <img src={sair} alt="Sair" />
-        Sair
-      </Link>
+      <div className="profile">
+        <BsPerson />
+        <h3 className="userName">{username}</h3>
+        <p className="userEmail">{email}</p>
+      </div>
+      <div className="menu">
+        <SideBarButton>
+          <BsClock />
+          Rastreador de tempo
+        </SideBarButton>
+
+        <SideBarButton>
+          <BsCalculator />
+          Calculadora
+        </SideBarButton>
+
+        <SideBarButton>
+          <BsFolder />
+          Projetos
+        </SideBarButton>
+
+        <SideBarButton>
+          <BsGear />
+          Configurações
+        </SideBarButton>
+
+        <SideBarButton>
+          <BsMoon />
+          Tema escuro
+        </SideBarButton>
+
+        <SideBarButton>
+          <BsBoxArrowRight />
+          Sair
+        </SideBarButton>
+      </div>
     </Container>
   );
 };

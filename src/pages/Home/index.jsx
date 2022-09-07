@@ -1,140 +1,145 @@
-import { Section, HeaderContent, SecondSection, Scroll, LastSection, Scroll2} from "./style";
+import { Section, HeaderContent, SecondSection, Scroll, LastSection, Scroll2, Scroll3} from "./style";
 import { motion } from "framer-motion";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { ArrowDownCircle, Gear, Calculator, Pen } from "react-bootstrap-icons";
+import { ArrowDownCircle, Gear, Calculator, Pen, ArrowUpCircle } from "react-bootstrap-icons";
 import Home1 from "../../assets/image/Home1.jpg";
 import Home2 from "../../assets/image/Home2.jpg";
 
-
 function Home() {
- 
-    return (
-        <motion.div 
-        initial={{opacity:0.75}}
-        animate={{opacity:1}}
-        exit={{ opacity:0 }}
-        transition={{ duration: 0.5 }}
-        >
-        <>
+  return (
+    <motion.div
+      initial={{ opacity: 0.75 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <>
         <Section>
+          <Header />
 
-            <Header /> 
+          <HeaderContent>
+            <h1 className="HeaderTitle" id="home">
+              <p>Valorize</p>
+              <p>as</p>
+              <p>suas</p>
+              <p>skills.</p>
+            </h1>
+            <h2 className="HeaderSubtitle">Seu tempo, suas regras.</h2>
 
-                <HeaderContent>
-                    <h1 className="HeaderTitle" id="home">
-                        <p>Valorize</p>
-                        <p>as</p>
-                        <p>suas</p>
-                        <p>skills.</p>
-                    </h1> 
-                        <h2 className="HeaderSubtitle">Seu tempo, suas regras.</h2>
-
-                        <Scroll>
-                            <p className="Scrolldown">
-                            <a className="Smoothscroll" href="#about">Saiba Mais
-                            <i className="LearnMore"> <ArrowDownCircle /> </i>
-                            </a>
-                            </p>
-                        </Scroll>
-
-                </HeaderContent>
-
+            <Scroll>
+              <p className="Scrolldown">
+                <a className="Smoothscroll" href="#about">
+                  Saiba Mais
+                  <i className="LearnMore">
+                    {" "}
+                    <ArrowDownCircle />{" "}
+                  </i>
+                </a>
+              </p>
+            </Scroll>
+          </HeaderContent>
         </Section>
 
         <SecondSection>
+          <div>
+            <h2 className="SecondSectionTitle" id="about">
+              Uma ferramenta única, feita de Dev para Dev.
+            </h2>
+            <p className="SecondSectionP">
+              Descubra como a <p className="CronosP">&nbsp;CRONOS&nbsp;</p> pode
+              lhe ajudar:
+            </p>
+          </div>
 
-            <div>
-                <h2 className="SecondSectionTitle" id="about">Uma ferramenta única, feita de Dev para Dev.</h2>
-                    <p className="SecondSectionP">Descubra como a <p className="CronosP">&nbsp;CRONOS&nbsp;</p> pode lhe ajudar:</p>
-            </div>  
-
-            <div className="Content">
-                <div className="Image1">
-                    <img src={Home1} alt="aboutImage" />    
-                </div>    
-
-                <div className="FirstTopic">
-                    <h2>Descubra seu poder</h2>
-                    <br></br>
-                        <p className="FirstContent">Lorem Ipsum is simply dummy text of the printing and typesetting 
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when 
-                        an unknown printer took a galley of type and scrambled it to make a type specimen book. It 
-                        has survived not only five centurie elease of Letraset .</p>
-                </div>    
-                
-
-                <div className="SecondTopic">
-                    <h2>Descubra seu poder</h2>
-                    <br></br>
-                        <p className="SecondContent">Lorem Ipsum is simply dummy text of the printing and typesetting 
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when 
-                        an unknown printer took a galley of type and scrambled it to make a type specimen book. It has 
-                        survived not only five centuries, but also the leap into electronic typesetting, remaining 
-                        essentially unchanged.</p>
-                </div>
-
-                <div className="Image2">    
-                    <img src={Home2} alt="secondAboutImage" />
-                </div>  
-
+          <div className="Content">
+            <div className="Image1">
+              <img src={Home1} alt="aboutImage" />
             </div>
 
-            <Scroll>
-                <p className="Scrolldown">
-                <a className="Smoothscroll" href="#lastsection">
-                <i className="LearnMore"> <ArrowDownCircle /> </i>
-                </a>
-                </p>
-            </Scroll>
+            <div className="FirstTopic">
+              <h2>Você tem um problema</h2>
+              <br></br>
+              <p className="FirstContent">
+                O mercado da tecnologia é competitivo, nós sabemos. No entanto, isso não é motivo para que
+                você cobre menos pelo seu serviço, tentando conseguir novos clientes. Mas, então,
+                como "precificar" seu tempo de maneira justa e certeira?
+              </p>
+            </div>
 
+            <div className="SecondTopic">
+              <h2>Nós temos a solução</h2>
+              <br></br>
+              <p className="SecondContent">
+                Para resolver essa questão, a CRONOS disponibiliza para os seus usuários uma ferramenta única, 
+                capaz de calcular o preço médio da hora de um dev com base em informações confiáveis e atuais. 
+                Além disso, na CRONOS você também tem acesso à um painel de controle para gerenciar seus projetos pessoais.
+              </p>
+            </div>
+
+            <div className="Image2">
+              <img src={Home2} alt="secondAboutImage" />
+            </div>
+          </div>
         </SecondSection>
 
         <LastSection>
+          <div className="Container">
+            <h2 className="LastSectionTitle" id="lastsection">
+              Conheça os recursos que podem mudar o seu jeito de trabalhar.
+            </h2>
+            <p className="LastSectionP">
+              Cadastre-se. Acesse. Calcule. Tudo em poucos cliques!
+            </p>
+          </div>
 
-            <div className="Container" id="lastsection">
-                <h2 className="LastSectionTitle" id="resources">Compartilhe Os Recursos Que Ajudam Seus Clientes.</h2>
-                    <p className="LastSectionP">Descubra como a alala alalala alalals slsl.</p> 
-            </div> 
-
-            <div className="Resources">
-
-                <div className="Div1">
-                    <i className="DashIcon"> <Gear size={50}/> </i>
-                    <h3 className="DashTitle">Qualquer coisa</h3>
-                        <p className="DashP">qualquer tipo de texto aqui apenas para ocupar algum espaço.
-                        qualquer tipo de texto aqui apenas para ocupar algum espaço. qialqyer coisa ajdksns
-                        ajsidheidh swkeheid.
-                        </p>
-                </div>    
+          <div className="Resources">
+            <div className="Div1">
+              <i className="DashIcon">
+                {" "}
+                <Gear size={50} />{" "}
+              </i>
+              <h3 className="DashTitle">Painel de controle</h3>
+              <p className="DashP">
+                Informe o projeto em que está trabalhando e o valor a ser cobrado pela hora. Pronto! Agora é 
+                só dar um "play" para manter tudo organizado, incluíndo prazos e rendimentos por minuto.
+              </p>
+            </div>
 
                 <div className="Div2">
                     <i className="DashIcon"> <Calculator size={50}/> </i>
-                    <h3 className="DashTitle">Qualquer coisa 2</h3>
-                        <p className="DashP">qualquer tipo de texto aqui apenas para ocupar algum espaço.
-                        qualquer tipo de texto aqui apenas para ocupar algum espaço. wsiehdid jdibeide diwes
-                        jeiedhd eskienje.
+                    <h3 className="DashTitle">Calculadora de preço/hora</h3>
+                        <p className="DashP">
+                          Com a calculadora de PREÇO X HORA, basta informar a principal tecnologia
+                          usada no projeto, a região do país onde você vive e qual seu tempo de 
+                          experiência. Em poucos segundos você terá em mãos o valor médio cobrado por outros devs como você.
                         </p>
                 </div>
 
                 <div className="Div3">
                     <i className="DashIcon"> <Pen size={50}/> </i>
-                    <h3 className="DashTitle">Qualquer coisa 3</h3>
-                        <p className="DashP">qualquer tipo de texto aqui apenas para ocupar algum espaço.
-                        qualquer tipo de texto aqui apenas para ocupar algum espaço. djfide djedioewd iwide
-                        jdwid djhwihjerr.
+                    <h3 className="DashTitle">Blog</h3>
+                        <p className="DashP">
+                          Tenha acesso à diversas notícias e informações sobre o universo da tecnologia
+                          em um único lugar. Com a CRONOS você coordena seus projetos e ainda fica bem informado.
                         </p>
                 </div>
+          </div>
 
-            </div>
+          <Scroll3>
+                <p className="Scrolldown3">
+                <a className="Smoothscroll3" href="#home">
+                <i className="LearnMore3"> <ArrowUpCircle /> </i>
+                </a>
+                </p>
+          </Scroll3>
 
         </LastSection>
-        
-        <Footer />
 
-        </>
-        </motion.div>
-    )
+        <Footer background-color="#fff" />
+      </>
+    </motion.div>
+  );
 }
 
-export default Home
+export default Home;
