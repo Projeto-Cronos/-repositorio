@@ -1,18 +1,21 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
+import { toast } from "react-toastify";
 import Api from "../services/api";
 
 export const ProjectsContext = createContext({});
 
 const ProjectsProvider = ({ children }) => {
+  const [allProjects, setAllProjects] = useState([]);
+
   const getAllProjects = async () => {
     const userId = window.localStorage.getItem("authId");
     console.log(userId);
 
-    const token = window.localStorage.getItem("authToken");
-    if (token) Api.defaults.headers.common.Authorization = token;
+    const token = JSON.parse(window.localStorage.getItem("authToken"));
+    if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
 
-    const data = await Api.get(`/users/${userId}/projects`)
-      .then((res) => res.data)
+    const data = await Api.get(`users/${userId}/projects`)
+      .then((res) => setAllProjects(res.data))
       .catch((err) => console.error(err));
 
     return data;
@@ -30,14 +33,17 @@ const ProjectsProvider = ({ children }) => {
   };
 
   const createProject = async (newProject) => {
-    const token = window.localStorage.getItem("authToken");
-    if (token) Api.defaults.headers.common.Authorization = token;
-
+    const token = JSON.parse(window.localStorage.getItem("authToken"));
+    const userId = window.localStorage.getItem("authId");
+    newProject.userId = Number(userId);
+    if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
+    console.log(Api.defaults.headers);
     const data = await Api.post(`/projects`, newProject)
-      .then((res) => res.data)
+      .then((res) => {
+        getAllProjects();
+        return res.data;
+      })
       .catch((err) => console.error(err));
-
-    return data;
   };
 
   const editProject = async (projectId, editedProject) => {
@@ -52,12 +58,21 @@ const ProjectsProvider = ({ children }) => {
   };
 
   const deleteProject = async (projectId) => {
-    const token = window.localStorage.getItem("authToken");
-    if (token) Api.defaults.headers.common.Authorization = token;
+    const token = JSON.parse(window.localStorage.getItem("authToken"));
+    if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
 
     const data = await Api.delete(`/projects/${projectId}`)
-      .then((res) => console.log(res))
-      .catch((err) => console.error(err));
+      .then((res) => {
+        toast.success("Projeto deletado com sucesso!", {
+          autoClose: 2000,
+        });
+        getAllProjects();
+      })
+      .catch((err) => {
+        toast.error("Falha ao deletar projeto!", {
+          autoClose: 3000,
+        });
+      });
 
     return data;
   };
@@ -65,6 +80,7 @@ const ProjectsProvider = ({ children }) => {
   return (
     <ProjectsContext.Provider
       value={{
+        allProjects,
         getAllProjects,
         getProject,
         createProject,

@@ -5,69 +5,96 @@ import ListHeader from "./ListHeader";
 import ListItem from "./ListItem";
 import ListBody from "./ListBody";
 import ProjectList from "./ProjectList";
-import { useContext } from "react"
-import { Context } from "../../providers/userContext"
-import ModalEdit from "./Modal/ModalEdit"
-import ModalDelete from "./Modal/ModalDelete"
+import { useContext, useEffect } from "react";
+import { ProjectsContext } from "../../providers/projectsContext";
+import { Context } from "../../providers/userContext";
+import ModalEdit from "./Modal/ModalEdit";
+import ModalDelete from "./Modal/ModalDelete";
 
 function Dashboard() {
-  const { navigate, token } =useContext(Context)
+  const { navigate, token } = useContext(Context);
+  const { allProjects, getAllProjects } = useContext(ProjectsContext);
 
-  if(!token) {
-    setTimeout(() => {navigate("/login")}, 100)
-}else {
-  return (
-    <>
-      <HeaderDashboard username="Cronoszinho" email="cronoszinho@gmail.com" />
-      <DashboardMain>
-        <NewProjectContainer />
+  useEffect(() => {
+    getAllProjects();
+  }, []);
 
-        <ProjectList>
-          <ListHeader />
+  if (!token) {
+    setTimeout(() => {
+      navigate("/login");
+    }, 100);
+  } else {
+    return (
+      <>
+        <HeaderDashboard username="Cronoszinho" email="cronoszinho@gmail.com" />
+        <DashboardMain>
+          <NewProjectContainer />
 
-          <ListBody>
-            <ListItem
-              projectName={"Joguinho maroto"}
-              startDate={"2022-03-26"}
-              endDate={"2022-03-28"}
-              tags={"jogo, nintendo"}
-              pricePerHour={"R$ 280,00"}
-              stopwatch={"02:58:07"}
-            />
-            <ListItem
-              projectName={"Joguinho maroto"}
-              startDate={"2022-03-26"}
-              endDate={"2022-03-28"}
-              tags={"jogo, nintendo"}
-              pricePerHour={"R$ 280,00"}
-              stopwatch={"02:58:07"}
-            />
-            <ListItem
-              projectName={"Joguinho maroto"}
-              startDate={"2022-03-26"}
-              endDate={"2022-03-28"}
-              tags={"jogo, nintendo"}
-              pricePerHour={"R$ 280,00"}
-              stopwatch={"02:58:07"}
-            />
-            <ListItem
-              projectName={"Joguinho maroto"}
-              startDate={"2022-03-26"}
-              endDate={"2022-03-28"}
-              tags={"jogo, nintendo"}
-              pricePerHour={"R$ 280,00"}
-              stopwatch={"02:58:07"}
-            />
-            
-          </ListBody>
-        </ProjectList>
-        <ModalEdit />
-        <ModalDelete />
-      </DashboardMain>
-   
-    </>
-  );
-}
+          <ProjectList>
+            <ListHeader />
+
+            <ListBody>
+              {allProjects.length ? (
+                allProjects.map(
+                  ({
+                    id,
+                    title,
+                    start_date,
+                    end_date,
+                    price_per_hour,
+                    timer,
+                  }) => (
+                    <ListItem
+                      key={id}
+                      projectId={id}
+                      projectName={title}
+                      startDate={start_date}
+                      endDate={end_date}
+                      pricePerHour={price_per_hour}
+                      stopwatch={timer}
+                    />
+                  )
+                )
+              ) : (
+                <>
+                  <ListItem
+                    projectName={"Joguito maroto"}
+                    startDate={"2022-03-26"}
+                    endDate={"2022-03-28"}
+                    pricePerHour={"R$ 280,00"}
+                    stopwatch={"02:58:07"}
+                  />
+                  <ListItem
+                    projectName={"Joguinho maroto"}
+                    startDate={"2022-03-26"}
+                    endDate={"2022-03-28"}
+                    pricePerHour={"R$ 280,00"}
+                    stopwatch={"02:58:07"}
+                  />
+                  <ListItem
+                    projectName={"Joguinho maroto"}
+                    startDate={"2022-03-26"}
+                    endDate={"2022-03-28"}
+                    pricePerHour={"R$ 280,00"}
+                    stopwatch={"02:58:07"}
+                  />
+                  <ListItem
+                    projectName={"Joguinho maroto"}
+                    startDate={"2022-03-26"}
+                    endDate={"2022-03-28"}
+                    pricePerHour={"R$ 280,00"}
+                    stopwatch={"02:58:07"}
+                  />
+                </>
+              )}
+            </ListBody>
+          </ProjectList>
+          <ModalEdit />
+          <ModalDelete />
+        </DashboardMain>
+      </>
+    );
+  }
 }
 
 export default Dashboard;

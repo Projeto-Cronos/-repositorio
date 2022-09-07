@@ -22,7 +22,7 @@ const ProviderUser = ({ children }) => {
   const navigate = useNavigate();
   const [valuePerMinute, setValuePerMinute] = useState(0);
   const [calculation, setCalculation] = useState(0);
-  const [totalTime, setTotalTime] = useState(0)
+  const [totalTime, setTotalTime] = useState(0);
   const [result, setResult] = useState(false);
   const [currentTheme, setCurrentTheme] = useState("claro");
   const [userProfile, setUserProfile] = useState(user);
@@ -62,7 +62,7 @@ const ProviderUser = ({ children }) => {
             JSON.stringify(res.data.accessToken)
           );
           navigate("/dashboard");
-          setUserProfile(res.data.user)
+          setUserProfile(res.data.user);
         } else {
           return null;
         }
@@ -84,50 +84,49 @@ const ProviderUser = ({ children }) => {
 
   //Dashboard
   const editProfile = (data) => {
-    Api.patch(`/users/${user.id}`,data, {
-        headers: {Authorization: `Bearer ${token}`}
-        })
-        .then((res) => {
-            setDropdownEdit("none")
-            notifyLoginSuccess("Perfil editado com sucesso!")
-           localStorage.removeItem("authUser")
-           localStorage.setItem("authUser",JSON.stringify(res.data));
-            setUserProfile(res.data)
-        })
-        .catch(() => {
-            notifyLoginError("Ops! Algo deu errado")
-        })
-}
-
-const deleteProject = (id) => {
-  Api.delete(`/projects/${id}`, {
-      headers: {Authorization: `Bearer ${token}`}
-      })
-      .then(() => {
-          setDropdownDelete("none")
-          notifyLoginSuccess("Projeto deletado com sucesso!")
+    Api.patch(`/users/${user.id}`, data, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => {
+        setDropdownEdit("none");
+        notifyLoginSuccess("Perfil editado com sucesso!");
+        localStorage.removeItem("authUser");
+        localStorage.setItem("authUser", JSON.stringify(res.data));
+        setUserProfile(res.data);
       })
       .catch(() => {
-          notifyLoginError("Ops! Algo deu errado")
+        notifyLoginError("Ops! Algo deu errado");
+      });
+  };
+
+  const deleteProject = (id) => {
+    Api.delete(`/projects/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then(() => {
+        setDropdownDelete("none");
+        notifyLoginSuccess("Projeto deletado com sucesso!");
       })
-}
+      .catch(() => {
+        notifyLoginError("Ops! Algo deu errado");
+      });
+  };
 
-    const showDropdownDelete = () => {
-      setDropdownDelete("flex");
-    }
+  const showDropdownDelete = () => {
+    setDropdownDelete("flex");
+  };
 
-    const closeDropdownDelete = () => {
-      setDropdownDelete("none");
-    };
+  const closeDropdownDelete = () => {
+    setDropdownDelete("none");
+  };
 
-    const showDropdownEdit = () => {
+  const showDropdownEdit = () => {
     setDropdownEdit("flex");
-    }
+  };
 
-    const closeDropdownEdit = () => {
+  const closeDropdownEdit = () => {
     setDropdownEdit("none");
-    };
-
+  };
 
   //Lottie
   const [animateState] = useState({
@@ -203,7 +202,7 @@ const deleteProject = (id) => {
         setResult,
         token,
         user,
-        currentTheme, 
+        currentTheme,
         setCurrentTheme,
         getOpositeTheme,
         showDropdownDelete,
