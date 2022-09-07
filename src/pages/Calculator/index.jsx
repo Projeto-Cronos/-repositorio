@@ -8,6 +8,10 @@ import dataBase from "../../assets/dataBase/media-salarial-programadores-2022";
 import { Context } from "../../providers/userContext";
 import { CalculatorContext } from "../../providers/calculatorContext";
 import { useContext } from "react";
+import ModalEdit from "../../pages/Dashboard/Modal/ModalEdit"
+import {
+  BsExclamationCircle
+} from "react-icons/bs";
 
 const Calculator = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -56,31 +60,60 @@ const Calculator = () => {
                 <label htmlFor="selecionar-Linguagem">
                   Linguagem / Tecnologia utilizada
                 </label>
+                <div className="select">
                 <select {...register("language")} id="selecionar-Linguagem">
+                  
                   <option value="">Selecione a linhguagem / tecnologia</option>
                   {languages}
                 </select>
-                <span>{errors.language?.message}</span>
+                <span className="dropdown">{errors.language?.message ? (
+                  <>
+                    <BsExclamationCircle />
+                    <div class="dropdown-content">
+                      <p>{errors.language?.message}</p>
+                    </div>
+                  </>
+                ) : null}
+              </span>
+                  </div>
               </div>
 
               <div className="box__select">
                 <label htmlFor="uf">Região do país</label>
+                <div className="select">
                 <select {...register("region")} id="uf">
                   <option value="">Selecione o estado</option>
                   {ufValues}
                 </select>
-                <span>{errors.region?.message}</span>
+                <span className="dropdown">{errors.region?.message ? (
+                  <>
+                    <BsExclamationCircle />
+                    <div class="dropdown-content">
+                      <p>{errors.region?.message}</p>
+                    </div>
+                  </>
+                ) : null}
+              </span>
+                  </div>
               </div>
-
               <div className="box__select">
                 <label htmlFor="level">Nível de senioridade</label>
+                <div className="select">
                 <select {...register("level")} id="level">
                   <option value="">Selecione seu nível de senioridade</option>
                   {level}
                 </select>
-                <span>{errors.level?.message}</span>
+                <span className="dropdown">{errors.level?.message ? (
+                  <>
+                    <BsExclamationCircle />
+                    <div class="dropdown-content">
+                      <p>{errors.level?.message}</p>
+                    </div>
+                  </>
+                ) : null}
+              </span>
+                  </div>
               </div>
-
               <div className="box__btn">
                 {
                   !result ? (
@@ -94,8 +127,7 @@ const Calculator = () => {
                   )
                 }
               </div>
-            </FormCalculator>
-            {result && (
+              {result && (
               <Result>
                 <div>
                   <h2>Resultado:</h2>
@@ -106,12 +138,14 @@ const Calculator = () => {
                       currency: "BRL",
                     }).format(calculation)}
                   </span>
-                  <p>por hora, em média.</p>
+                  <p className="textSecond">por hora, em média.</p>
                 </div>
               </Result>
             )}
+            </FormCalculator>
           </MainCalculator>
         </ContainerMain>
+        <ModalEdit/>
       </ContainerCalculator>
     );
   }
