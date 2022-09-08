@@ -32,7 +32,7 @@ export const Form = styled.form`
   box-shadow: 0px 4px 40px -10px var(--shadow);
 
   .cursor {
-    cursor:pointer;
+    cursor: pointer;
   }
 
   .dropdown {
@@ -196,7 +196,7 @@ export const ButtonOrange = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  cursor:pointer;
+  cursor: pointer;
   align-items: center;
   width: 91%;
   height: 7.3vh;

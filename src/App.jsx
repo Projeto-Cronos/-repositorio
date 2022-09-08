@@ -7,16 +7,16 @@ import { Context } from "./providers/userContext";
 import { ThemeProvider } from "styled-components";
 
 function App() {
-  const { currentTheme} = useContext(Context);
+  const { currentTheme } = useContext(Context);
 
   return (
     <>
-    <ThemeProvider theme={themes[currentTheme]}>
-      <Authenticator />
-      <ToastContainer
-        toastStyle={{ backgroundColor:"white" , color: "black" }}
-        autoClose={1500}
-      />
+      <ThemeProvider theme={themes[currentTheme]}>
+        <Authenticator />
+        <ToastContainer
+          toastStyle={{ backgroundColor: "white", color: "black" }}
+          autoClose={1500}
+        />
       </ThemeProvider>
     </>
   );

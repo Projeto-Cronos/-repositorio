@@ -5,18 +5,19 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 60px;
-  padding: 70px 16px 22px 16px ;
+  padding: 70px 16px 22px 16px;
   position: fixed;
   height: 100%;
   width: 280px;
   top: 0;
+  z-index: 1;
   left: ${(props) => (props.isSideBarVisible ? "0" : "-100%")};
   background-color: ${(props) => props.theme.white};
   box-shadow: -17px 27px 28px 10px ${(props) => props.theme.shadow};
   animation: showSidebar 0.4s;
   @media (min-width: 1024px) {
-      display: none;
-    }
+    display: none;
+  }
 
   @keyframes showSidebar {
     from {
@@ -30,16 +31,16 @@ export const Container = styled.div`
   }
   .img {
     display: flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     clip-path: circle(50% at 50% 50%);
-    width:108px;
-    height:108px;
-    background-color:red;
+    width: 108px;
+    height: 108px;
+    background-color: red;
   }
   .img img {
-    width:188.925px;
+    width: 188.925px;
     clip-path: circle(50% at 50% 50%);
   }
 
@@ -71,7 +72,6 @@ export const Container = styled.div`
       font-size: 14px;
       color: ${(props) => props.theme.grey2};
     }
-
   }
 `;
 

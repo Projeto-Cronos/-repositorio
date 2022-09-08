@@ -22,26 +22,26 @@ export const DashboardMain = styled.main`
     font: inherit;
   }
   .containerImg {
-    width:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .img {
-      width:20%;
-    }
+    width: 20%;
+  }
 
   @media (max-width: 768px) {
     padding: 94px 16px 0 16px;
     .img {
-      width:100%;
+      width: 100%;
     }
   }
 
   @media (max-width: 950px) {
     padding: 94px 30px 0 30px;
     .img {
-      width:55%;
+      width: 55%;
     }
   }
 `;

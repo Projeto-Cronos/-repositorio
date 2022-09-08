@@ -8,26 +8,12 @@ const SideBar = ({ isSideBarVisible }) => {
   return (
     <Container isSideBarVisible={isSideBarVisible}>
       <div className="menu">
-        <SideBarButton
-          onClick={() => navigate("/")}
-        >
-          Sobre
-        </SideBarButton>
-        <SideBarButton
-          onClick={() => navigate("/register")}
-        >
+        <SideBarButton onClick={() => navigate("/")}>Sobre</SideBarButton>
+        <SideBarButton onClick={() => navigate("/register")}>
           Cadastre-se
         </SideBarButton>
-        <SideBarButton
-          onClick={() => navigate("/login")}
-        >
-          Login
-        </SideBarButton>
-        <SideBarButton
-          onClick={() => navigate("/blog")}
-        >
-          Blog
-        </SideBarButton>
+        <SideBarButton onClick={() => navigate("/login")}>Login</SideBarButton>
+        <SideBarButton onClick={() => navigate("/blog")}>Blog</SideBarButton>
       </div>
     </Container>
   );

@@ -2,7 +2,6 @@ import { BsTrash } from "react-icons/bs";
 import ListColumn from "../ListColumn";
 import ListSmallColumn from "../ListSmallColumn";
 import { StyledListItem, BoxTimer } from "./style";
-
 import { useContext, useState } from "react";
 import { Context } from "../../../providers/userContext";
 import TimerToCount from "../../../components/Timer";
@@ -13,12 +12,10 @@ const ListItem = ({
   projectName,
   startDate,
   endDate,
-  tags,
   pricePerHour,
   stopwatch,
 }) => {
-  const { setProjectToDelete, valuePriceTotal } = useContext(ProjectsContext);
-
+  const { setProjectToDelete } = useContext(ProjectsContext);
   const { showDropdownDelete } = useContext(Context);
 
   const [newTitle, setNewTitle] = useState(projectName);
@@ -26,7 +23,8 @@ const ListItem = ({
   const [newEndDate, setNewEndDate] = useState(endDate);
   const [newPricePerHour, setNewPricePerHour] = useState(pricePerHour);
   const [newAccumulatedValue, setNewAccumulatedValue] = useState(0);
-  console.log({ stopwatch });
+  const [counter, setCounter] = useState(0);
+
   return (
     <StyledListItem>
       <ListColumn borderColor="blue">
@@ -58,7 +56,10 @@ const ListItem = ({
       <ListColumn borderColor="blue">
         <input
           type="text"
-          defaultValue={pricePerHour}
+          defaultValue={new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(pricePerHour)}
           onChange={(event) => setNewPricePerHour(event.target.value)}
         />
       </ListColumn>
@@ -67,8 +68,10 @@ const ListItem = ({
         <input
           className="priceTotal"
           type="text"
-          value={valuePriceTotal}
-          defaultValue="calcular preço..."
+          value={new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(((counter * pricePerHour) / 3600).toFixed(2))}
           onChange={(event) => setNewAccumulatedValue(event.target.value)}
         />
       </ListColumn>
@@ -76,6 +79,7 @@ const ListItem = ({
       <ListColumn borderColor="red">
         <BoxTimer className="boxTimer">
           <TimerToCount
+            setCounter={setCounter}
             projectId={projectId}
             recordedTime={stopwatch}
             newTitle={newTitle}

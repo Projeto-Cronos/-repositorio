@@ -14,7 +14,7 @@ export const HeaderContainer = styled.div`
   .menuIcon {
     z-index: 99999;
     cursor: pointer;
-    font-size:35px;
+    font-size: 35px;
     color: ${(props) => props.theme.black};
   }
 
@@ -28,9 +28,9 @@ export const HeaderContainer = styled.div`
       width: 80px;
     }
     .img {
-      display:flex;
-      justify-content:center;
-      align-items:center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 `;

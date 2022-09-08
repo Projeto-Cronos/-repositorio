@@ -21,10 +21,10 @@ const ProviderUser = ({ children }) => {
   const [eyeClickRegisterConfirmed, setEyeClickRegisterConfirmed] =
     useState(false);
   const navigate = useNavigate();
-  
+
   const [valuePerMinute, setValuePerMinute] = useState(0);
   const [calculation, setCalculation] = useState(0);
-  
+
   const [result, setResult] = useState(false);
   const [currentTheme, setCurrentTheme] = useState("claro");
   const [userProfile, setUserProfile] = useState(user);
@@ -42,7 +42,6 @@ const ProviderUser = ({ children }) => {
   const notifyLoginSuccess = (test) => toast.success(test);
   const notifyLoginError = (test) => toast.error(test);
 
-  //Login
   const LoginUser = (data) => {
     Api.post("/login", data)
       .then((res) => {
@@ -72,7 +71,6 @@ const ProviderUser = ({ children }) => {
       .catch(() => notifyLoginError("Ops!Algo deu errado"));
   };
 
-  //Register
   const registerUser = (data) => {
     Api.post("/users", data)
       .then((res) =>
@@ -84,7 +82,6 @@ const ProviderUser = ({ children }) => {
       .catch(() => notifyLoginError("E-mail já existente"));
   };
 
-  //Dashboard
   const editProfile = (data) => {
     if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
     Api.patch(`/users/${user.id}`, data)
@@ -116,7 +113,6 @@ const ProviderUser = ({ children }) => {
     setDropdownEdit("none");
   };
 
-  //Lottie
   const [animateState] = useState({
     isStopped: false,
     isPaused: false,
@@ -149,8 +145,6 @@ const ProviderUser = ({ children }) => {
     },
   };
 
-  //DarkTheme
-
   const getOpositeTheme = useCallback(
     () => (currentTheme === "claro" ? "escuro" : "claro"),
     [currentTheme]
@@ -163,7 +157,6 @@ const ProviderUser = ({ children }) => {
     }
   }, []);
 
-  //Blog
   const [listNews, setListNews] = useState([]);
   useEffect(() => {
     ApiNews.get("", {
@@ -211,7 +204,7 @@ const ProviderUser = ({ children }) => {
         editProfile,
         userProfile,
         listNews,
-        defaultOptionsTwo
+        defaultOptionsTwo,
       }}
     >
       {children}

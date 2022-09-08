@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   position: fixed;
-  display: ${props => props.dropdown};
+  display: ${(props) => props.dropdown};
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -37,12 +37,12 @@ export const DivTop = styled.div`
   padding: 4% 4%;
   @media (min-width: 768px) {
     border-radius: 0.5vw 0.5vw 0 0;
-    padding: 3vw 3vw ;
-}
-@media (min-width: 1024px) {
-  border-radius: 0.3vw 0.3vw 0 0;
-  padding: 3.5% 1.1vw;
-}
+    padding: 3vw 3vw;
+  }
+  @media (min-width: 1024px) {
+    border-radius: 0.3vw 0.3vw 0 0;
+    padding: 3.5% 1.1vw;
+  }
 `;
 export const Title = styled.h1`
   width: 100%;
@@ -50,13 +50,13 @@ export const Title = styled.h1`
   font-size: 4.5vw;
   color: ${(props) => props.theme.black};
   @media (min-width: 768px) {
-  border-radius: 0.5vw 0.5vw 0 0;
-  font-size: 3vw;
-}
-@media (min-width: 1024px) {
-  border-radius: 0.3vw 0.3vw 0 0;
-  font-size: 1.1vw;
-}
+    border-radius: 0.5vw 0.5vw 0 0;
+    font-size: 3vw;
+  }
+  @media (min-width: 1024px) {
+    border-radius: 0.3vw 0.3vw 0 0;
+    font-size: 1.1vw;
+  }
 `;
 export const Form = styled.form`
   min-width: 100%;
@@ -71,28 +71,27 @@ export const Form = styled.form`
 
   h1 {
     width: 100%;
-  font-weight: 500;
-  font-size: 3.2vw;
-  padding: 8% 4%;
-  color: ${(props) => props.theme.black};
+    font-weight: 500;
+    font-size: 3.2vw;
+    padding: 8% 4%;
+    color: ${(props) => props.theme.black};
   }
   @media (min-width: 768px) {
     border-radius: 0 0 0.5vw 0.5vw;
 
     h1 {
-  font-size: 2vw;
-  padding: 4vw 3vw ;
-
+      font-size: 2vw;
+      padding: 4vw 3vw;
+    }
   }
-}
-@media (min-width: 1024px) {
-  border-radius: 0 0 0.3vw 0.3vw;
+  @media (min-width: 1024px) {
+    border-radius: 0 0 0.3vw 0.3vw;
 
-  h1 {
-  font-size: 1vw;
-  padding:  2vw 1.1vw;
+    h1 {
+      font-size: 1vw;
+      padding: 2vw 1.1vw;
+    }
   }
-}
 `;
 
 export const DivButton = styled.div`
@@ -103,11 +102,11 @@ export const DivButton = styled.div`
   padding: 4% 4%;
   @media (min-width: 768px) {
     padding: 3vw;
-}
-@media (min-width: 1024px) {
-  gap: 6%;
-  padding: 1.1vw;
-}
+  }
+  @media (min-width: 1024px) {
+    gap: 6%;
+    padding: 1.1vw;
+  }
 `;
 export const ButtonRed = styled.button`
   box-sizing: border-box;
@@ -131,13 +130,13 @@ export const ButtonRed = styled.button`
   }
   @media (min-width: 768px) {
     border-radius: 0.5vw;
-  font-size: 2.55vw;
-}
-@media (min-width: 1024px) {
-  border-radius: 0.2vw;
- 
-  font-size: 1.05vw;
-}
+    font-size: 2.55vw;
+  }
+  @media (min-width: 1024px) {
+    border-radius: 0.2vw;
+
+    font-size: 1.05vw;
+  }
 `;
 export const ButtonGrey = styled.button`
   box-sizing: border-box;
@@ -162,10 +161,10 @@ export const ButtonGrey = styled.button`
   }
   @media (min-width: 768px) {
     border-radius: 0.5vw;
-  font-size: 2.55vw;
-}
-@media (min-width: 1024px) {
-  border-radius: 0.2vw;
-  font-size: 1.05vw;
-}
+    font-size: 2.55vw;
+  }
+  @media (min-width: 1024px) {
+    border-radius: 0.2vw;
+    font-size: 1.05vw;
+  }
 `;

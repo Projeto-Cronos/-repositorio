@@ -34,7 +34,9 @@ function Blog() {
                         alt="foto"
                       />
                       <div className="mainContent">
-                        <a className="mainRedirect" href={element.link}>MAIS INFORMAÇÕES</a>
+                        <a className="mainRedirect" href={element.link}>
+                          MAIS INFORMAÇÕES
+                        </a>
                         <span className="mainInfo spanMain">
                           {element.summary}
                         </span>
