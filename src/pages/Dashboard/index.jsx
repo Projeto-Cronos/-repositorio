@@ -12,13 +12,13 @@ import ModalEdit from "./Modal/ModalEdit";
 import ModalDelete from "./Modal/ModalDelete";
 
 function Dashboard() {
-  const { navigate, token } = useContext(Context);
-  const { allProjects, getAllProjects } = useContext(ProjectsContext);
-
+  const { navigate, token } =
+    useContext(Context);
+  const { allProjects, getAllProjects,totalTime } = useContext(ProjectsContext);
+  console.log(totalTime)
   useEffect(() => {
     getAllProjects();
   }, []);
-
   if (!token) {
     setTimeout(() => {
       navigate("/login");
@@ -41,7 +41,7 @@ function Dashboard() {
                     title,
                     start_date,
                     end_date,
-                    price_per_hour,
+                    price_per_hour, // preço por hora
                     timer,
                   }) => (
                     <ListItem
@@ -52,6 +52,7 @@ function Dashboard() {
                       endDate={end_date}
                       pricePerHour={price_per_hour}
                       stopwatch={timer}
+                      /* accumulatedValue={accumulatedValue} */
                     />
                   )
                 )

@@ -2,14 +2,20 @@ import { useState } from "react";
 import { BsFillPlayFill, BsPauseFill, BsStopFill } from "react-icons/bs";
 import { useRef } from "react";
 import { useContext } from "react";
-import { Context } from "../../providers/userContext";
+import { ProjectsContext } from "../../providers/projectsContext";
 
-const TimerToCount = ({ recordedTime }) => {
+const TimerToCount = ({ projectId, recordedTime }) => {
   const [timer, setTimer] = useState(<span>00:00:00</span>);
   const [timeInterval, setTimeInterval] = useState(null);
   const [isCounter, setIsCounter] = useState(false);
   const [isPause, setIsPause] = useState(false);
-  const { totalTime, setTotalTime } = useContext(Context);
+  const {
+    totalTime,
+    setTotalTime,
+    setValuePriceTotal,
+    sumPriceTotal,
+    allProjects
+  } = useContext(ProjectsContext);
 
   const intervalRef = useRef(0);
 
@@ -118,6 +124,15 @@ const TimerToCount = ({ recordedTime }) => {
 
     setTimer(<span>00:00:00</span>);
   };
+
+  allProjects.map((elem) => {
+    if(Number(elem.id) === Number(projectId)) {
+      console.log(elem.id === projectId);
+      return setValuePriceTotal(sumPriceTotal(elem.price_per_hour))
+      
+    }
+    //return Number(elem.id) === Number(projectId) && setValuePriceTotal(sumPriceTotal(elem.price_per_hour))
+  });
 
   return (
     <>
