@@ -1,7 +1,4 @@
-import {
-  Section,
-  Div,
-} from "./style";
+import { Section, Div } from "./style";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
 import { useContext } from "react";

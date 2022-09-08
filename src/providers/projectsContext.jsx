@@ -24,7 +24,6 @@ const ProjectsProvider = ({ children }) => {
       .then((res) => setAllProjects(res.data))
       .catch((err) => console.error(err));
 
-    console.log(data);
     return data;
   };
 
@@ -44,13 +43,14 @@ const ProjectsProvider = ({ children }) => {
     const userId = window.localStorage.getItem("authId");
     newProject.userId = Number(userId);
     if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
-    console.log(Api.defaults.headers);
+
     const data = await Api.post(`/projects`, newProject)
       .then((res) => {
         getAllProjects();
         return res.data;
       })
       .catch((err) => console.error(err));
+    return data
   };
 
   const editProject = async (projectId, editedProject) => {
@@ -60,7 +60,6 @@ const ProjectsProvider = ({ children }) => {
 
     editProject.userId = userId;
 
-    console.log("entrou no edit", editedProject, userId);
     const data = await Api.patch(`/projects/${projectId}`, editedProject)
       .then((res) => res.data)
       .catch((err) => console.error(err));
@@ -98,7 +97,6 @@ const ProjectsProvider = ({ children }) => {
       currency: "BRL",
     }).format(result);
   };
-  //console.log(valuePriceTotal);
 
   return (
     <ProjectsContext.Provider

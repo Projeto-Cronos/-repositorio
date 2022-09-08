@@ -1,4 +1,4 @@
-import { BsCalendarDate, BsTag, BsCurrencyDollar } from "react-icons/bs";
+import { BsCalendarDate, BsCurrencyDollar } from "react-icons/bs";
 import { StyledContainer } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -9,8 +9,7 @@ const NewProjectContainer = () => {
   const { createProject } = useContext(ProjectsContext);
   const {
     register,
-    handleSubmit,
-    formState: { errors },
+    handleSubmit
   } = useForm({
     resolver: yupResolver(formSchema),
   });

@@ -41,7 +41,6 @@ export const Main = styled.main`
 
     }
 
-
     h1 {
 
         margin: 1rem;
@@ -109,12 +108,6 @@ export const Main = styled.main`
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
-
-            /* width: 90%;
-            margin: 0 auto;
-
-            display: initial; */
-
         }
 
     }
@@ -133,9 +126,6 @@ export const Main = styled.main`
                 text-decoration: none;
 
                 color: ${(props) => props.theme.orange1};
-
-    
-
         }
 
     }
@@ -162,11 +152,8 @@ export const Main = styled.main`
     
                     color: ${(props) => props.theme.orange1};
     
-        
-    
             }
             
-
         }
         
     }
@@ -247,9 +234,6 @@ export const Main = styled.main`
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
-
-
-
         }
 
     }
@@ -295,9 +279,6 @@ export const Main = styled.main`
             margin: 0.5rem auto;
 
             flex-direction: column;
-
-            
-
         }
         
     }
@@ -486,7 +467,6 @@ export const Main = styled.main`
     }
 
     a {
-                
             
                 display: flex;
                 
@@ -498,8 +478,6 @@ export const Main = styled.main`
                 text-decoration: none;
 
                 color: ${(props) => props.theme.orange1};
-
-    
 
         }
 
