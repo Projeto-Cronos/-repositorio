@@ -12,18 +12,18 @@ const ProjectsProvider = ({ children }) => {
   const [valuePriceTotal, setValuePriceTotal] = useState(0);
   const [totalTime, setTotalTime] = useState(0);
 
-  const {closeDropdownDelete} = useContext(Context);
+  const { closeDropdownDelete } = useContext(Context);
 
   const getAllProjects = async () => {
     const userId = window.localStorage.getItem("authId");
-    
+
     const token = JSON.parse(window.localStorage.getItem("authToken"));
     if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
-    
+
     const data = await Api.get(`users/${userId}/projects`)
-    .then((res) => setAllProjects(res.data))
-    .catch((err) => console.error(err));
-    
+      .then((res) => setAllProjects(res.data))
+      .catch((err) => console.error(err));
+
     console.log(data);
     return data;
   };
@@ -46,17 +46,21 @@ const ProjectsProvider = ({ children }) => {
     if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
     console.log(Api.defaults.headers);
     const data = await Api.post(`/projects`, newProject)
-    .then((res) => {
+      .then((res) => {
         getAllProjects();
         return res.data;
       })
       .catch((err) => console.error(err));
-    };
+  };
 
   const editProject = async (projectId, editedProject) => {
-    const token = window.localStorage.getItem("authToken");
-    if (token) Api.defaults.headers.common.Authorization = token;
+    const token = JSON.parse(window.localStorage.getItem("authToken"));
+    if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
+    const userId = window.localStorage.getItem("authId");
 
+    editProject.userId = userId;
+
+    console.log("entrou no edit", editedProject, userId);
     const data = await Api.patch(`/projects/${projectId}`, editedProject)
       .then((res) => res.data)
       .catch((err) => console.error(err));
@@ -73,7 +77,7 @@ const ProjectsProvider = ({ children }) => {
         toast.success("Projeto deletado com sucesso!", {
           autoClose: 2000,
         });
-        closeDropdownDelete()
+        closeDropdownDelete();
         getAllProjects();
       })
       .catch((err) => {
@@ -106,12 +110,11 @@ const ProjectsProvider = ({ children }) => {
         editProject,
         deleteProject,
         setProjectToDelete,
-        totalTime, 
+        totalTime,
         setTotalTime,
         valuePriceTotal,
         setValuePriceTotal,
         sumPriceTotal,
-
       }}
     >
       {children}
