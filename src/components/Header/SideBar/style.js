@@ -10,6 +10,7 @@ export const Container = styled.div`
   height: 100%;
   width: 280px;
   top: 0;
+  z-index:1;
   left: ${(props) => (props.isSideBarVisible ? "0" : "-100%")};
   background-color: ${(props) => props.theme.white};
   box-shadow: -17px 27px 28px 10px ${(props) => props.theme.shadow};
