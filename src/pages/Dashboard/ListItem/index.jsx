@@ -17,7 +17,7 @@ const ListItem = ({
   pricePerHour,
   stopwatch,
 }) => {
-  const { setProjectToDelete } = useContext(ProjectsContext);
+  const { setProjectToDelete, valuePriceTotal } = useContext(ProjectsContext);
 
   const { showDropdownDelete } = useContext(Context);
   return (
@@ -39,12 +39,13 @@ const ListItem = ({
       </ListColumn>
 
       <ListColumn borderColor="blue">
-        <input type="text" defaultValue="calcular preço..." />
+        <input className="priceTotal" type="text" value={valuePriceTotal} defaultValue="calcular preço..." />
       </ListColumn>
+      {/* input que vai aparecer o negócio */}
 
       <ListColumn borderColor="red">
         <BoxTimer className="boxTimer">
-          <TimerToCount recordedTime={stopwatch} />
+          <TimerToCount projectId={projectId} recordedTime={stopwatch} />
         </BoxTimer>
       </ListColumn>
 

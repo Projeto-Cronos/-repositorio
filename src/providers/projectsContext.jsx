@@ -7,6 +7,8 @@ export const ProjectsContext = createContext({});
 const ProjectsProvider = ({ children }) => {
   const [allProjects, setAllProjects] = useState([]);
   const [projecToDelete, setProjectToDelete] = useState(0);
+  const [valuePriceTotal, setValuePriceTotal] = useState(0);
+  const [totalTime, setTotalTime] = useState(0);
 
   const getAllProjects = async () => {
     const userId = window.localStorage.getItem("authId");
@@ -40,12 +42,12 @@ const ProjectsProvider = ({ children }) => {
     if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
     console.log(Api.defaults.headers);
     const data = await Api.post(`/projects`, newProject)
-      .then((res) => {
+    .then((res) => {
         getAllProjects();
         return res.data;
       })
       .catch((err) => console.error(err));
-  };
+    };
 
   const editProject = async (projectId, editedProject) => {
     const token = window.localStorage.getItem("authToken");
@@ -78,6 +80,17 @@ const ProjectsProvider = ({ children }) => {
     return data;
   };
 
+  const sumPriceTotal = (valueInput) => {
+    let price = 0;
+    price = (valueInput * totalTime) / 3600;
+    const result = Math.round(price * 100) / 100;
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(result);
+  };
+  //console.log(valuePriceTotal);
+
   return (
     <ProjectsContext.Provider
       value={{
@@ -88,6 +101,12 @@ const ProjectsProvider = ({ children }) => {
         editProject,
         deleteProject,
         setProjectToDelete,
+        totalTime, 
+        setTotalTime,
+        valuePriceTotal,
+        setValuePriceTotal,
+        sumPriceTotal,
+
       }}
     >
       {children}
