@@ -91,11 +91,16 @@ const TimerToCount = ({
         if (Math.floor((elapsedTime - hrs * 3600) / 60)) {
           min = Math.floor((elapsedTime - hrs * 3600) / 60);
           console.log({ min });
+          sec = 0
+          console.log(intervalRef.current % 60)
         }
-
+        
+        setTotalTime(min);
         if (elapsedTime - hrs * 3600 - min * 60) {
           sec = elapsedTime - hrs * 3600 - min * 60;
+          console.log(elapsedTime - hrs * 3600 - min * 60)
           console.log({ sec });
+          setTotalTime(intervalRef.current);
         }
 
         setTimer(
@@ -104,11 +109,11 @@ const TimerToCount = ({
             {sec < 10 ? `0${sec}` : sec}
           </span>
         );
+        
       }, 1000)
     );
   };
 
-  // console.log(totalTime);
 
   const resume = () => {
     setIsCounter(true);
@@ -131,6 +136,9 @@ const TimerToCount = ({
         if (Math.floor((elapsedTime - hrs * 3600) / 60)) {
           min = Math.floor((elapsedTime - hrs * 3600) / 60);
           console.log({ min });
+          sec = 0
+          setTotalTime(intervalRef.current);
+
         }
 
         if (elapsedTime - hrs * 3600 - min * 60) {
@@ -147,6 +155,9 @@ const TimerToCount = ({
       }, 1000)
     );
   };
+  if(sec === 59 ){
+    setTotalTime(intervalRef.current);
+  } 
 
   const pauseTimer = () => {
     setTotalTime(intervalRef.current);

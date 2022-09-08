@@ -10,9 +10,10 @@ import { ProjectsContext } from "../../providers/projectsContext";
 import { Context } from "../../providers/userContext";
 import ModalEdit from "./Modal/ModalEdit";
 import ModalDelete from "./Modal/ModalDelete";
+import Lottie from "react-lottie";
 
 function Dashboard() {
-  const { navigate, token } =
+  const { navigate, token, animateState, defaultOptionsTwo } =
     useContext(Context);
   const { allProjects, getAllProjects,totalTime } = useContext(ProjectsContext);
   console.log(totalTime)
@@ -58,34 +59,16 @@ function Dashboard() {
                 )
               ) : (
                 <>
-                  <ListItem
-                    projectName={"Joguito maroto"}
-                    startDate={"2022-03-26"}
-                    endDate={"2022-03-28"}
-                    pricePerHour={"R$ 280,00"}
-                    stopwatch={"02:58:07"}
-                  />
-                  <ListItem
-                    projectName={"Joguinho maroto"}
-                    startDate={"2022-03-26"}
-                    endDate={"2022-03-28"}
-                    pricePerHour={"R$ 280,00"}
-                    stopwatch={"02:58:07"}
-                  />
-                  <ListItem
-                    projectName={"Joguinho maroto"}
-                    startDate={"2022-03-26"}
-                    endDate={"2022-03-28"}
-                    pricePerHour={"R$ 280,00"}
-                    stopwatch={"02:58:07"}
-                  />
-                  <ListItem
-                    projectName={"Joguinho maroto"}
-                    startDate={"2022-03-26"}
-                    endDate={"2022-03-28"}
-                    pricePerHour={"R$ 280,00"}
-                    stopwatch={"02:58:07"}
-                  />
+                <div className="containerImg">
+                <div className="img">
+        <Lottie
+          options={defaultOptionsTwo}
+          isStopped={animateState.isStopped}
+          isPaused={animateState.isPaused}
+        />
+      </div>
+                </div>
+
                 </>
               )}
             </ListBody>

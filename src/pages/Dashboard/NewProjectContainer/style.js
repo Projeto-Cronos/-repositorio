@@ -13,7 +13,7 @@ export const StyledContainer = styled.div`
   border-radius: 4px;
   font-size: 16px;
 
-  box-shadow: 0px 2px 16px rgba(153, 155, 168, 0.12);
+  box-shadow: 0px 2px 16px ${(props) => props.theme.shadow};
 
   @media (max-width: 768px) {
     padding: 10px;
@@ -36,7 +36,8 @@ export const StyledContainer = styled.div`
       input{
         width: 100%;
         outline: none;
-        background-color: var(--grey-4);
+        background-color: ${(props) => props.theme.grey4};
+        color: ${(props) => props.theme.black};
       }
     @media (max-width: 768px) {
       width: 100%;
@@ -57,16 +58,19 @@ export const StyledContainer = styled.div`
     }
   }
   .labelDate{
-    width: 30%;
-    .boxLabelDate{
+    width: 10%;
+  }
+  .boxLabelDate{
       display: flex;
       justify-content: space-between;
-      width: 100%;
+      width: 50%;
+      color: ${(props) => props.theme.black};
     }
-  }
 
   .valuePerHour{
+    width: 0%;
     width: fit-content;
+    color: ${(props) => props.theme.black};
   }
 
   .dropdownContent {
@@ -76,7 +80,7 @@ export const StyledContainer = styled.div`
     border-radius: 4px;
     padding: 4px;
     background-color: ${(props) => props.theme.white};
-    box-shadow: 0px 2px 16px rgba(153, 155, 168, 0.12);
+    box-shadow: 0px 2px 16px ${(props) => props.theme.shadow};
     outline: none;
     width: fit-content;
 

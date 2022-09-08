@@ -7,6 +7,7 @@ export const StyledHeader = styled.header`
         padding: 10px 0;
         display: flex;
         gap: 20px;
+        background-color: ${(props) => props.theme.white};
 
     .menuIcon {
         z-index:999999 ;
@@ -69,6 +70,7 @@ export const StyledHeader = styled.header`
     }  
     .logo {
         width: 10vw;
+        
     }
   }
   @media (min-width: 1024px) {

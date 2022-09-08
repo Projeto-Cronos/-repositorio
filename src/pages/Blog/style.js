@@ -20,7 +20,7 @@ export const Main = styled.main`
     height: min-content;
 
     background-color: ${(props) => props.theme.white};
-    
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
 
@@ -31,7 +31,8 @@ export const Main = styled.main`
         
         width: 80%;
         height: 88%;
-        margin: auto;
+        
+        margin: 20px  0 auto;
         box-shadow: 0px 4px 32px 0px ${(props) => props.theme.shadow};
 
         gap: 1rem;
