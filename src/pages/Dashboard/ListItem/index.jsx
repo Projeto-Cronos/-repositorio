@@ -26,7 +26,7 @@ const ListItem = ({
   const [newEndDate, setNewEndDate] = useState(endDate);
   const [newPricePerHour, setNewPricePerHour] = useState(pricePerHour);
   const [newAccumulatedValue, setNewAccumulatedValue] = useState(0);
-
+  console.log({ stopwatch });
   return (
     <StyledListItem>
       <ListColumn borderColor="blue">
@@ -72,7 +72,6 @@ const ListItem = ({
           onChange={(event) => setNewAccumulatedValue(event.target.value)}
         />
       </ListColumn>
-      {/* input que vai aparecer o negócio */}
 
       <ListColumn borderColor="red">
         <BoxTimer className="boxTimer">
