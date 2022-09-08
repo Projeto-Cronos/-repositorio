@@ -14,7 +14,7 @@ function App() {
     <ThemeProvider theme={themes[currentTheme]}>
       <Authenticator />
       <ToastContainer
-        toastStyle={{ backgroundColor: `${(props) => props.theme.white}` , color: "black" }}
+        toastStyle={{ backgroundColor:"white" , color: "black" }}
         autoClose={1500}
       />
       </ThemeProvider>
