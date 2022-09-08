@@ -79,10 +79,9 @@ const TimerToCount = ({ projectId, recordedTime }) => {
           sec = elapsedTime - hrs * 3600 - min * 60;
           console.log(elapsedTime - hrs * 3600 - min * 60)
           console.log({ sec });
-          // setTotalTime(intervalRef.current);
+          setTotalTime(intervalRef.current);
         }
-        // elapsedTime 
-        // sec === 60 && 
+
         setTimer(
           <span>
             {hrs < 10 ? `0${hrs}` : hrs}:{min < 10 ? `0${min}` : min}:
@@ -125,7 +124,6 @@ const TimerToCount = ({ projectId, recordedTime }) => {
           sec = elapsedTime - hrs * 3600 - min * 60;
           console.log({ sec });
         }
-        // sec === 60 && setTotalTime(intervalRef.current);
 
         setTimer(
           <span>
