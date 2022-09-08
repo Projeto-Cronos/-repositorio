@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import { Context } from "../../../providers/userContext";
 import TimerToCount from "../../../components/Timer";
 import { ProjectsContext } from "../../../providers/projectsContext";
+import { useEffect } from "react";
 
 const ListItem = ({
   projectId,
@@ -26,6 +27,16 @@ const ListItem = ({
   const [newEndDate, setNewEndDate] = useState(endDate);
   const [newPricePerHour, setNewPricePerHour] = useState(pricePerHour);
   const [newAccumulatedValue, setNewAccumulatedValue] = useState(0);
+  const [counter,setCounter] = useState(0);
+
+  const sumPriceTotal = () => {
+    let price = 0;
+    price = (pricePerHour * counter) / 3600;
+    const result = Math.round(price * 100) / 100;
+    //return 
+  };
+
+  const result = sumPriceTotal();
 
   return (
     <StyledListItem>
@@ -67,7 +78,12 @@ const ListItem = ({
         <input
           className="priceTotal"
           type="text"
-          value={valuePriceTotal}
+          value={
+            new Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            }).format(((counter * pricePerHour) / 3600).toFixed(2))
+           }
           defaultValue="calcular preço..."
           onChange={(event) => setNewAccumulatedValue(event.target.value)}
         />
@@ -77,6 +93,7 @@ const ListItem = ({
       <ListColumn borderColor="red">
         <BoxTimer className="boxTimer">
           <TimerToCount
+            setCounter={setCounter}
             projectId={projectId}
             recordedTime={stopwatch}
             newTitle={newTitle}

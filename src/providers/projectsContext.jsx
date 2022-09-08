@@ -89,7 +89,7 @@ const ProjectsProvider = ({ children }) => {
     return data;
   };
 
-  const sumPriceTotal = (valueInput) => {
+  /* const sumPriceTotal = (valueInput) => {
     let price = 0;
     price = (valueInput * totalTime) / 3600;
     const result = Math.round(price * 100) / 100;
@@ -97,7 +97,7 @@ const ProjectsProvider = ({ children }) => {
       style: "currency",
       currency: "BRL",
     }).format(result);
-  };
+  }; */
   //console.log(valuePriceTotal);
 
   return (
@@ -114,7 +114,7 @@ const ProjectsProvider = ({ children }) => {
         setTotalTime,
         valuePriceTotal,
         setValuePriceTotal,
-        sumPriceTotal,
+        
       }}
     >
       {children}

@@ -12,6 +12,7 @@ const TimerToCount = ({
   newEndDate,
   newPricePerHour,
   newAccumulatedValue,
+  setCounter,
 }) => {
   const [timer, setTimer] = useState(<span>00:00:00</span>);
   const [timeInterval, setTimeInterval] = useState(null);
@@ -72,6 +73,7 @@ const TimerToCount = ({
       setInterval(() => {
         elapsedTime++;
         intervalRef.current++;
+        setCounter(intervalRef.current);
 
         // min = Math.floor(elapsedTime / 60);
         // sec = Math.floor(elapsedTime % 60);
@@ -184,13 +186,13 @@ const TimerToCount = ({
     callProjectEdition();
   };
 
-  allProjects.map((elem) => {
+  /* allProjects.map((elem) => {
     if (Number(elem.id) === Number(projectId)) {
       console.log(elem.id === projectId);
       return setValuePriceTotal(sumPriceTotal(elem.price_per_hour));
-    }
+    } */
     //return Number(elem.id) === Number(projectId) && setValuePriceTotal(sumPriceTotal(elem.price_per_hour))
-  });
+ /*  }); */
 
   return (
     <>
