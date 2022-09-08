@@ -18,11 +18,11 @@ const ListHeader = () => {
       </ListColumn>
 
       <ListColumn>
-        <ListHeaderTitle titleColor="blue">Tags</ListHeaderTitle>
+        <ListHeaderTitle titleColor="blue">Valor por hora</ListHeaderTitle>
       </ListColumn>
 
       <ListColumn>
-        <ListHeaderTitle titleColor="blue">Valor por hora</ListHeaderTitle>
+        <ListHeaderTitle titleColor="blue">Valor acumulado</ListHeaderTitle>
       </ListColumn>
 
       <ListColumn>

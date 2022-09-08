@@ -6,7 +6,7 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url(${background});
   background-position: left top;
   background-repeat: no-repeat;
@@ -25,8 +25,9 @@ export const Div = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: min-content;
   gap: 10vw;
+  
 
   .img {
     display: none;
@@ -35,6 +36,7 @@ export const Div = styled.div`
     height: min-content;
     width: 78%;
     gap: 10vw;
+    
     .img {
       display: flex;
       width: 60%;
@@ -44,6 +46,7 @@ export const Div = styled.div`
     height: min-content;
     width: 78%;
     gap: 10vw;
+    margin-top:10px;
     .img {
       display: flex;
       width: 60%;

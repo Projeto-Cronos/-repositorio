@@ -7,9 +7,6 @@ export const StyledListColumn = styled.div`
 
   @media (max-width: 768px) {
     width: 48%;
-    border: 1px solid
-      ${(props) =>
-        props.borderColor === "blue" ? "var(--blue-1)" : "var(--red-1)"};
     border-radius: 4px;
   }
 

@@ -5,11 +5,11 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 60px;
-  padding: 22px 16px;
+  padding: 70px 16px 22px 16px;
   position: fixed;
   height: 100%;
   width: 280px;
-  top: 64px;
+  top: 0px;
   left: ${(props) => (props.isSideBarVisible ? "0" : "-100%")};
   background-color: ${(props) => props.theme.white};
   box-shadow: -17px 27px 28px 10px ${(props) => props.theme.shadow};

@@ -11,7 +11,8 @@ export const HeaderContainer = styled.div`
   background: ${(props) => props.theme.white};
   width: 100%;
 
-  > div {
+  .menuIcon {
+    z-index: 99999;
     cursor: pointer;
     font-size:35px;
     color: ${(props) => props.theme.black};
@@ -24,7 +25,7 @@ export const HeaderContainer = styled.div`
     cursor: pointer;
 
     img {
-      width: 60px;
+      width: 80px;
     }
     .img {
       display:flex;
