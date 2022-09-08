@@ -21,7 +21,7 @@ export const Title = styled.h1`
 `;
 export const Form = styled.form`
   width: 100%;
-  height: 100%;
+  height: 598px;
   display: flex;
   flex-direction: column;
   padding: 8vw 3% 0 3%;
@@ -98,6 +98,7 @@ export const Form = styled.form`
   }
   @media (min-width: 768px) {
     width: 40%;
+    height: 100%;
     padding: 3% 3% 3% 3%;
     gap: 1vw;
     border-radius: 0.3vw;

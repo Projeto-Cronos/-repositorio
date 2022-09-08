@@ -7,7 +7,7 @@ export const StyledListHeader = styled.div`
   padding: 10px 20px;
   border-radius: 4px;
   background-color: ${(props) => props.theme.white};
-  box-shadow: 0px 2px 16px rgba(153, 155, 168, 0.12);
+  box-shadow: 0px 2px 16px ${(props) => props.theme.shadow};
 
   @media (max-width: 768px) {
     display: none;
@@ -20,7 +20,9 @@ export const ListHeaderTitle = styled.span`
   padding: 10px 0;
   font-size: 16px;
   font-weight: 500;
-  color: ${(props) => (props.titleColor === "blue" ? "var(--blue-1)" : "red")};
+  color:
+      ${(props) =>
+        props.titleColor === "blue" ? "var(--blue-1)" : "var(--red-1)"};
 
   @media (max-width: 1024px) {
     font-size: 14px;

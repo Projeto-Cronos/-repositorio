@@ -11,8 +11,11 @@ export const HeaderContainer = styled.div`
   background: ${(props) => props.theme.white};
   width: 100%;
 
-  > img {
+  .menuIcon {
+    z-index: 99999;
     cursor: pointer;
+    font-size:35px;
+    color: ${(props) => props.theme.black};
   }
 
   .logo {
@@ -22,7 +25,12 @@ export const HeaderContainer = styled.div`
     cursor: pointer;
 
     img {
-      width: 90px;
+      width: 80px;
+    }
+    .img {
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
   }
 `;

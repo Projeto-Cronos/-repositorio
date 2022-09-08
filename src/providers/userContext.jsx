@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import loadingAnimated from "../assets/animation/VAPGxWYypp.json";
 import loadingAnimatedOne from "../assets/animation/DHYuRhgDuA.json";
+import loadingAnimatedTwo from "../assets/animation/IOV4grCbCH.json";
 import { createContext, useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ApiNews from "../services/apiNews";
@@ -99,18 +100,6 @@ const ProviderUser = ({ children }) => {
       });
   };
 
-  const deleteProject = (id) => {
-    if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
-    Api.delete(`/projects/${id}`)
-      .then(() => {
-        setDropdownDelete("none");
-        notifyLoginSuccess("Projeto deletado com sucesso!");
-      })
-      .catch(() => {
-        notifyLoginError("Ops! Algo deu errado");
-      });
-  };
-
   const showDropdownDelete = () => {
     setDropdownDelete("flex");
   };
@@ -146,6 +135,15 @@ const ProviderUser = ({ children }) => {
     loop: true,
     autoplay: true,
     animationData: loadingAnimatedOne,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const defaultOptionsTwo = {
+    loop: true,
+    autoplay: true,
+    animationData: loadingAnimatedTwo,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -212,9 +210,8 @@ const ProviderUser = ({ children }) => {
         dropDownEdit,
         editProfile,
         userProfile,
-        deleteProject,
         listNews,
-        
+        defaultOptionsTwo
       }}
     >
       {children}

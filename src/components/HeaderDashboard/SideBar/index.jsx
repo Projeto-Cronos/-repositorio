@@ -2,7 +2,6 @@ import { Container, SideBarButton } from "./style";
 import {
   BsClock,
   BsCalculator,
-  BsFolder,
   BsGear,
   BsMoon,
   BsBoxArrowRight,
@@ -40,11 +39,6 @@ const SideBar = ({ isSideBarVisible }) => {
         >
           <BsCalculator />
           Calculadora
-        </SideBarButton>
-
-        <SideBarButton>
-          <BsFolder />
-          Projetos
         </SideBarButton>
 
         <SideBarButton onClick={showDropdownEdit}>

@@ -28,9 +28,9 @@ const NewProjectContainer = () => {
         <div className="dropdown labelDate">
           <div className="boxLabelDate">
             <label htmlFor="date">
-              Início: 
+              <BsCalendarDate />
             </label>
-            <BsCalendarDate />
+            
           </div>
           <div className="dropdownContent">
             <input id="date" className="date" {...register("start_date")} type="date" />

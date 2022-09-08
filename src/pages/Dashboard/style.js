@@ -16,17 +16,32 @@ export const DashboardMain = styled.main`
   min-height: 100vh;
   padding: 124px 60px 0 60px;
 
-  @media (max-width: 768px) {
-    padding: 94px 16px 0 16px;
-  }
-
-  @media (max-width: 1024px) {
-    padding: 94px 30px 0 30px;
-  }
-
   input {
     border: none;
     padding: 10px;
     font: inherit;
+  }
+  .containerImg {
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .img {
+      width:20%;
+    }
+
+  @media (max-width: 768px) {
+    padding: 94px 16px 0 16px;
+    .img {
+      width:100%;
+    }
+  }
+
+  @media (max-width: 950px) {
+    padding: 94px 30px 0 30px;
+    .img {
+      width:55%;
+    }
   }
 `;
