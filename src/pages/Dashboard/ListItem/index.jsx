@@ -12,19 +12,18 @@ const ListItem = ({
   projectName,
   startDate,
   endDate,
-  tags,
   pricePerHour,
   stopwatch,
 }) => {
-  const { setProjectToDelete, valuePriceTotal } = useContext(ProjectsContext);
-
+  const { setProjectToDelete } = useContext(ProjectsContext);
   const { showDropdownDelete } = useContext(Context);
-
+  
   const [newTitle, setNewTitle] = useState(projectName);
   const [newStartDate, setNewStartDate] = useState(startDate);
   const [newEndDate, setNewEndDate] = useState(endDate);
   const [newPricePerHour, setNewPricePerHour] = useState(pricePerHour);
   const [newAccumulatedValue, setNewAccumulatedValue] = useState(0);
+  const [counter,setCounter] = useState(0);
 
   return (
     <StyledListItem>
@@ -57,10 +56,12 @@ const ListItem = ({
       <ListColumn borderColor="blue">
         <input
           type="text"
-          defaultValue={new Intl.NumberFormat("pt-BR", {
+          defaultValue={
+            new Intl.NumberFormat("pt-BR", {
               style: "currency",
               currency: "BRL",
-            }).format(pricePerHour)}          
+            }).format(pricePerHour)
+          }
           onChange={(event) => setNewPricePerHour(event.target.value)}
         />
       </ListColumn>
@@ -69,8 +70,12 @@ const ListItem = ({
         <input
           className="priceTotal"
           type="text"
-          value={valuePriceTotal}
-          defaultValue="calcular preço..."
+          value={
+            new Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            }).format(((counter * pricePerHour) / 3600).toFixed(2))
+           }
           onChange={(event) => setNewAccumulatedValue(event.target.value)}
         />
       </ListColumn>
@@ -78,6 +83,7 @@ const ListItem = ({
       <ListColumn borderColor="red">
         <BoxTimer className="boxTimer">
           <TimerToCount
+            setCounter={setCounter}
             projectId={projectId}
             recordedTime={stopwatch}
             newTitle={newTitle}

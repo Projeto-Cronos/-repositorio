@@ -88,16 +88,6 @@ const ProjectsProvider = ({ children }) => {
     return data;
   };
 
-  const sumPriceTotal = (valueInput) => {
-    let price = 0;
-    price = (valueInput * totalTime) / 3600;
-    const result = Math.round(price * 100) / 100;
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(result);
-  };
-
   return (
     <ProjectsContext.Provider
       value={{
@@ -112,7 +102,7 @@ const ProjectsProvider = ({ children }) => {
         setTotalTime,
         valuePriceTotal,
         setValuePriceTotal,
-        sumPriceTotal,
+        
       }}
     >
       {children}

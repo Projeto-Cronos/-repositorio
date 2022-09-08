@@ -12,30 +12,49 @@ const TimerToCount = ({
   newEndDate,
   newPricePerHour,
   newAccumulatedValue,
+  setCounter,
 }) => {
-  const [timer, setTimer] = useState(<span>00:00:00</span>);
+  const [timer, setTimer] = useState(null);
   const [timeInterval, setTimeInterval] = useState(null);
   const [isCounter, setIsCounter] = useState(false);
   const [isPause, setIsPause] = useState(false);
   const {
     setTotalTime,
-    setValuePriceTotal,
-    sumPriceTotal,
-    allProjects,
+
     editProject,
   } = useContext(ProjectsContext);
-
+  const ohNo = useRef({});
   const intervalRef = useRef(0);
 
   let hrs = 0;
   let min = 0;
   let sec = 0;
+  if (Math.floor(recordedTime / 3600)) {
+    hrs = Math.floor(recordedTime / 3600);
+  }
 
+  if (Math.floor((recordedTime - hrs * 3600) / 60)) {
+    min = Math.floor((recordedTime - hrs * 3600) / 60);
+
+    sec = 0;
+  }
+
+  if (recordedTime - hrs * 3600 - min * 60) {
+    sec = recordedTime - hrs * 3600 - min * 60;
+  }
+  ohNo.current = (
+    <span>
+      {hrs < 10 ? `0${hrs}` : hrs}:{min < 10 ? `0${min}` : min}:
+      {sec < 10 ? `0${sec}` : sec}
+    </span>
+  );
   const editedProject = {
     title: newTitle,
     start_date: newStartDate,
     price_per_hour: newPricePerHour,
     id: projectId,
+    accumulated_value: newAccumulatedValue,
+    end_date: newEndDate,
   };
 
   const callProjectEdition = () => {
@@ -58,6 +77,7 @@ const TimerToCount = ({
       setInterval(() => {
         elapsedTime++;
         intervalRef.current++;
+        setCounter(intervalRef.current);
 
         if (Math.floor(elapsedTime / 3600)) {
           hrs = Math.floor(elapsedTime / 3600);
@@ -65,7 +85,9 @@ const TimerToCount = ({
 
         if (Math.floor((elapsedTime - hrs * 3600) / 60)) {
           min = Math.floor((elapsedTime - hrs * 3600) / 60);
-          sec = 0
+
+          sec = 0;
+
         }
 
         setTotalTime(min);
@@ -96,6 +118,7 @@ const TimerToCount = ({
       setInterval(() => {
         elapsedTime++;
         intervalRef.current++;
+        setCounter(intervalRef.current);
 
         if (Math.floor(elapsedTime / 3600)) {
           hrs = Math.floor(elapsedTime / 3600);
@@ -103,7 +126,10 @@ const TimerToCount = ({
 
         if (Math.floor((elapsedTime - hrs * 3600) / 60)) {
           min = Math.floor((elapsedTime - hrs * 3600) / 60);
-          sec = 0
+
+          sec = 0;
+         
+
           setTotalTime(intervalRef.current);
         }
 
@@ -147,15 +173,9 @@ const TimerToCount = ({
     callProjectEdition();
   };
 
-  allProjects.map((elem) => {
-    if (Number(elem.id) === Number(projectId)) {
-      return setValuePriceTotal(sumPriceTotal(elem.price_per_hour));
-    }
-  });
-
   return (
     <>
-      <div className="boxTimer">{timer}</div>
+      <div className="boxTimer">{timer === null ? ohNo.current : timer}</div>
 
       <div className="boxBtn">
         {!isCounter & !isPause ? (
