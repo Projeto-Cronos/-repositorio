@@ -8,6 +8,20 @@ export const StyledHeader = styled.header`
         display: flex;
         gap: 20px;
 
+    .menuIcon {
+        z-index:999999 ;
+    padding: 0 0 0 20px;
+    cursor: pointer;
+    font-size:35px;
+    color: ${(props) => props.theme.black};
+  }
+  .menuIconInvsible {
+    padding: 0 20px 0 0;
+    cursor: pointer;
+    font-size:35px;
+    color: transparent;
+  }
+
     .contentHeader {
         display:flex;
         align-items:center;
@@ -34,6 +48,15 @@ export const StyledHeader = styled.header`
         display: flex;
         gap: 20px;
 
+        .menuIcon {
+        z-index:999999 ;
+    padding: 0 28px 0 0 ;
+
+  }
+  .menuIconInvsible {
+    padding: 0 0 0 28px;
+  }
+
     .contentHeader {
         display:flex;
         align-items:center;
@@ -42,7 +65,6 @@ export const StyledHeader = styled.header`
     }
     nav {
         display:flex;
-        width:78%;
         align-items:center;
     }  
     .logo {
@@ -56,6 +78,10 @@ export const StyledHeader = styled.header`
         padding: 10px 0;
         display: flex;
         gap: 20px;
+
+        .menuIcon {
+            display:none;
+        }
 
     .contentHeader {
         display:flex;

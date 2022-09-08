@@ -1,6 +1,8 @@
 import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 import Api from "../services/api";
+import { useContext } from "react";
+import { Context } from "./userContext";
 
 export const ProjectsContext = createContext({});
 
@@ -9,6 +11,8 @@ const ProjectsProvider = ({ children }) => {
   const [projecToDelete, setProjectToDelete] = useState(0);
   const [valuePriceTotal, setValuePriceTotal] = useState(0);
   const [totalTime, setTotalTime] = useState(0);
+
+  const {closeDropdownDelete} = useContext(Context);
 
   const getAllProjects = async () => {
     const userId = window.localStorage.getItem("authId");
@@ -69,6 +73,7 @@ const ProjectsProvider = ({ children }) => {
         toast.success("Projeto deletado com sucesso!", {
           autoClose: 2000,
         });
+        closeDropdownDelete()
         getAllProjects();
       })
       .catch((err) => {

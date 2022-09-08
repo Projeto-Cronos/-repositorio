@@ -2,15 +2,16 @@ import styled from "styled-components";
 import  background from "../../assets/image/background-orange-white.svg"
 
 export const Section = styled.section`
-    display:flex;
-    flex-direction:column;
-    width:100%;
-    height:100%;
-    background-image: url(${background});
-     background-position: left top;
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-color: ${(props) => props.theme.grey4};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url(${background});
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: ${(props) => props.theme.grey4};
 `
 
 export const Main = styled.main`
@@ -420,7 +421,7 @@ export const Main = styled.main`
         font-style: normal;
         font-weight: 600;
         font-size: 0.7rem;
-        line-height: 12px;
+        line-height: 20px;
         color: #2927A6;
         max-width: 56ch;
         white-space: nowrap;

@@ -18,8 +18,8 @@ export const Div = styled.div`
   flex-direction: column;
   align-items: center;
   width: 85%;
-  animation: bounceIn;
-  animation-duration: 1s;
+  animation: fadeIn;
+  animation-duration: 0.5s;
   @media (min-width: 768px) {
     width: 55%;
   }

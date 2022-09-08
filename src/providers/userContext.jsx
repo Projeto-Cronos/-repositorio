@@ -99,18 +99,6 @@ const ProviderUser = ({ children }) => {
       });
   };
 
-  const deleteProject = (id) => {
-    if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
-    Api.delete(`/projects/${id}`)
-      .then(() => {
-        setDropdownDelete("none");
-        notifyLoginSuccess("Projeto deletado com sucesso!");
-      })
-      .catch(() => {
-        notifyLoginError("Ops! Algo deu errado");
-      });
-  };
-
   const showDropdownDelete = () => {
     setDropdownDelete("flex");
   };
@@ -212,7 +200,6 @@ const ProviderUser = ({ children }) => {
         dropDownEdit,
         editProfile,
         userProfile,
-        deleteProject,
         listNews,
         
       }}

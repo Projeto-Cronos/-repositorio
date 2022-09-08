@@ -2,12 +2,25 @@ import React from "react";
 import { StyledHeader } from "./style";
 import { Link } from "react-router-dom";
 import logo from "../../assets/image/logo-letter.svg";
+import {BsListUl} from "react-icons/bs";
+import { useState } from "react";
+import SideBar from "./SideBar";
 
 const Header = () => {
+  const [isSideBarVisible, setIsSideBarVisible] = useState(false);
+
+  const showSideBar = () => setIsSideBarVisible(!isSideBarVisible);
+ 
   return (
     <>
-      <StyledHeader>
+      <StyledHeader >
         <div className="contentHeader">
+        <div
+        className="menuIcon"
+        onClick={showSideBar}
+      >
+      <BsListUl />
+      </div>
           <nav>
             <Link className="link start" to="/">
               Sobre
@@ -23,6 +36,16 @@ const Header = () => {
               Blog
             </Link>
           </nav>
+          <div
+        className="menuIconInvsible"
+      >
+      <BsListUl />
+      </div>
+          {isSideBarVisible && (
+        <SideBar
+          isSideBarVisible={isSideBarVisible}
+        />
+      )}
         </div>
       </StyledHeader>
     </>
