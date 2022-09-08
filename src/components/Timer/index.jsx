@@ -31,6 +31,7 @@ const TimerToCount = ({ projectId, recordedTime }) => {
     let elapsedTime = 0;
     // let duration = 0;
 
+    console.log(recordedTime);
     if (recordedTime > 0) {
       elapsedTime = recordedTime;
       intervalRef.current = recordedTime;
@@ -51,16 +52,31 @@ const TimerToCount = ({ projectId, recordedTime }) => {
         elapsedTime++;
         intervalRef.current++;
 
-        min = Math.floor(elapsedTime / 60);
-        sec = Math.floor(elapsedTime % 60);
+        // min = Math.floor(elapsedTime / 60);
+        // sec = Math.floor(elapsedTime % 60);
 
-        // setTotalTime(intervalRef.current);
+        // // setTotalTime(intervalRef.current);
 
-        if (min >= 60 || min >= 120) {
-          elapsedTime -= 3600;
-          min = 0;
-          hrs += 1;
+        // if (min >= 60 || min >= 120) {
+        //   elapsedTime -= 3600;
+        //   min = 0;
+        //   hrs += 1;
+        // }
+        if (Math.floor(elapsedTime / 3600)) {
+          hrs = Math.floor(elapsedTime / 3600);
+          console.log({ hrs });
         }
+
+        if (Math.floor((elapsedTime - hrs * 3600) / 60)) {
+          min = Math.floor((elapsedTime - hrs * 3600) / 60);
+          console.log({ min });
+        }
+
+        if (elapsedTime - hrs * 3600 - min * 60) {
+          sec = elapsedTime - hrs * 3600 - min * 60;
+          console.log({ sec });
+        }
+
         setTimer(
           <span>
             {hrs < 10 ? `0${hrs}` : hrs}:{min < 10 ? `0${min}` : min}:
@@ -71,7 +87,7 @@ const TimerToCount = ({ projectId, recordedTime }) => {
     );
   };
 
-  console.log(totalTime);
+  // console.log(totalTime);
 
   const resume = () => {
     setIsCounter(true);
@@ -86,16 +102,21 @@ const TimerToCount = ({ projectId, recordedTime }) => {
         elapsedTime++;
         intervalRef.current++;
 
-        min = Math.floor(elapsedTime / 60);
-        sec = Math.floor(elapsedTime % 60);
-
-        // setTotalTime(elapsedTime);
-
-        if (min >= 59) {
-          elapsedTime -= 3600;
-
-          hrs += 1;
+        if (Math.floor(elapsedTime / 3600)) {
+          hrs = Math.floor(elapsedTime / 3600);
+          console.log({ hrs });
         }
+
+        if (Math.floor((elapsedTime - hrs * 3600) / 60)) {
+          min = Math.floor((elapsedTime - hrs * 3600) / 60);
+          console.log({ min });
+        }
+
+        if (elapsedTime - hrs * 3600 - min * 60) {
+          sec = elapsedTime - hrs * 3600 - min * 60;
+          console.log({ sec });
+        }
+
         setTimer(
           <span>
             {hrs < 10 ? `0${hrs}` : hrs}:{min < 10 ? `0${min}` : min}:
