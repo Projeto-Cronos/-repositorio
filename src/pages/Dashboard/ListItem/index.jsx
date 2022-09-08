@@ -3,7 +3,7 @@ import ListColumn from "../ListColumn";
 import ListSmallColumn from "../ListSmallColumn";
 import { StyledListItem, BoxTimer } from "./style";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../../../providers/userContext";
 import TimerToCount from "../../../components/Timer";
 import { ProjectsContext } from "../../../providers/projectsContext";
@@ -20,32 +20,71 @@ const ListItem = ({
   const { setProjectToDelete, valuePriceTotal } = useContext(ProjectsContext);
 
   const { showDropdownDelete } = useContext(Context);
+
+  const [newTitle, setNewTitle] = useState(projectName);
+  const [newStartDate, setNewStartDate] = useState(startDate);
+  const [newEndDate, setNewEndDate] = useState(endDate);
+  const [newPricePerHour, setNewPricePerHour] = useState(pricePerHour);
+  const [newAccumulatedValue, setNewAccumulatedValue] = useState(0);
+
   return (
     <StyledListItem>
       <ListColumn borderColor="blue">
-        <input type="text" defaultValue={projectName} />
+        <input
+          type="text"
+          defaultValue={projectName}
+          onChange={(event) => setNewTitle(event.target.value)}
+        />
       </ListColumn>
 
       <ListColumn borderColor="blue">
-        <input type="date" defaultValue={startDate} />
+        <input
+          type="date"
+          defaultValue={startDate}
+          onChange={(event) => {
+            setNewStartDate(event.target.value);
+          }}
+        />
       </ListColumn>
 
       <ListColumn borderColor="blue">
-        <input type="date" defaultValue={endDate} />
+        <input
+          type="date"
+          defaultValue={endDate}
+          onChange={(event) => setNewEndDate(event.target.value)}
+        />
       </ListColumn>
 
       <ListColumn borderColor="blue">
-        <input type="text" defaultValue={pricePerHour} />
+        <input
+          type="text"
+          defaultValue={pricePerHour}
+          onChange={(event) => setNewPricePerHour(event.target.value)}
+        />
       </ListColumn>
 
       <ListColumn borderColor="blue">
-        <input className="priceTotal" type="text" value={valuePriceTotal} defaultValue="calcular preço..." />
+        <input
+          className="priceTotal"
+          type="text"
+          value={valuePriceTotal}
+          defaultValue="calcular preço..."
+          onChange={(event) => setNewAccumulatedValue(event.target.value)}
+        />
       </ListColumn>
       {/* input que vai aparecer o negócio */}
 
       <ListColumn borderColor="red">
         <BoxTimer className="boxTimer">
-          <TimerToCount projectId={projectId} recordedTime={stopwatch} />
+          <TimerToCount
+            projectId={projectId}
+            recordedTime={stopwatch}
+            newTitle={newTitle}
+            newStartDate={newStartDate}
+            newEndDate={newEndDate}
+            newPricePerHour={newPricePerHour}
+            newAccumulatedValue={newAccumulatedValue}
+          />
         </BoxTimer>
       </ListColumn>
 

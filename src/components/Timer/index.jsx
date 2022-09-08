@@ -4,7 +4,15 @@ import { useRef } from "react";
 import { useContext } from "react";
 import { ProjectsContext } from "../../providers/projectsContext";
 
-const TimerToCount = ({ projectId, recordedTime }) => {
+const TimerToCount = ({
+  projectId,
+  recordedTime,
+  newTitle,
+  newStartDate,
+  newEndDate,
+  newPricePerHour,
+  newAccumulatedValue,
+}) => {
   const [timer, setTimer] = useState(<span>00:00:00</span>);
   const [timeInterval, setTimeInterval] = useState(null);
   const [isCounter, setIsCounter] = useState(false);
@@ -14,7 +22,8 @@ const TimerToCount = ({ projectId, recordedTime }) => {
     setTotalTime,
     setValuePriceTotal,
     sumPriceTotal,
-    allProjects
+    allProjects,
+    editProject,
   } = useContext(ProjectsContext);
 
   const intervalRef = useRef(0);
@@ -22,6 +31,18 @@ const TimerToCount = ({ projectId, recordedTime }) => {
   let hrs = 0;
   let min = 0;
   let sec = 0;
+
+  const editedProject = {
+    title: newTitle,
+    start_date: newStartDate,
+    price_per_hour: newPricePerHour,
+    id: projectId,
+  };
+
+  const callProjectEdition = () => {
+    console.log(editedProject);
+    editProject(projectId, editedProject);
+  };
 
   const startCount = () => {
     setIsCounter(!isCounter);
@@ -133,6 +154,9 @@ const TimerToCount = ({ projectId, recordedTime }) => {
 
     setIsPause(true);
     clearInterval(timeInterval);
+
+    editedProject.timer = intervalRef.current;
+    callProjectEdition();
   };
 
   const stop = () => {
@@ -144,22 +168,22 @@ const TimerToCount = ({ projectId, recordedTime }) => {
     // const endDate = new Date();
 
     setTimer(<span>00:00:00</span>);
+
+    editProject.timer = intervalRef.current;
+    callProjectEdition();
   };
 
   allProjects.map((elem) => {
-    if(Number(elem.id) === Number(projectId)) {
+    if (Number(elem.id) === Number(projectId)) {
       console.log(elem.id === projectId);
-      return setValuePriceTotal(sumPriceTotal(elem.price_per_hour))
-      
+      return setValuePriceTotal(sumPriceTotal(elem.price_per_hour));
     }
     //return Number(elem.id) === Number(projectId) && setValuePriceTotal(sumPriceTotal(elem.price_per_hour))
   });
 
   return (
     <>
-      <div className="boxTimer">
-        <span>{timer}</span>
-      </div>
+      <div className="boxTimer">{timer}</div>
 
       <div className="boxBtn">
         {!isCounter & !isPause ? (
