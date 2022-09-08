@@ -17,13 +17,13 @@ const ListItem = ({
 }) => {
   const { setProjectToDelete } = useContext(ProjectsContext);
   const { showDropdownDelete } = useContext(Context);
-  
+
   const [newTitle, setNewTitle] = useState(projectName);
   const [newStartDate, setNewStartDate] = useState(startDate);
   const [newEndDate, setNewEndDate] = useState(endDate);
   const [newPricePerHour, setNewPricePerHour] = useState(pricePerHour);
   const [newAccumulatedValue, setNewAccumulatedValue] = useState(0);
-  const [counter,setCounter] = useState(0);
+  const [counter, setCounter] = useState(0);
 
   return (
     <StyledListItem>
@@ -56,12 +56,10 @@ const ListItem = ({
       <ListColumn borderColor="blue">
         <input
           type="text"
-          defaultValue={
-            new Intl.NumberFormat("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            }).format(pricePerHour)
-          }
+          defaultValue={new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(pricePerHour)}
           onChange={(event) => setNewPricePerHour(event.target.value)}
         />
       </ListColumn>
@@ -70,12 +68,10 @@ const ListItem = ({
         <input
           className="priceTotal"
           type="text"
-          value={
-            new Intl.NumberFormat("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            }).format(((counter * pricePerHour) / 3600).toFixed(2))
-           }
+          value={new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          }).format(((counter * pricePerHour) / 3600).toFixed(2))}
           onChange={(event) => setNewAccumulatedValue(event.target.value)}
         />
       </ListColumn>
