@@ -31,7 +31,7 @@ export const Form = styled.form`
   box-shadow: 0px 4px 40px -10px var(--shadow);
 
   .cursor {
-    cursor:pointer;
+    cursor: pointer;
   }
   .dropdown {
     position: relative;
@@ -48,7 +48,7 @@ export const Form = styled.form`
     z-index: 1;
     font-size: 2.5vw;
     border-radius: 0.15vw;
-    color: ${(props) => props.theme.red2};;
+    color: ${(props) => props.theme.red2};
   }
 
   .dropdown:hover .dropdown-content {
@@ -191,7 +191,7 @@ export const Label = styled.label`
 export const ButtonOrange = styled.button`
   box-sizing: border-box;
   display: flex;
-  cursor:pointer;
+  cursor: pointer;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -267,7 +267,7 @@ export const ParagraphQuestion = styled.p`
       text-decoration: none;
 
       :hover {
-        color: v${(props) => props.theme.orange2};
+        color: v ${(props) => props.theme.orange2};
       }
     }
   }

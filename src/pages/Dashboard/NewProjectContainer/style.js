@@ -30,18 +30,18 @@ export const StyledContainer = styled.div`
       flex-wrap: wrap;
       gap: 10px;
     }
-    .boxNameProject{
+    .boxNameProject {
       border-radius: 4px;
       width: 30%;
-      input{
+      input {
         width: 100%;
         outline: none;
         background-color: ${(props) => props.theme.grey4};
         color: ${(props) => props.theme.black};
       }
-    @media (max-width: 768px) {
-      width: 100%;
-    }
+      @media (max-width: 768px) {
+        width: 100%;
+      }
     }
   }
 
@@ -52,22 +52,22 @@ export const StyledContainer = styled.div`
     cursor: pointer;
 
     width: 30%;
-    
+
     :hover .dropdownContent {
       display: block;
     }
   }
-  .labelDate{
+  .labelDate {
     width: 10%;
   }
-  .boxLabelDate{
-      display: flex;
-      justify-content: space-between;
-      width: 50%;
-      color: ${(props) => props.theme.black};
-    }
+  .boxLabelDate {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    color: ${(props) => props.theme.black};
+  }
 
-  .valuePerHour{
+  .valuePerHour {
     width: 0%;
     width: fit-content;
     color: ${(props) => props.theme.black};
@@ -84,8 +84,8 @@ export const StyledContainer = styled.div`
     outline: none;
     width: fit-content;
 
-    input{
-      outline: none ;
+    input {
+      outline: none;
       width: 185px;
       height: 48px;
     }
@@ -113,26 +113,25 @@ export const BoxTimer = styled.div`
   justify-content: space-around;
   align-items: center;
   width: 18%;
-  .boxTimer{
+  .boxTimer {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 25%;
-    span{
-
+    span {
     }
   }
-  .boxBtn{
+  .boxBtn {
     display: flex;
     width: 18%;
     gap: 20%;
-    button{
+    button {
       width: max-content;
       cursor: pointer;
       padding: 0;
-      :focus{
+      :focus {
         color: ${(props) => props.theme.orange2};
       }
     }
   }
-`
+`;

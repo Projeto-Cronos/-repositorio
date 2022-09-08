@@ -15,14 +15,14 @@ export const ContainerCalculator = styled.div`
   font-family: "Jura", sans-serif;
 `;
 export const ContainerMain = styled.div`
-    display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: 11.5%;
   width: 100%;
   @media (min-width: 1024px) {
-  top: 14%;
+    top: 14%;
   }
 `;
 export const MainCalculator = styled.main`
@@ -30,7 +30,7 @@ export const MainCalculator = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color:${(props) => props.theme.black};
+  color: ${(props) => props.theme.black};
   margin: 0 auto;
   height: 100%;
   gap: 30px;
@@ -39,7 +39,7 @@ export const MainCalculator = styled.main`
   h1 {
     font-size: 18px;
     font-weight: 700;
-    color:${(props) => props.theme.black};
+    color: ${(props) => props.theme.black};
   }
   .btn_refrash {
     position: fixed;
@@ -57,14 +57,14 @@ export const FormCalculator = styled.form`
     flex-direction: column;
     gap: 5px;
   }
-    .select {
-      display:flex;
-      align-items:center;
-      width:100%;
-      border-bottom: 1px solid ${(props) => props.theme.black};
-    }
+  .select {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid ${(props) => props.theme.black};
+  }
 
-    .dropdown {
+  .dropdown {
     position: relative;
     display: inline-block;
   }
@@ -80,32 +80,32 @@ export const FormCalculator = styled.form`
     font-size: 2.374vw;
     border-radius: 1vw;
     color: ${(props) => props.theme.red2};
-    text-align:center;
+    text-align: center;
   }
 
   .dropdown:hover .dropdown-content {
     display: block;
   }
-    select {
-      width:95%;
-      padding: 15px;
+  select {
+    width: 95%;
+    padding: 15px;
 
-      color: ${(props) => props.theme.grey2};
+    color: ${(props) => props.theme.grey2};
 
-      border: none;
-      
-      outline: none;
+    border: none;
 
-      background: transparent;
+    outline: none;
 
-      cursor: pointer;
-    }
-    span {
-      width:10px;
-      font-size: 17px;
-      color: ${(props) => props.theme.red2};
-      padding-right:20px;
-    }
+    background: transparent;
+
+    cursor: pointer;
+  }
+  span {
+    width: 10px;
+    font-size: 17px;
+    color: ${(props) => props.theme.red2};
+    padding-right: 20px;
+  }
 
   .box__btn {
     display: flex;
@@ -115,48 +115,48 @@ export const FormCalculator = styled.form`
 
     margin-top: 10px;
   }
-    button {
-      width: 100%;
-      height: 40px;
+  button {
+    width: 100%;
+    height: 40px;
 
-      font-family: "Jura", sans-serif;
+    font-family: "Jura", sans-serif;
 
-      cursor: pointer;
+    cursor: pointer;
 
-      border: none;
-      border-radius: 4px;
+    border: none;
+    border-radius: 4px;
 
-      color: ${(props) => props.theme.white};
+    color: ${(props) => props.theme.white};
 
-      background-color: ${(props) => props.theme.blue1};
+    background-color: ${(props) => props.theme.blue1};
+  }
+
+  button:hover {
+    background-color: ${(props) => props.theme.blue2};
+  }
+  @media (min-width: 768px) {
+    .dropdown-content {
+      min-width: 50px;
+      padding: 10px 3px 10px 3px;
+      font-size: 1.2vw;
+      border-radius: 0.5vw;
     }
-
-    button:hover {
-      background-color: ${(props) => props.theme.blue2};
+  }
+  @media (min-width: 1024px) {
+    .dropdown-content {
+      min-width: 50px;
+      padding: 10px 3px 10px 3px;
+      font-size: 0.9vw;
+      border-radius: 0.15vw;
     }
-    @media (min-width: 768px) {
-      .dropdown-content {
-    min-width: 50px;
-    padding: 10px 3px 10px 3px;
-    font-size: 1.2vw;
-    border-radius: 0.5vw;
-  }
-  }
-    @media (min-width: 1024px) {
-      .dropdown-content {
-    min-width: 50px;
-    padding: 10px 3px 10px 3px;
-    font-size: 0.9vw;
-    border-radius: 0.15vw;
-  }
   }
 `;
 export const Result = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width:100%;
-  
+  width: 100%;
+
   h2 {
     color: ${(props) => props.theme.orange2};
     font-weight: 800;
@@ -172,23 +172,21 @@ export const Result = styled.div`
     width: 70%;
     p {
       line-height: 20px;
-      color:${(props) => props.theme.black};
+      color: ${(props) => props.theme.black};
     }
     p:nth-child(2n) {
-      margin-bottom:10px;
+      margin-bottom: 10px;
     }
     span {
-      width:100%;
+      width: 100%;
       color: ${(props) => props.theme.orange1};
       font-weight: 700;
-      text-align:center;
-      
+      text-align: center;
     }
     @media (min-width: 1024px) {
       p:nth-child(2n) {
-      margin-bottom:0;
+        margin-bottom: 0;
+      }
     }
   }
-  }
 `;
-

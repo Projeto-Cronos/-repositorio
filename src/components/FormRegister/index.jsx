@@ -1,257 +1,252 @@
 import {
-    Form,
-    Title,
-    Input,
-    Label,
-    ButtonOrange,
-    ParagraphQuestion,
-  } from "./style";
-  import "react-toastify/dist/ReactToastify.css";
-  import { formSchema } from "../../validators/useRegister";
-  import { useForm } from "react-hook-form";
-  import { yupResolver } from "@hookform/resolvers/yup";
-  import {
-    BsFillEyeFill,
-    BsFillEyeSlashFill,
-    BsFillImageFill,
-    BsExclamationCircle,
-    BsFillPersonFill,
-    BsEnvelopeFill,
-  } from "react-icons/bs";
-  import { useContext } from "react";
-  import { Context } from "../../providers/userContext";
-  import { Link } from "react-router-dom";
+  Form,
+  Title,
+  Input,
+  Label,
+  ButtonOrange,
+  ParagraphQuestion,
+} from "./style";
+import "react-toastify/dist/ReactToastify.css";
+import { formSchema } from "../../validators/useRegister";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import {
+  BsFillEyeFill,
+  BsFillEyeSlashFill,
+  BsFillImageFill,
+  BsExclamationCircle,
+  BsFillPersonFill,
+  BsEnvelopeFill,
+} from "react-icons/bs";
+import { useContext } from "react";
+import { Context } from "../../providers/userContext";
+import { Link } from "react-router-dom";
 
 function FormRegister() {
+  const {
+    eyeClickRegisterConfirmed,
+    eyeClickRegister,
+    handleClickRegisterConfirmed,
+    handleClickRegister,
+    registerUser,
+  } = useContext(Context);
 
-    const {
-        eyeClickRegisterConfirmed,
-        eyeClickRegister,
-        handleClickRegisterConfirmed,
-        handleClickRegister,
-        registerUser
-      } = useContext(Context);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(formSchema),
+  });
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm({
-        resolver: yupResolver(formSchema),
-      });
-
-    return (
-        <Form onSubmit={handleSubmit(registerUser)}>
-        <Title>Cadastre-se</Title>
-        <div className="containerInput">
-    <Label htmlFor="text">Nome</Label>
+  return (
+    <Form onSubmit={handleSubmit(registerUser)}>
+      <Title>Cadastre-se</Title>
+      <div className="containerInput">
+        <Label htmlFor="text">Nome</Label>
+        <div className="contentInput">
+          <Input
+            type="text"
+            placeholder="Digite seu nome"
+            {...register("name")}
+          />
+          {errors.name?.message ? (
+            <button type="button" className="alert dropdown" disabled>
+              {errors.name?.message ? (
+                <>
+                  <BsExclamationCircle />
+                  <div class="dropdown-content">
+                    <p>{errors.name?.message}</p>
+                  </div>
+                </>
+              ) : null}
+            </button>
+          ) : (
+            <button type="button" className="fixed" disabled>
+              <BsFillPersonFill />
+            </button>
+          )}
+        </div>
+      </div>
+      <div className="containerInput">
+        <Label htmlFor="email">Email</Label>
+        <div className="contentInput">
+          <Input
+            type="email"
+            placeholder="Digite seu email"
+            {...register("email")}
+          />
+          {errors.email?.message ? (
+            <button type="button" className="alert dropdown" disabled>
+              {errors.email?.message ? (
+                <>
+                  <BsExclamationCircle />
+                  <div class="dropdown-content">
+                    <p>{errors.email?.message}</p>
+                  </div>
+                </>
+              ) : null}
+            </button>
+          ) : (
+            <button type="button" className="fixed" disabled>
+              <BsEnvelopeFill />
+            </button>
+          )}
+        </div>
+      </div>
+      <div className="containerInput">
+        <Label htmlFor="password">Senha</Label>
+        {!eyeClickRegister ? (
+          <div className="contentInput">
+            <Input
+              type="password"
+              placeholder="Digite sua senha"
+              {...register("password")}
+            />
+            {errors.password?.message ? (
+              <button type="button" className="alert dropdown" disabled>
+                {errors.password?.message ? (
+                  <>
+                    <BsExclamationCircle />
+                    <div class="dropdown-content">
+                      <p>{errors.password?.message}</p>
+                    </div>
+                  </>
+                ) : null}
+              </button>
+            ) : (
+              <button type="button" className="fixed cursor" disabled>
+                <BsFillEyeFill
+                  onClick={(e) => handleClickRegister(e.preventDefault())}
+                />
+              </button>
+            )}
+          </div>
+        ) : (
           <div className="contentInput">
             <Input
               type="text"
-              placeholder="Digite seu nome"
-              {...register("name")}
+              placeholder="Digite sua senha"
+              {...register("password")}
             />
-            {errors.name?.message ? (
+            {errors.password?.message ? (
               <button type="button" className="alert dropdown" disabled>
-                {errors.name?.message ? (
+                {errors.password?.message ? (
                   <>
                     <BsExclamationCircle />
                     <div class="dropdown-content">
-                      <p>{errors.name?.message}</p>
+                      <p>{errors.password?.message}</p>
                     </div>
                   </>
                 ) : null}
               </button>
             ) : (
-              <button type="button" className="fixed" disabled>
-                <BsFillPersonFill />
+              <button type="button" className="fixed cursor" disabled>
+                <BsFillEyeSlashFill
+                  onClick={(e) => handleClickRegister(e.preventDefault())}
+                />
               </button>
             )}
           </div>
-        </div>
-        <div className="containerInput">
-          <Label htmlFor="email">Email</Label>
+        )}
+      </div>
+      <div className="containerInput">
+        <Label htmlFor="password">Confirmação de Senha</Label>
+        {!eyeClickRegisterConfirmed ? (
           <div className="contentInput">
             <Input
-              type="email"
-              placeholder="Digite seu email"
-              {...register("email")}
+              type="password"
+              placeholder="Confirme sua senha"
+              {...register("confirmPassword")}
             />
-            {errors.email?.message ? (
+            {errors.confirmPassword?.message ? (
               <button type="button" className="alert dropdown" disabled>
-                {errors.email?.message ? (
+                {errors.confirmPassword?.message ? (
                   <>
                     <BsExclamationCircle />
                     <div class="dropdown-content">
-                      <p>{errors.email?.message}</p>
+                      <p>{errors.confirmPassword?.message}</p>
                     </div>
                   </>
                 ) : null}
               </button>
             ) : (
-              <button type="button" className="fixed" disabled>
-                <BsEnvelopeFill />
+              <button type="button" className="fixed cursor" disabled>
+                <BsFillEyeFill
+                  onClick={(e) =>
+                    handleClickRegisterConfirmed(e.preventDefault())
+                  }
+                />
               </button>
             )}
           </div>
-        </div>
-        <div className="containerInput">
-          <Label htmlFor="password">Senha</Label>
-          {!eyeClickRegister ? (
-            <div className="contentInput">
-              <Input
-                type="password"
-                placeholder="Digite sua senha"
-                {...register("password")}
-              />
-              {errors.password?.message ? (
-                <button type="button" className="alert dropdown" disabled>
-                  {errors.password?.message ? (
-                    <>
-                      <BsExclamationCircle />
-                      <div class="dropdown-content">
-                        <p>{errors.password?.message}</p>
-                      </div>
-                    </>
-                  ) : null}
-                </button>
-              ) : (
-                <button type="button" className="fixed cursor" disabled>
-                  <BsFillEyeFill
-                    onClick={(e) =>
-                      handleClickRegister(e.preventDefault())
-                    }
-                  />
-                </button>
-              )}
-            </div>
-          ) : (
-            <div className="contentInput">
-              <Input
-                type="text"
-                placeholder="Digite sua senha"
-                {...register("password")}
-              />
-              {errors.password?.message ? (
-                <button type="button" className="alert dropdown" disabled>
-                  {errors.password?.message ? (
-                    <>
-                      <BsExclamationCircle />
-                      <div class="dropdown-content">
-                        <p>{errors.password?.message}</p>
-                      </div>
-                    </>
-                  ) : null}
-                </button>
-              ) : (
-                <button type="button" className="fixed cursor" disabled>
-                  <BsFillEyeSlashFill
-                    onClick={(e) =>
-                      handleClickRegister(e.preventDefault())
-                    }
-                  />
-                </button>
-              )}
-            </div>
-          )}
-        </div>
-        <div className="containerInput">
-          <Label htmlFor="password">Confirmação de Senha</Label>
-          {!eyeClickRegisterConfirmed ? (
-            <div className="contentInput">
-              <Input
-                type="password"
-                placeholder="Confirme sua senha"
-                {...register("confirmPassword")}
-              />
-              {errors.confirmPassword?.message ? (
-                <button type="button" className="alert dropdown" disabled>
-                  {errors.confirmPassword?.message ? (
-                    <>
-                      <BsExclamationCircle />
-                      <div class="dropdown-content">
-                        <p>{errors.confirmPassword?.message}</p>
-                      </div>
-                    </>
-                  ) : null}
-                </button>
-              ) : (
-                <button type="button" className="fixed cursor" disabled>
-                  <BsFillEyeFill
-                    onClick={(e) =>
-                      handleClickRegisterConfirmed(e.preventDefault())
-                    }
-                  />
-                </button>
-              )}
-            </div>
-          ) : (
-            <div className="contentInput">
-              <Input
-                type="text"
-                placeholder="Digite sua senha"
-                {...register("confirmPassword")}
-              />
-              {errors.password?.message ? (
-                <button type="button" className="alert dropdown" disabled>
-                  {errors.confirmPassword?.message ? (
-                    <>
-                      <BsExclamationCircle />
-                      <div class="dropdown-content">
-                        <p>{errors.confirmPassword?.message}</p>
-                      </div>
-                    </>
-                  ) : null}
-                </button>
-              ) : (
-                <button type="button" className="fixed cursor" disabled>
-                  <BsFillEyeSlashFill
-                    onClick={(e) =>
-                      handleClickRegisterConfirmed(e.preventDefault())
-                    }
-                  />
-                </button>
-              )}
-            </div>
-          )}
-        </div>
-        <div className="containerInput">
-          <Label htmlFor="url">Foto de perfil</Label>
+        ) : (
           <div className="contentInput">
             <Input
-              type="url"
-              placeholder="Digite sua url"
-              {...register("image")}
+              type="text"
+              placeholder="Digite sua senha"
+              {...register("confirmPassword")}
             />
-            {errors.image?.message ? (
-              <>
-                <button type="button" className="alert dropdown" disabled>
-                  {errors.image?.message ? (
-                    <>
-                      <BsExclamationCircle />
-                      <div class="dropdown-content">
-                        <p>{errors.image?.message}</p>
-                      </div>
-                    </>
-                  ) : null}
-                </button>
-              </>
+            {errors.password?.message ? (
+              <button type="button" className="alert dropdown" disabled>
+                {errors.confirmPassword?.message ? (
+                  <>
+                    <BsExclamationCircle />
+                    <div class="dropdown-content">
+                      <p>{errors.confirmPassword?.message}</p>
+                    </div>
+                  </>
+                ) : null}
+              </button>
             ) : (
-              <button type="button" className="fixed" disabled>
-                <BsFillImageFill />
+              <button type="button" className="fixed cursor" disabled>
+                <BsFillEyeSlashFill
+                  onClick={(e) =>
+                    handleClickRegisterConfirmed(e.preventDefault())
+                  }
+                />
               </button>
             )}
           </div>
+        )}
+      </div>
+      <div className="containerInput">
+        <Label htmlFor="url">Foto de perfil</Label>
+        <div className="contentInput">
+          <Input
+            type="url"
+            placeholder="Digite sua url"
+            {...register("image")}
+          />
+          {errors.image?.message ? (
+            <>
+              <button type="button" className="alert dropdown" disabled>
+                {errors.image?.message ? (
+                  <>
+                    <BsExclamationCircle />
+                    <div class="dropdown-content">
+                      <p>{errors.image?.message}</p>
+                    </div>
+                  </>
+                ) : null}
+              </button>
+            </>
+          ) : (
+            <button type="button" className="fixed" disabled>
+              <BsFillImageFill />
+            </button>
+          )}
         </div>
-        <ButtonOrange type="submit">Entrar</ButtonOrange>
-        <ParagraphQuestion>
-          Tem uma conta?
-          <Link className="link" to="/login">
-            Conecte-se
-          </Link>
-        </ParagraphQuestion>
-      </Form>
-    )
+      </div>
+      <ButtonOrange type="submit">Entrar</ButtonOrange>
+      <ParagraphQuestion>
+        Tem uma conta?
+        <Link className="link" to="/login">
+          Conecte-se
+        </Link>
+      </ParagraphQuestion>
+    </Form>
+  );
 }
 
-export default FormRegister
+export default FormRegister;
