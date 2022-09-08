@@ -84,9 +84,8 @@ const ProviderUser = ({ children }) => {
 
   //Dashboard
   const editProfile = (data) => {
-    Api.patch(`/users/${user.id}`, data, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
+    if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
+    Api.patch(`/users/${user.id}`, data)
       .then((res) => {
         setDropdownEdit("none");
         notifyLoginSuccess("Perfil editado com sucesso!");
@@ -100,9 +99,8 @@ const ProviderUser = ({ children }) => {
   };
 
   const deleteProject = (id) => {
-    Api.delete(`/projects/${id}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
+    if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
+    Api.delete(`/projects/${id}`)
       .then(() => {
         setDropdownDelete("none");
         notifyLoginSuccess("Projeto deletado com sucesso!");
