@@ -15,9 +15,7 @@ import Lottie from "react-lottie";
 function Dashboard() {
   const { navigate, token, animateState, defaultOptionsTwo } =
     useContext(Context);
-  const { allProjects, getAllProjects, totalTime } =
-    useContext(ProjectsContext);
-  console.log(totalTime);
+  const { allProjects, getAllProjects,totalTime } = useContext(ProjectsContext);
   useEffect(() => {
     getAllProjects();
   }, []);
@@ -43,7 +41,7 @@ function Dashboard() {
                     title,
                     start_date,
                     end_date,
-                    price_per_hour, // preço por hora
+                    price_per_hour,
                     timer,
                   }) => (
                     <ListItem
@@ -54,7 +52,6 @@ function Dashboard() {
                       endDate={end_date}
                       pricePerHour={price_per_hour}
                       stopwatch={timer}
-                      /* accumulatedValue={accumulatedValue} */
                     />
                   )
                 )

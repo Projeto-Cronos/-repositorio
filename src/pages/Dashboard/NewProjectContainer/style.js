@@ -23,7 +23,7 @@ export const StyledContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* margin: 0 auto; */
+
     width: 100%;
 
     @media (max-width: 768px) {
@@ -93,7 +93,7 @@ export const StyledContainer = styled.div`
 
   button {
     background: ${(props) => props.theme.blue1};
-    /* background: transparent; */
+
     padding: 10px 12px;
     border: none;
     border-radius: 8px;

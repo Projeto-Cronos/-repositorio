@@ -2,7 +2,6 @@ import { BsTrash } from "react-icons/bs";
 import ListColumn from "../ListColumn";
 import ListSmallColumn from "../ListSmallColumn";
 import { StyledListItem, BoxTimer } from "./style";
-
 import { useContext, useState } from "react";
 import { Context } from "../../../providers/userContext";
 import TimerToCount from "../../../components/Timer";
@@ -58,7 +57,10 @@ const ListItem = ({
       <ListColumn borderColor="blue">
         <input
           type="text"
-          defaultValue={pricePerHour}
+          defaultValue={new Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            }).format(pricePerHour)}          
           onChange={(event) => setNewPricePerHour(event.target.value)}
         />
       </ListColumn>
@@ -72,7 +74,6 @@ const ListItem = ({
           onChange={(event) => setNewAccumulatedValue(event.target.value)}
         />
       </ListColumn>
-      {/* input que vai aparecer o negócio */}
 
       <ListColumn borderColor="red">
         <BoxTimer className="boxTimer">
