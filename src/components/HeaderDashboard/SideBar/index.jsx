@@ -10,12 +10,19 @@ import { useContext } from "react";
 import { Context } from "../../../providers/userContext";
 
 const SideBar = ({ isSideBarVisible }) => {
-  const { navigate,userProfile, getOpositeTheme, setCurrentTheme, currentTheme, showDropdownEdit } = useContext(Context);
+  const {
+    navigate,
+    userProfile,
+    getOpositeTheme,
+    setCurrentTheme,
+    currentTheme,
+    showDropdownEdit,
+  } = useContext(Context);
 
   const toggleTheme = () => {
-    setCurrentTheme(getOpositeTheme())
-    window.localStorage.setItem("authTheme",currentTheme);
-  }
+    setCurrentTheme(getOpositeTheme());
+    window.localStorage.setItem("authTheme", currentTheme);
+  };
 
   return (
     <Container isSideBarVisible={isSideBarVisible}>
@@ -27,16 +34,12 @@ const SideBar = ({ isSideBarVisible }) => {
         <p className="userEmail">{userProfile.email}</p>
       </div>
       <div className="menu">
-        <SideBarButton
-          onClick={() => navigate("/dashboard")}
-        >
+        <SideBarButton onClick={() => navigate("/dashboard")}>
           <BsClock />
           Gerenciador de projetos
         </SideBarButton>
 
-        <SideBarButton 
-          onClick={() => navigate("/calculator")}
-        >
+        <SideBarButton onClick={() => navigate("/calculator")}>
           <BsCalculator />
           Calculadora
         </SideBarButton>

@@ -24,8 +24,8 @@ export const StyledListItem = styled.li`
 
   input {
     width: 100%;
-    background-color:${(props) => props.theme.grey4};
-    color:${(props) => props.theme.black};
+    background-color: ${(props) => props.theme.grey4};
+    color: ${(props) => props.theme.black};
   }
 `;
 export const BoxTimer = styled.div`
@@ -33,8 +33,8 @@ export const BoxTimer = styled.div`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  color:${(props) => props.theme.black};
-  background-color:${(props) => props.theme.grey4};
+  color: ${(props) => props.theme.black};
+  background-color: ${(props) => props.theme.grey4};
   .boxTimer {
     display: flex;
     align-items: center;

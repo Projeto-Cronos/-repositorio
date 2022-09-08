@@ -27,7 +27,6 @@ export const Div = styled.div`
   width: 100%;
   min-height: min-content;
   gap: 10vw;
-  
 
   .img {
     display: none;
@@ -36,7 +35,7 @@ export const Div = styled.div`
     height: min-content;
     width: 78%;
     gap: 10vw;
-    
+
     .img {
       display: flex;
       width: 60%;
@@ -46,10 +45,10 @@ export const Div = styled.div`
     height: min-content;
     width: 78%;
     gap: 10vw;
-    margin-top:10px;
+    margin-top: 10px;
     .img {
       display: flex;
       width: 60%;
     }
   }
-`
+`;

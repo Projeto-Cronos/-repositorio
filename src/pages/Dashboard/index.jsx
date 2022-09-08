@@ -15,8 +15,9 @@ import Lottie from "react-lottie";
 function Dashboard() {
   const { navigate, token, animateState, defaultOptionsTwo } =
     useContext(Context);
-  const { allProjects, getAllProjects,totalTime } = useContext(ProjectsContext);
-  console.log(totalTime)
+  const { allProjects, getAllProjects, totalTime } =
+    useContext(ProjectsContext);
+  console.log(totalTime);
   useEffect(() => {
     getAllProjects();
   }, []);
@@ -59,16 +60,15 @@ function Dashboard() {
                 )
               ) : (
                 <>
-                <div className="containerImg">
-                <div className="img">
-        <Lottie
-          options={defaultOptionsTwo}
-          isStopped={animateState.isStopped}
-          isPaused={animateState.isPaused}
-        />
-      </div>
-                </div>
-
+                  <div className="containerImg">
+                    <div className="img">
+                      <Lottie
+                        options={defaultOptionsTwo}
+                        isStopped={animateState.isStopped}
+                        isPaused={animateState.isPaused}
+                      />
+                    </div>
+                  </div>
                 </>
               )}
             </ListBody>
