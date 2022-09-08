@@ -49,4 +49,4 @@ export const Div = styled.div`
       width: 60%;
     }
   }
-`
+`;

@@ -85,7 +85,9 @@ const TimerToCount = ({
 
         if (Math.floor((elapsedTime - hrs * 3600) / 60)) {
           min = Math.floor((elapsedTime - hrs * 3600) / 60);
+
           sec = 0;
+
         }
 
         setTotalTime(min);
@@ -124,7 +126,10 @@ const TimerToCount = ({
 
         if (Math.floor((elapsedTime - hrs * 3600) / 60)) {
           min = Math.floor((elapsedTime - hrs * 3600) / 60);
+
           sec = 0;
+         
+
           setTotalTime(intervalRef.current);
         }
 

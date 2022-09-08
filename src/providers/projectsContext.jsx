@@ -43,13 +43,14 @@ const ProjectsProvider = ({ children }) => {
     const userId = window.localStorage.getItem("authId");
     newProject.userId = Number(userId);
     if (token) Api.defaults.headers.authorization = `Bearer ${token}`;
-    console.log(Api.defaults.headers);
+
     const data = await Api.post(`/projects`, newProject)
       .then((res) => {
         getAllProjects();
         return res.data;
       })
       .catch((err) => console.error(err));
+    return data
   };
 
   const editProject = async (projectId, editedProject) => {
@@ -59,7 +60,6 @@ const ProjectsProvider = ({ children }) => {
 
     editProject.userId = userId;
 
-    console.log("entrou no edit", editedProject, userId);
     const data = await Api.patch(`/projects/${projectId}`, editedProject)
       .then((res) => res.data)
       .catch((err) => console.error(err));
@@ -87,17 +87,6 @@ const ProjectsProvider = ({ children }) => {
 
     return data;
   };
-
-  /* const sumPriceTotal = (valueInput) => {
-    let price = 0;
-    price = (valueInput * totalTime) / 3600;
-    const result = Math.round(price * 100) / 100;
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(result);
-  }; */
-  //console.log(valuePriceTotal);
 
   return (
     <ProjectsContext.Provider

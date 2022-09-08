@@ -11,7 +11,7 @@ import {
 import { useContext } from "react";
 import { Context } from "../../../../providers/userContext";
 import { ProjectsContext } from "../../../../providers/projectsContext";
-import 'animate.css';
+import "animate.css";
 
 function ModalDelete() {
   const { closeDropdownDelete, dropDownDelete } = useContext(Context);

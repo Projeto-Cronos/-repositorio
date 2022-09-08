@@ -20,9 +20,8 @@ export const ListHeaderTitle = styled.span`
   padding: 10px 0;
   font-size: 16px;
   font-weight: 500;
-  color:
-      ${(props) =>
-        props.titleColor === "blue" ? "var(--blue-1)" : "var(--red-1)"};
+  color: ${(props) =>
+    props.titleColor === "blue" ? "var(--blue-1)" : "var(--red-1)"};
 
   @media (max-width: 1024px) {
     font-size: 14px;

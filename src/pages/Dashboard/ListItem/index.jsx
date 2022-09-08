@@ -2,7 +2,6 @@ import { BsTrash } from "react-icons/bs";
 import ListColumn from "../ListColumn";
 import ListSmallColumn from "../ListSmallColumn";
 import { StyledListItem, BoxTimer } from "./style";
-
 import { useContext, useState } from "react";
 import { Context } from "../../../providers/userContext";
 import TimerToCount from "../../../components/Timer";

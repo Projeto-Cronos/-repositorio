@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   position: fixed;
-  display: ${props => props.dropdown};
+  display: ${(props) => props.dropdown};
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -37,12 +37,12 @@ export const DivTop = styled.div`
   padding: 5% 4%;
   @media (min-width: 768px) {
     border-radius: 0.5vw 0.5vw 0 0;
-  padding: 4% 3%;
-}
-@media (min-width: 1024px) {
-  border-radius: 0.3vw 0.3vw 0 0;
-  padding: 3.5% 5.9%;
-}
+    padding: 4% 3%;
+  }
+  @media (min-width: 1024px) {
+    border-radius: 0.3vw 0.3vw 0 0;
+    padding: 3.5% 5.9%;
+  }
 `;
 export const Title = styled.h1`
   width: 100%;
@@ -51,12 +51,12 @@ export const Title = styled.h1`
   color: ${(props) => props.theme.black};
   @media (min-width: 768px) {
     border-radius: 0.5vw 0.5vw 0 0;
-  font-size: 3vw;
-}
-@media (min-width: 1024px) {
-  border-radius: 0.3vw 0.3vw 0 0;
-  font-size: 1.1vw;
-}
+    font-size: 3vw;
+  }
+  @media (min-width: 1024px) {
+    border-radius: 0.3vw 0.3vw 0 0;
+    font-size: 1.1vw;
+  }
 `;
 export const Form = styled.form`
   min-width: 100%;
@@ -139,45 +139,45 @@ export const Form = styled.form`
   @media (min-width: 768px) {
     border-radius: 0 0 0.5vw 0.5vw;
 
-.dropdown-content {
-  padding: 1vw;
-  font-size: 2vw;
-  border-radius: 0.5vw;
-}
-.containerInput {
-  padding: 3vw;
-}
-.fixed {
-  font-size: 3vw;
-}
-.fixed-eye {
-  font-size: 3vw;
-}
-.alert {
-  font-size: 3vw;
-}
-}
-@media (min-width: 1024px) {
-  border-radius: 0 0 0.3vw 0.3vw;
+    .dropdown-content {
+      padding: 1vw;
+      font-size: 2vw;
+      border-radius: 0.5vw;
+    }
+    .containerInput {
+      padding: 3vw;
+    }
+    .fixed {
+      font-size: 3vw;
+    }
+    .fixed-eye {
+      font-size: 3vw;
+    }
+    .alert {
+      font-size: 3vw;
+    }
+  }
+  @media (min-width: 1024px) {
+    border-radius: 0 0 0.3vw 0.3vw;
 
-  .dropdown-content {
-    padding: 1vw;
-    font-size: 0.9vw;
-    border-radius: 0.3vw;
+    .dropdown-content {
+      padding: 1vw;
+      font-size: 0.9vw;
+      border-radius: 0.3vw;
+    }
+    .containerInput {
+      padding: 1.1vw;
+    }
+    .fixed {
+      font-size: 1.3vw;
+    }
+    .fixed-eye {
+      font-size: 1.3vw;
+    }
+    .alert {
+      font-size: 1.3vw;
+    }
   }
-  .containerInput {
-    padding: 1.1vw;
-  }
-  .fixed {
-    font-size: 1.3vw;
-  }
-  .fixed-eye {
-    font-size: 1.3vw;
-  }
-  .alert {
-    font-size: 1.3vw;
-  }
-}
 `;
 export const Input = styled.input`
   outline: none;
@@ -194,10 +194,10 @@ export const Input = styled.input`
   border: none;
   @media (min-width: 768px) {
     font-size: 2.15vw;
-}
-@media (min-width: 1024px) {
-  font-size: 1.05vw;
-}
+  }
+  @media (min-width: 1024px) {
+    font-size: 1.05vw;
+  }
 `;
 export const Label = styled.label`
   display: flex;
@@ -209,10 +209,10 @@ export const Label = styled.label`
   text-align: start;
   @media (min-width: 768px) {
     font-size: 2.1vw;
-}
-@media (min-width: 1024px) {
-  font-size: 1vw;
-}
+  }
+  @media (min-width: 1024px) {
+    font-size: 1vw;
+  }
 `;
 export const DivButton = styled.div`
   display: flex;
@@ -222,11 +222,11 @@ export const DivButton = styled.div`
   padding: 4% 4%;
   @media (min-width: 768px) {
     padding: 3vw;
-}
-@media (min-width: 1024px) {
-  gap: 6%;
-  padding: 1.1vw;
-}
+  }
+  @media (min-width: 1024px) {
+    gap: 6%;
+    padding: 1.1vw;
+  }
 `;
 export const ButtonBlue = styled.button`
   box-sizing: border-box;
@@ -250,13 +250,13 @@ export const ButtonBlue = styled.button`
   }
   @media (min-width: 768px) {
     border-radius: 0.5vw;
-  font-size: 2.55vw;
-}
-@media (min-width: 1024px) {
-  border-radius: 0.2vw;
- 
-  font-size: 1.05vw;
-}
+    font-size: 2.55vw;
+  }
+  @media (min-width: 1024px) {
+    border-radius: 0.2vw;
+
+    font-size: 1.05vw;
+  }
 `;
 export const ButtonGrey = styled.button`
   box-sizing: border-box;
@@ -281,10 +281,10 @@ export const ButtonGrey = styled.button`
   }
   @media (min-width: 768px) {
     border-radius: 0.5vw;
-  font-size: 2.55vw;
-}
-@media (min-width: 1024px) {
-  border-radius: 0.2vw;
-  font-size: 1.05vw;
-}
+    font-size: 2.55vw;
+  }
+  @media (min-width: 1024px) {
+    border-radius: 0.2vw;
+    font-size: 1.05vw;
+  }
 `;
