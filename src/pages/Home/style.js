@@ -28,7 +28,7 @@ export const HeaderContent = styled.div`
         margin: 80px 0 0 35px;
         filter: drop-shadow(0px 4px 4px ${(props) => props.theme.shadow});
         color:${(props) => props.theme.black};
-        z-index: 0;
+        z-index: 1;
         @media (min-width: 768px) {
         }
         @media (min-width: 1024px) {
@@ -190,7 +190,7 @@ export const SecondSection = styled.section`
     }
     .CronosP {
         width: 20%;
-        color: #f66813;
+        color: ${(props) => props.theme.orange1};
         text-align: center;
         font-weight: 600;
         @media (min-width: 768px) {
