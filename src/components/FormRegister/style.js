@@ -211,7 +211,7 @@ export const ButtonOrange = styled.button`
   }
   @media (min-width: 768px) {
     width: 100%;
-    height: 6.6vh;
+    height: 4.6vh;
     border-radius: 0.2vw;
     font-weight: 600;
     font-size: 1.05vw;

@@ -37,7 +37,7 @@ const lightTheme = {
     red2: "#F40000",
     green1: "#3FE864",
     yellow1: "#FFCD07",
-    shadow: "rgba(255, 255, 255, 0.6)",
+    shadow: "rgba(255, 255, 255, 0.07)",
   };
   
   export const themes = {

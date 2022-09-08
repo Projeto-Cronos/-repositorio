@@ -14,7 +14,7 @@ export const Section = styled.section`
   background-color: ${(props) => props.theme.grey4};
 
   @media (min-width: 768px) {
-    gap: 10vw;
+    gap: 15vw;
   }
   @media (min-width: 1024px) {
     gap: 0;

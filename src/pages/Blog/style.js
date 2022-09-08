@@ -7,9 +7,10 @@ export const Section = styled.section`
     width:100%;
     height:100%;
     background-image: url(${background});
-  background-position: left top;
+     background-position: left top;
     background-repeat:no-repeat;
     background-size:cover;
+    background-color: ${(props) => props.theme.grey4};
 `
 
 export const Main = styled.main`
@@ -23,13 +24,14 @@ export const Main = styled.main`
     flex-direction: column;
 
     border-radius: 2px;
+    color: ${(props) => props.theme.black};
 
     @media screen and (min-width: 768px) {
         
         width: 80%;
         height: 88%;
         margin: auto;
-        box-shadow: 0px 4px 32px 0px #00000040;
+        box-shadow: 0px 4px 32px 0px ${(props) => props.theme.shadow};
 
         gap: 1rem;
 
@@ -277,7 +279,7 @@ export const Main = styled.main`
 
         display: flex;
         gap: 0.2rem;
-        background: #FFFFFF;
+        background: ${(props) => props.theme.white};
         
 
     }

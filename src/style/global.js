@@ -73,7 +73,7 @@ export const ResetCSS = createGlobalStyle`
     
   }
   ::-webkit-scrollbar {
-  width: 7px;
+  width: 0.1px;
   }
   ::-webkit-scrollbar-track {
     background: var(--gray-4);
