@@ -5,7 +5,7 @@ export const StyledFooter = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: ${(props) => props.theme.orange1};
+  background-color: ${(props) => props.theme.white};
 
   .FooterHome {
     display: flex;
@@ -25,7 +25,6 @@ export const StyledFooter = styled.div`
     padding-right: 2vw;
   }
   @media (min-width: 768px) {
-    background-color: ${(props) => props.theme.white};
     .FooterHome {
       width: 78%;
     }
@@ -38,7 +37,6 @@ export const StyledFooter = styled.div`
     }
   }
   @media (min-width: 1024px) {
-    background-color: ${(props) => props.theme.white};
     .FooterHome {
       width: 78%;
     }
