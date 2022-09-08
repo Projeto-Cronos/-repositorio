@@ -5,7 +5,6 @@ import Home from "../pages/Home";
 import Error from "../pages/Error";
 import Blog from "../pages/Blog";
 import Calculator from "../pages/Calculator";
-import Projects from "../pages/Projects";
 import { Routes, Route } from "react-router-dom";
 
 function Authenticator() {
@@ -17,7 +16,6 @@ function Authenticator() {
       <Route path="/register" element={<Register />}></Route>
       <Route path="/blog" element={<Blog />}></Route>
       <Route path="/calculator" element={<Calculator />}></Route>
-      <Route path="/projects" element={<Projects />}></Route>
       <Route path="*" element={<Error />}></Route>
     </Routes>
   );

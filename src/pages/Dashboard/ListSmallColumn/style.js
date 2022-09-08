@@ -7,6 +7,7 @@ export const StyledListSmallColumn = styled.div`
   align-items: center;
 
   button {
+  
     color: ${(props) => props.theme.black};
     background-color: transparent;
     border:none;
@@ -15,10 +16,13 @@ export const StyledListSmallColumn = styled.div`
   }
 
   @media (max-width: 768px) {
+    width: 100%;
     box-sizing: initial;
     padding: 8px;
-    width: fit-content;
-    border: 1px solid var(--grey-2);
+    background-color:${(props) => props.theme.grey4};
     border-radius: 4px;
+    button {
+      width: 100%
+}
   }
 `;

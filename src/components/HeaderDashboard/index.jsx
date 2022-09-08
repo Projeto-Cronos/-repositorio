@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import logo1 from "../../assets/image/logo.svg";
 import { HeaderContainer } from "./HeaderContainer";
 import SideBar from "./SideBar";
 import {BsListUl} from "react-icons/bs";
@@ -18,7 +18,7 @@ const HeaderDashboard = ({ username, email }) => {
       <BsListUl />
       </div>
       <div className="logo">
-
+        <img src={logo1} alt="Logo da Cronos" />
       </div>
       {isSideBarVisible && (
         <SideBar

@@ -8,7 +8,7 @@ export const StyledListItem = styled.li`
   padding: 10px 20px;
   border-radius: 4px;
   background-color: ${(props) => props.theme.white};
-  box-shadow: 0px 2px 16px rgba(153, 155, 168, 0.12);
+  box-shadow: 0px 2px 16px ${(props) => props.theme.shadow};
   cursor: pointer;
 
   @media (max-width: 768px) {
@@ -24,6 +24,8 @@ export const StyledListItem = styled.li`
 
   input {
     width: 100%;
+    background-color:${(props) => props.theme.grey4};
+    color:${(props) => props.theme.black};
   }
 `;
 export const BoxTimer = styled.div`
@@ -31,6 +33,8 @@ export const BoxTimer = styled.div`
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  color:${(props) => props.theme.black};
+  background-color:${(props) => props.theme.grey4};
   .boxTimer {
     display: flex;
     align-items: center;
@@ -53,10 +57,10 @@ export const BoxTimer = styled.div`
       border: none;
       font: inherit;
       font-weight: 500;
-      color: var(--grey-1);
+      color: ${(props) => props.theme.grey1};
 
       :focus {
-        color: var(--orange-2);
+        color: ${(props) => props.theme.orange1};
       }
     }
   }
