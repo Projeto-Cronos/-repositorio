@@ -20,6 +20,7 @@ import {
   BsExclamationCircle,
   BsFillPersonFill,
 } from "react-icons/bs";
+import "animate.css";
 
 import { useContext } from "react";
 import { Context } from "../../../../providers/userContext";

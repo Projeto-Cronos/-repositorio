@@ -2,7 +2,7 @@ import { useState } from "react";
 import logo1 from "../../assets/image/logo.svg";
 import { HeaderContainer } from "./HeaderContainer";
 import SideBar from "./SideBar";
-import {BsListUl} from "react-icons/bs";
+import { BsListUl } from "react-icons/bs";
 
 const HeaderDashboard = ({ username, email }) => {
   const [isSideBarVisible, setIsSideBarVisible] = useState(false);
@@ -11,11 +11,8 @@ const HeaderDashboard = ({ username, email }) => {
 
   return (
     <HeaderContainer>
-      <div
-        className="menuIcon"
-        onClick={showSideBar}
-      >
-      <BsListUl />
+      <div className="menuIcon" onClick={showSideBar}>
+        <BsListUl />
       </div>
       <div className="logo">
         <img src={logo1} alt="Logo da Cronos" />

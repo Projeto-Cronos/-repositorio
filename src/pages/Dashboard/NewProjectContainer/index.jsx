@@ -29,13 +29,17 @@ const NewProjectContainer = () => {
             <label htmlFor="date">
               <BsCalendarDate />
             </label>
-            
           </div>
           <div className="dropdownContent">
-            <input id="date" className="date" {...register("start_date")} type="date" />
+            <input
+              id="date"
+              className="date"
+              {...register("start_date")}
+              type="date"
+            />
           </div>
         </div>
- 
+
         <div className="dropdown valuePerHour">
           <BsCurrencyDollar />
           <div className="dropdownContent ">

@@ -67,7 +67,7 @@ const TimerToCount = ({
           min = Math.floor((elapsedTime - hrs * 3600) / 60);
           sec = 0
         }
-        
+
         setTotalTime(min);
         if (elapsedTime - hrs * 3600 - min * 60) {
           sec = elapsedTime - hrs * 3600 - min * 60;
@@ -80,7 +80,6 @@ const TimerToCount = ({
             {sec < 10 ? `0${sec}` : sec}
           </span>
         );
-        
       }, 1000)
     );
   };
@@ -121,9 +120,9 @@ const TimerToCount = ({
       }, 1000)
     );
   };
-  if(sec === 59 ){
+  if (sec === 59) {
     setTotalTime(intervalRef.current);
-  } 
+  }
 
   const pauseTimer = () => {
     setTotalTime(intervalRef.current);

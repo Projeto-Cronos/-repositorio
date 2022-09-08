@@ -57,16 +57,15 @@ function Dashboard() {
                 )
               ) : (
                 <>
-                <div className="containerImg">
-                <div className="img">
-        <Lottie
-          options={defaultOptionsTwo}
-          isStopped={animateState.isStopped}
-          isPaused={animateState.isPaused}
-        />
-      </div>
-                </div>
-
+                  <div className="containerImg">
+                    <div className="img">
+                      <Lottie
+                        options={defaultOptionsTwo}
+                        isStopped={animateState.isStopped}
+                        isPaused={animateState.isPaused}
+                      />
+                    </div>
+                  </div>
                 </>
               )}
             </ListBody>

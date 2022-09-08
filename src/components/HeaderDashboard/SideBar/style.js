@@ -27,16 +27,16 @@ export const Container = styled.div`
   }
   .img {
     display: flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     clip-path: circle(50% at 50% 50%);
-    width:108px;
-    height:108px;
-    background-color:red;
+    width: 108px;
+    height: 108px;
+    background-color: red;
   }
   .img img {
-    width:188.925px;
+    width: 188.925px;
     clip-path: circle(50% at 50% 50%);
   }
 

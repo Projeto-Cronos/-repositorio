@@ -21,10 +21,10 @@ const ProviderUser = ({ children }) => {
   const [eyeClickRegisterConfirmed, setEyeClickRegisterConfirmed] =
     useState(false);
   const navigate = useNavigate();
-  
+
   const [valuePerMinute, setValuePerMinute] = useState(0);
   const [calculation, setCalculation] = useState(0);
-  
+
   const [result, setResult] = useState(false);
   const [currentTheme, setCurrentTheme] = useState("claro");
   const [userProfile, setUserProfile] = useState(user);
@@ -204,7 +204,7 @@ const ProviderUser = ({ children }) => {
         editProfile,
         userProfile,
         listNews,
-        defaultOptionsTwo
+        defaultOptionsTwo,
       }}
     >
       {children}
