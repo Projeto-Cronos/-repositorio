@@ -7,36 +7,24 @@ import { useContext, useState } from "react";
 import { Context } from "../../../providers/userContext";
 import TimerToCount from "../../../components/Timer";
 import { ProjectsContext } from "../../../providers/projectsContext";
-import { useEffect } from "react";
 
 const ListItem = ({
   projectId,
   projectName,
   startDate,
   endDate,
-  tags,
   pricePerHour,
   stopwatch,
 }) => {
-  const { setProjectToDelete, valuePriceTotal } = useContext(ProjectsContext);
-
+  const { setProjectToDelete } = useContext(ProjectsContext);
   const { showDropdownDelete } = useContext(Context);
-
+  
   const [newTitle, setNewTitle] = useState(projectName);
   const [newStartDate, setNewStartDate] = useState(startDate);
   const [newEndDate, setNewEndDate] = useState(endDate);
   const [newPricePerHour, setNewPricePerHour] = useState(pricePerHour);
   const [newAccumulatedValue, setNewAccumulatedValue] = useState(0);
   const [counter,setCounter] = useState(0);
-
-  const sumPriceTotal = () => {
-    let price = 0;
-    price = (pricePerHour * counter) / 3600;
-    const result = Math.round(price * 100) / 100;
-    //return 
-  };
-
-  const result = sumPriceTotal();
 
   return (
     <StyledListItem>
@@ -69,7 +57,12 @@ const ListItem = ({
       <ListColumn borderColor="blue">
         <input
           type="text"
-          defaultValue={pricePerHour}
+          defaultValue={
+            new Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            }).format(pricePerHour)
+          }
           onChange={(event) => setNewPricePerHour(event.target.value)}
         />
       </ListColumn>
@@ -84,11 +77,9 @@ const ListItem = ({
               currency: "BRL",
             }).format(((counter * pricePerHour) / 3600).toFixed(2))
            }
-          defaultValue="calcular preço..."
           onChange={(event) => setNewAccumulatedValue(event.target.value)}
         />
       </ListColumn>
-      {/* input que vai aparecer o negócio */}
 
       <ListColumn borderColor="red">
         <BoxTimer className="boxTimer">

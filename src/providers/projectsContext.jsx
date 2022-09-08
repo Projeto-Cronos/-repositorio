@@ -24,7 +24,6 @@ const ProjectsProvider = ({ children }) => {
       .then((res) => setAllProjects(res.data))
       .catch((err) => console.error(err));
 
-    console.log(data);
     return data;
   };
 

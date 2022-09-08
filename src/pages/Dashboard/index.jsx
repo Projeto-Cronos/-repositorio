@@ -16,7 +16,7 @@ function Dashboard() {
   const { navigate, token, animateState, defaultOptionsTwo } =
     useContext(Context);
   const { allProjects, getAllProjects,totalTime } = useContext(ProjectsContext);
-  console.log(totalTime)
+  
   useEffect(() => {
     getAllProjects();
   }, []);
